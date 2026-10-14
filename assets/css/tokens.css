@@ -1,0 +1,71 @@
+/* PETALS design tokens. Colour and spacing adapted from DESIGN (2).md ("warm parchment" reference).
+   Type is one family, Archivo, with width carrying the hierarchy: wide for headings, normal for reading. */
+:root {
+	/* Colour */
+	--color-parchment: #f7f7f4;
+	--color-bone: #f2f1ed;
+	--color-linen: #e6e5e0;
+	--color-stone: #cdcdc9;
+	--color-mist: #a1a19f;
+	--color-driftwood: #84847e;
+	--color-ash: #7a7974;      /* large text and icons only */
+	--color-text-quiet: #63625c; /* small secondary text, 5.6:1 on parchment */
+	--color-ink: #26251e;
+	--color-ember: #f54e00;
+	--color-selection: #8bc4f8;
+
+	--surface-canvas: var(--color-parchment);
+	--surface-card: var(--color-bone);
+	--surface-elevated: var(--color-linen);
+	--line-hairline: color-mix(in oklab, var(--color-ink) 10%, transparent);
+	--line-faint: color-mix(in oklab, var(--color-ink) 5%, transparent);
+
+	/* Type family */
+	--font-sans: 'Archivo', 'Arial Nova', 'Helvetica Neue', Arial, sans-serif;
+
+	/* Width per role (font-stretch): wider = more structural */
+	--width-display: 118%;
+	--width-heading: 112%;
+	--width-title: 106%;
+	--width-body: 100%;
+	--width-mark: 125%;
+
+	/* Weights */
+	--weight-regular: 400;
+	--weight-strong: 500;
+	--weight-mark: 600;
+
+	/* Type scale */
+	--text-meta: 13px;       --tracking-meta: 0.01em;
+	--text-body-sm: 14px;    --tracking-body-sm: 0.005em;
+	--text-body: 16px;
+	--text-lede: clamp(18px, 1.7vw, 21px); --leading-lede: 1.5;
+	--text-heading-sm: 20px; --leading-heading-sm: 1.25; --tracking-heading-sm: -0.005em;
+	--text-heading-lg: clamp(30px, 3.4vw, 42px); --leading-heading-lg: 1.1; --tracking-heading-lg: -0.015em;
+	--text-display: clamp(40px, 6.2vw, 80px); --leading-display: 1.02; --tracking-display: -0.025em;
+
+	/* Spacing (4px base) */
+	--space-4: 4px;
+	--space-8: 8px;
+	--space-12: 12px;
+	--space-16: 16px;
+	--space-20: 20px;
+	--space-24: 24px;
+	--space-32: 32px;
+	--space-48: 48px;
+	--space-56: 56px;
+	--space-64: 64px;
+	--section-gap: clamp(64px, 9vw, 96px);
+
+	/* Shape and depth */
+	--radius: 4px;
+	--radius-modal: 8px;
+	--shadow-card: rgba(0, 0, 0, 0.14) 0 28px 70px 0, rgba(0, 0, 0, 0.1) 0 14px 32px 0, 0 0 0 1px var(--line-faint);
+	--shadow-popover: 0 0 1rem #00000008, 0 0 0.5rem #00000005, 0 0 0 1px var(--line-hairline);
+
+	/* Layout */
+	--page-max: 1300px;
+	--gutter: clamp(16px, 3vw, 24px);
+
+	--ease: cubic-bezier(0.4, 0, 0.2, 1);
+}
