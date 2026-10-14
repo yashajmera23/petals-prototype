@@ -11,9 +11,9 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..600&display=swap">
 	<!-- Bump ?v= on these four links whenever CSS or JS changes, so browsers never pair new HTML with stale files -->
-	<link rel="stylesheet" href="assets/css/tokens.css?v=2026-10-15k">
-	<link rel="stylesheet" href="assets/css/base.css?v=2026-10-15k">
-	<link rel="stylesheet" href="assets/css/components.css?v=2026-10-15k">
+	<link rel="stylesheet" href="assets/css/tokens.css?v=2026-10-15p">
+	<link rel="stylesheet" href="assets/css/base.css?v=2026-10-15p">
+	<link rel="stylesheet" href="assets/css/components.css?v=2026-10-15p">
 </head>
 <body>
 	<a class="skip-link" href="#main">Skip to content</a>
@@ -304,52 +304,128 @@
 			</ul>
 		</section>
 
-		<section class="section container" aria-labelledby="process-title">
-			<div class="section-head">
-				<div class="section-head-text">
-					<h2 id="process-title">How We Work</h2>
-					<p class="section-intro">A structured approach to understanding requirements, executing technical work and delivering clear outputs.</p>
-				</div>
+		<section class="section container how" aria-labelledby="process-title">
+			<!-- How We Work: the title stays pinned on the left while six illustrated steps scroll past on
+			     the right. Each illustration is an animated drawing (main.js plays it while on screen). -->
+			<div class="how-intro">
+				<h2 id="process-title">How We Work</h2>
+				<p class="section-intro">A structured approach to understanding requirements, executing technical work and delivering clear outputs.</p>
 				<a class="link-accent" href="#">See how we work →</a>
 			</div>
-
-			<!-- Icons: Lucide (lucide.dev), ISC licence. Steps link into one chain; main.js draws it in once. -->
-			<ol class="process">
-				<li style="--i: 0">
-					<span class="step-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7V5a2 2 0 0 1 2-2h2"/><path d="M17 3h2a2 2 0 0 1 2 2v2"/><path d="M21 17v2a2 2 0 0 1-2 2h-2"/><path d="M7 21H5a2 2 0 0 1-2-2v-2"/><circle cx="12" cy="12" r="3"/><path d="m16 16-1.9-1.9"/></svg></span>
-					<span class="step-node" aria-hidden="true">01</span>
-					<h3>Understand</h3>
-					<p>Review the project objectives, site information and client requirements.</p>
+			<ol class="steps">
+				<li class="step">
+					<span class="step-num" aria-hidden="true">1</span>
+					<article class="step-card">
+						<div class="step-art">
+							<svg class="il il-understand" viewBox="0 0 480 240" aria-hidden="true">
+								<text class="il-cap" x="24" y="30">Site plan</text>
+								<path class="il-faint" d="M24 200C110 162 196 222 300 182S420 160 456 176M24 160C120 122 206 182 310 142S420 120 456 134M24 118C130 80 216 140 320 102S420 80 456 92"/>
+								<path class="il-ink il-dashed" d="M92 70 384 58 412 204 72 198Z"/>
+								<g class="il-north" transform="translate(436 40)"><path d="M0-14 6 6 0 2-6 6Z"/><text x="-4" y="22">N</text></g>
+								<g class="il-bh il-bh-1" transform="translate(150 112)"><circle r="7"/><path d="M-7 0H7M0-7V7"/><text x="12" y="-9">BH-1</text></g>
+								<g class="il-bh il-bh-2" transform="translate(252 152)"><circle r="7"/><path d="M-7 0H7M0-7V7"/><text x="12" y="-9">BH-2</text></g>
+								<g class="il-bh il-bh-3" transform="translate(336 98)"><circle r="7"/><path d="M-7 0H7M0-7V7"/><text x="12" y="-9">BH-3</text></g>
+								<g class="il-lens"><circle r="24"/><path d="M17 17 34 34"/></g>
+							</svg>
+						</div>
+						<h3>Understand</h3>
+						<p>Review the project objectives, site information and client requirements.</p>
+					</article>
 				</li>
-				<li style="--i: 1">
-					<span class="step-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect width="8" height="4" x="8" y="2" rx="1" ry="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="M12 11h4"/><path d="M12 16h4"/><path d="M8 11h.01"/><path d="M8 16h.01"/></svg></span>
-					<span class="step-node" aria-hidden="true">02</span>
-					<h3>Define the Scope</h3>
-					<p>Identify required services, methods, deliverables and technical inputs.</p>
+				<li class="step">
+					<span class="step-num" aria-hidden="true">2</span>
+					<article class="step-card">
+						<div class="step-art">
+							<svg class="il il-scope" viewBox="0 0 480 240" aria-hidden="true">
+								<text class="il-cap" x="24" y="30">Scope of work</text>
+								<g class="il-row il-row-1"><rect class="il-row-bg" x="56" y="56" width="368" height="42" rx="4"/><rect class="il-box" x="72" y="67" width="20" height="20" rx="3"/><path class="il-tick" pathLength="1" d="M76 77l4.5 4.5 7.5-9"/><text class="il-label" x="106" y="82">Geotechnical investigation</text><text class="il-tag" x="408" y="82" text-anchor="end">8 boreholes</text></g>
+								<g class="il-row il-row-2"><rect class="il-row-bg" x="56" y="110" width="368" height="42" rx="4"/><rect class="il-box" x="72" y="121" width="20" height="20" rx="3"/><path class="il-tick" pathLength="1" d="M76 131l4.5 4.5 7.5-9"/><text class="il-label" x="106" y="136">Laboratory testing</text><text class="il-tag" x="408" y="136" text-anchor="end">46 samples</text></g>
+								<g class="il-row il-row-3"><rect class="il-row-bg" x="56" y="164" width="368" height="42" rx="4"/><rect class="il-box" x="72" y="175" width="20" height="20" rx="3"/><path class="il-tick" pathLength="1" d="M76 185l4.5 4.5 7.5-9"/><text class="il-label" x="106" y="190">Foundation design</text><text class="il-tag" x="408" y="190" text-anchor="end">Pile and raft</text></g>
+							</svg>
+						</div>
+						<h3>Define the Scope</h3>
+						<p>Identify required services, methods, deliverables and technical inputs.</p>
+					</article>
 				</li>
-				<li style="--i: 2">
-					<span class="step-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M16 2v3"/><path d="M3 9h18"/><path d="M8 2v3"/><path d="M17 13h-6"/><path d="M13 17H7"/><path d="M7 13h.01"/><path d="M17 17h.01"/></svg></span>
-					<span class="step-node" aria-hidden="true">03</span>
-					<h3>Plan &amp; Mobilise</h3>
-					<p>Coordinate resources, equipment, schedules, access and site requirements.</p>
+				<li class="step">
+					<span class="step-num" aria-hidden="true">3</span>
+					<article class="step-card">
+						<div class="step-art">
+							<svg class="il il-plan" viewBox="0 0 480 240" aria-hidden="true">
+								<text class="il-cap" x="24" y="30">Programme</text>
+								<g class="il-weeks"><text x="168" y="52" text-anchor="middle">W1</text><text x="220" y="52" text-anchor="middle">W2</text><text x="272" y="52" text-anchor="middle">W3</text><text x="324" y="52" text-anchor="middle">W4</text><text x="376" y="52" text-anchor="middle">W5</text><text x="428" y="52" text-anchor="middle">W6</text></g>
+								<path class="il-faint" d="M142 60V206M194 60V206M246 60V206M298 60V206M350 60V206M402 60V206M454 60V206"/>
+								<text class="il-label" x="24" y="83">Mobilise</text><rect class="il-bar il-bar-1" x="142" y="70" width="52" height="18" rx="3"/><text class="il-label" x="24" y="117">Drilling</text><rect class="il-bar il-bar-2" x="168" y="104" width="156" height="18" rx="3"/><text class="il-label" x="24" y="151">Lab tests</text><rect class="il-bar il-bar-3" x="246" y="138" width="130" height="18" rx="3"/><text class="il-label" x="24" y="185">Report</text><rect class="il-bar il-bar-4" x="350" y="172" width="82" height="18" rx="3"/>
+								<path class="il-today" d="M0 60V210"/>
+							</svg>
+						</div>
+						<h3>Plan &amp; Mobilise</h3>
+						<p>Coordinate resources, equipment, schedules, access and site requirements.</p>
+					</article>
 				</li>
-				<li style="--i: 3">
-					<span class="step-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 18a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H5a3 3 0 0 1-3-3 1 1 0 0 1 1-1z"/><path d="M13 10H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a1 1 0 0 1 1 1v6a1 1 0 0 1-1 1l-.81 3.242a1 1 0 0 1-.97.758H8"/><path d="M14 4h3a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-3"/><path d="M18 6h4"/><path d="m5 10-2 8"/><path d="m7 18 2-8"/></svg></span>
-					<span class="step-node" aria-hidden="true">04</span>
-					<h3>Execute</h3>
-					<p>Carry out agreed investigation, testing, analysis or engineering activities.</p>
+				<li class="step">
+					<span class="step-num" aria-hidden="true">4</span>
+					<article class="step-card">
+						<div class="step-art">
+							<svg class="il il-execute" viewBox="0 0 480 240" aria-hidden="true">
+								<text class="il-cap" x="24" y="30">Borehole BH-1</text>
+								<rect class="il-stratum il-s1" x="24" y="98" width="432" height="40"/>
+								<rect class="il-stratum il-s2" x="24" y="138" width="432" height="42"/>
+								<rect class="il-stratum il-s3" x="24" y="180" width="432" height="44"/>
+								<path class="il-ink" d="M24 98H456"/>
+								<path class="il-soft" d="M30 98l-5 6M42 98l-5 6M54 98l-5 6M66 98l-5 6M78 98l-5 6M90 98l-5 6M102 98l-5 6M114 98l-5 6M126 98l-5 6M138 98l-5 6M150 98l-5 6M162 98l-5 6M174 98l-5 6M186 98l-5 6M198 98l-5 6M210 98l-5 6M222 98l-5 6M234 98l-5 6M246 98l-5 6M258 98l-5 6M270 98l-5 6M282 98l-5 6M294 98l-5 6M306 98l-5 6M318 98l-5 6M330 98l-5 6M342 98l-5 6M354 98l-5 6M366 98l-5 6M378 98l-5 6M390 98l-5 6M402 98l-5 6M414 98l-5 6M426 98l-5 6M438 98l-5 6M450 98l-5 6"/>
+								<text class="il-tag" x="448" y="122" text-anchor="end">Silty sand</text>
+								<text class="il-tag" x="448" y="164" text-anchor="end">Dense sand</text>
+								<text class="il-tag" x="448" y="207" text-anchor="end">Weathered rock</text>
+								<path class="il-ink" d="M150 98V34M134 98 150 34 166 98M140 46H176M176 46V58"/>
+								<path class="il-rod" pathLength="1" d="M150 98V222"/>
+								<path class="il-ink" d="M270 82H430V96H270Z"/>
+								<rect class="il-core il-core-1" x="276" y="85" width="44" height="8" rx="2"/>
+								<rect class="il-core il-core-2" x="326" y="85" width="44" height="8" rx="2"/>
+								<rect class="il-core il-core-3" x="376" y="85" width="44" height="8" rx="2"/>
+								<text class="il-tag" x="270" y="74">Core box</text>
+							</svg>
+						</div>
+						<h3>Execute</h3>
+						<p>Carry out agreed investigation, testing, analysis or engineering activities.</p>
+					</article>
 				</li>
-				<li style="--i: 4">
-					<span class="step-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 3v16a2 2 0 0 0 2 2h16"/><path d="M7 16c.5-2 1.5-7 4-7 2 0 2 3 4 3 2.5 0 4.5-5 5-7"/></svg></span>
-					<span class="step-node" aria-hidden="true">05</span>
-					<h3>Review &amp; Interpret</h3>
-					<p>Check available data, evaluate findings and address technical discrepancies.</p>
+				<li class="step">
+					<span class="step-num" aria-hidden="true">5</span>
+					<article class="step-card">
+						<div class="step-art">
+							<svg class="il il-review" viewBox="0 0 480 240" aria-hidden="true">
+								<text class="il-cap" x="24" y="30">SPT N value with depth</text>
+								<path class="il-faint" d="M150 56V214M210 56V214M270 56V214M330 56V214M390 56V214M450 56V214M80 90H448M80 130H448M80 170H448M80 210H448"/>
+								<path class="il-ink" d="M80 56H448M80 56V214"/>
+								<text class="il-tag" x="448" y="48" text-anchor="end">N</text>
+								<text class="il-tag" x="72" y="214" text-anchor="end">Depth</text>
+								<path class="il-trend" pathLength="1" d="M118 72 150 94 188 116 226 136 268 158 318 180 366 202"/>
+								<circle class="il-pt il-pt-1" cx="118" cy="72" r="4.5"/><circle class="il-pt il-pt-2" cx="150" cy="94" r="4.5"/><circle class="il-pt il-pt-3" cx="188" cy="116" r="4.5"/><circle class="il-pt il-pt-4" cx="226" cy="136" r="4.5"/><circle class="il-pt il-pt-5" cx="268" cy="158" r="4.5"/><circle class="il-pt il-pt-6" cx="318" cy="180" r="4.5"/><circle class="il-pt il-pt-7" cx="366" cy="202" r="4.5"/>
+							</svg>
+						</div>
+						<h3>Review &amp; Interpret</h3>
+						<p>Check available data, evaluate findings and address technical discrepancies.</p>
+					</article>
 				</li>
-				<li style="--i: 5">
-					<span class="step-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z"/><path d="M14 2v5a1 1 0 0 0 1 1h5"/><path d="m9 15 2 2 4-4"/></svg></span>
-					<span class="step-node" aria-hidden="true">06</span>
-					<h3>Report &amp; Deliver</h3>
-					<p>Submit agreed outputs and communicate relevant findings and limitations.</p>
+				<li class="step">
+					<span class="step-num" aria-hidden="true">6</span>
+					<article class="step-card">
+						<div class="step-art">
+							<svg class="il il-report" viewBox="0 0 480 240" aria-hidden="true">
+								<rect class="il-page il-page-back" x="166" y="30" width="176" height="200" rx="4"/>
+								<rect class="il-page" x="154" y="20" width="176" height="200" rx="4"/>
+								<rect class="il-head" x="170" y="36" width="96" height="10" rx="2"/>
+								<text class="il-tag" x="170" y="64">Geotechnical report</text>
+								<rect class="il-line il-line-1" x="170" y="78" width="140" height="5" rx="2.5"/><rect class="il-line il-line-2" x="170" y="90" width="118" height="5" rx="2.5"/><rect class="il-line il-line-3" x="170" y="102" width="132" height="5" rx="2.5"/><rect class="il-line il-line-4" x="170" y="176" width="120" height="5" rx="2.5"/><rect class="il-line il-line-5" x="170" y="188" width="96" height="5" rx="2.5"/>
+								<path class="il-faint" d="M170 160H312M170 118V160"/>
+								<path class="il-chart" pathLength="1" d="M172 156 196 146 220 150 244 134 268 138 292 124 310 128"/>
+								<g transform="translate(316 186)"><g class="il-stamp"><circle r="30"/><circle r="24"/><text y="4" text-anchor="middle">ISSUED</text></g></g>
+							</svg>
+						</div>
+						<h3>Report &amp; Deliver</h3>
+						<p>Submit agreed outputs and communicate relevant findings and limitations.</p>
+					</article>
 				</li>
 			</ol>
 		</section>
@@ -508,6 +584,6 @@
 		</div>
 	</footer>
 
-	<script src="assets/js/main.js?v=2026-10-15k" defer></script>
+	<script src="assets/js/main.js?v=2026-10-15p" defer></script>
 </body>
 </html>

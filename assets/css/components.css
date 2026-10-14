@@ -697,187 +697,222 @@
 .section-head-text { display: grid; gap: var(--space-12); }
 .section-intro { max-width: 52ch; color: var(--color-text-quiet); font-size: var(--text-body); }
 
-/* ---------- How We Work: six stations on one chain ---------- */
-.process {
-	--gap: var(--space-24);
-	--icon: 52px;
-	--node: 36px;
-	--node-y: calc(var(--icon) + var(--space-24));   /* top of the node row */
-	--line: var(--color-ink);
+/* ---------- How We Work: pinned title, illustrated steps on a dashed timeline ---------- */
+.how {
 	display: grid;
-	grid-template-columns: repeat(6, minmax(0, 1fr));
-	gap: var(--space-48) var(--gap);
-	list-style: none;
-	margin: 0;
-	padding: 0;
+	grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+	gap: var(--space-48);
+	padding-top: var(--space-24);
+	border-top: 1px solid var(--line-hairline);
 }
-.process li { position: relative; }
+.how-intro { position: sticky; top: calc(56px + var(--space-48)); align-self: start; display: grid; gap: var(--space-16); justify-items: start; }
+.how-intro h2 {
+	font-size: var(--text-heading-lg);
+	font-weight: var(--weight-strong);
+	font-stretch: var(--width-heading);
+	line-height: var(--leading-heading-lg);
+	letter-spacing: var(--tracking-heading-lg);
+}
+.how-intro .section-intro { max-width: 36ch; }
+.how-intro .link-accent { margin-top: var(--space-8); }
 
-.step-icon {
+.steps { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--space-24); }
+.step { position: relative; display: grid; grid-template-columns: 32px minmax(0, 1fr); gap: var(--space-24); }
+/* Dashed line from this number down to the next */
+.step::before {
+	content: "";
+	position: absolute;
+	left: 15.5px;
+	top: 40px;
+	bottom: calc(-1 * var(--space-24) - 4px);
+	border-left: 1px dashed var(--color-mist);
+}
+.step:last-child::before { display: none; }
+.step-num {
+	position: sticky;
+	top: calc(56px + var(--space-48));
 	display: grid;
 	place-items: center;
-	width: var(--icon);
-	height: var(--icon);
-	border-radius: var(--radius);
-	background: var(--surface-elevated);
-	color: var(--color-ink);
-	transition: background-color 220ms var(--ease), color 220ms var(--ease);
-}
-.step-icon svg { width: 26px; height: 26px; fill: none; stroke: currentColor; stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round; }
-
-.step-node {
-	position: relative;
-	z-index: 1;
-	display: grid;
-	place-items: center;
-	width: var(--node);
-	height: var(--node);
-	margin-top: var(--space-24);
-	border: 1px solid var(--line);
+	width: 32px;
+	height: 32px;
 	border-radius: 50%;
 	background: var(--color-ink);
 	color: var(--color-parchment);
-	font-size: 12px;
+	font-size: 13px;
+	font-weight: var(--weight-strong);
 	font-variant-numeric: tabular-nums lining-nums;
-	letter-spacing: 0.02em;
-	transition: background-color 320ms var(--ease), color 320ms var(--ease);
-	transition-delay: calc(var(--i) * 180ms);
+	transition: background-color 260ms var(--ease), color 260ms var(--ease);
 }
-
-/* Segment from this node to the next, with a direction mark at its midpoint */
-.process li::before {
-	content: "";
-	position: absolute;
-	top: calc(var(--node-y) + var(--node) / 2);
-	left: calc(var(--node) + 6px);
-	right: calc(-1 * var(--gap) + 6px);
-	height: 1px;
-	background: var(--line);
-	transform-origin: left;
-	transition: transform 420ms var(--ease);
-	transition-delay: calc(var(--i) * 180ms + 140ms);
+.step.is-current .step-num { background: var(--color-copper); color: var(--color-ink); }
+.step-card {
+	padding: var(--space-24);
+	border-radius: var(--radius-modal);
+	background: var(--surface-card);
 }
-.process li::after {
-	content: "";
-	position: absolute;
-	top: calc(var(--node-y) + var(--node) / 2 - 4px);
-	left: calc((100% + var(--gap) + var(--node)) / 2 - 4px);
-	width: 7px;
-	height: 7px;
-	border-top: 1px solid var(--line);
-	border-right: 1px solid var(--line);
+.step-art {
+	border-radius: var(--radius);
+	padding: var(--space-8);
 	background: var(--surface-canvas);
-	transform: rotate(45deg);
-	transition: opacity 240ms var(--ease);
-	transition-delay: calc(var(--i) * 180ms + 360ms);
+	box-shadow: inset 0 0 0 1px var(--line-hairline);
 }
-.process li:last-child::before, .process li:last-child::after { display: none; }
-
-.process h3 {
+.il { display: block; width: 100%; height: auto; }
+.step-card h3 {
 	margin-top: var(--space-20);
 	font-size: var(--text-heading-sm);
 	line-height: var(--leading-heading-sm);
 	font-weight: var(--weight-strong);
 	font-stretch: var(--width-title);
 	letter-spacing: var(--tracking-heading-sm);
-	text-wrap: balance;
 }
-.process p {
-	margin-top: var(--space-8);
-	font-size: var(--text-body-sm);
-	line-height: 1.55;
-	color: var(--color-text-quiet);
-}
-@media (hover: hover) {
-	.process li:hover .step-icon { background: var(--color-ink); color: var(--color-parchment); }
-}
+.step-card p { margin-top: var(--space-8); color: var(--color-text-quiet); max-width: 52ch; }
 
-/* Before the section is reached (set by main.js): chain undrawn, nodes open */
-.process.is-armed:not(.is-drawn) .step-node { background: var(--surface-canvas); color: var(--color-ink); }
-.process.is-armed:not(.is-drawn) li::before { transform: scaleX(0); }
-.process.is-armed:not(.is-drawn) li::after { opacity: 0; }
+/* Illustration drawing styles */
+.il text { font-family: var(--font-sans); font-size: 12px; fill: var(--color-text-quiet); }
+.il .il-cap { font-size: 12px; font-weight: var(--weight-strong); font-stretch: var(--width-title); fill: var(--color-ink); letter-spacing: 0.02em; }
+.il .il-label { font-size: 13px; fill: var(--color-ink); }
+.il .il-tag { font-size: 11px; }
+.il-ink, .il-north path, .il-bh path { fill: none; stroke: var(--color-ink); stroke-width: 1.4; stroke-linejoin: round; }
+.il-dashed { stroke-dasharray: 6 5; }
+.il-faint { fill: none; stroke: var(--color-stone); stroke-width: 1; }
+.il-soft { fill: none; stroke: var(--color-ash); stroke-width: 1; }
+.il-north path { fill: var(--color-ink); }
 
-/* Tablet: two rows of three; the chain breaks at the row end */
-@media (max-width: 1080px) {
-	.process { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-	.process li:nth-child(3n)::before, .process li:nth-child(3n)::after { display: none; }
-}
+/* 1 Understand: a lens moves across the site plan and marks each borehole */
+.il-bh circle { fill: var(--color-copper); stroke: var(--color-copper); stroke-width: 1.4; }
+.il-bh path { stroke: var(--color-ink); }
+.il-lens { transform: translate(336px, 98px); }
+.il-lens circle { fill: color-mix(in oklab, var(--color-copper) 10%, transparent); stroke: var(--color-ink); stroke-width: 2; }
+.il-lens path { stroke: var(--color-ink); stroke-width: 4; stroke-linecap: round; }
 
-/* Phone: one vertical chain down the left */
-@media (max-width: 640px) {
-	.process { grid-template-columns: 1fr; row-gap: var(--space-32); --icon: 44px; }
-	.process li {
-		display: grid;
-		grid-template-columns: var(--node) 1fr;
-		column-gap: var(--space-16);
-		align-items: start;
-	}
-	.step-node { grid-column: 1; grid-row: 1 / span 3; margin-top: 0; }
-	.step-icon { grid-column: 2; grid-row: 1; width: var(--icon); height: var(--icon); }
-	.step-icon svg { width: 22px; height: 22px; }
-	.process h3 { grid-column: 2; margin-top: var(--space-12); }
-	.process p { grid-column: 2; }
-	.process li:nth-child(3n)::before, .process li:nth-child(3n)::after { display: block; }
-	.process li::before {
-		top: calc(var(--node) + 6px);
-		bottom: calc(-1 * var(--space-32) + 6px);
-		left: calc(var(--node) / 2);
-		right: auto;
-		width: 1px;
-		height: auto;
-		transform-origin: top;
-	}
-	.process.is-armed:not(.is-drawn) li::before { transform: scaleY(0); }
-	.process li::after {
-		top: auto;
-		bottom: calc(-1 * var(--space-32) / 2 - 2px);
-		left: calc(var(--node) / 2 - 4px);
-		transform: rotate(135deg);
-	}
-	.process li:last-child::before, .process li:last-child::after { display: none; }
+/* 2 Scope: items tick off one after another */
+.il-row-bg { fill: var(--surface-card); stroke: var(--line-hairline); }
+.il-box { fill: var(--color-ink); }
+.il-tick { fill: none; stroke: var(--color-parchment); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 1; stroke-dashoffset: 0; }
+
+/* 3 Plan: bars fill in on the programme while a copper "today" line sweeps across */
+.il-bar { fill: var(--color-ink); transform-box: fill-box; transform-origin: left; }
+.il-bar-4 { fill: var(--color-copper); }
+.il-weeks text { font-size: 11px; }
+.il-today { stroke: var(--color-copper); stroke-width: 2; transform: translateX(400px); }
+
+/* 4 Execute: the rod drills down through the strata and cores fill the box */
+.il-s1 { fill: color-mix(in oklab, var(--color-copper) 14%, var(--surface-canvas)); }
+.il-s2 { fill: color-mix(in oklab, var(--color-copper) 30%, var(--surface-canvas)); }
+.il-s3 { fill: color-mix(in oklab, var(--color-ink) 14%, var(--surface-canvas)); }
+.il-rod { fill: none; stroke: var(--color-ink); stroke-width: 3; stroke-dasharray: 1; stroke-dashoffset: 0; }
+.il-core { fill: var(--color-copper); }
+.il-core-3 { fill: color-mix(in oklab, var(--color-ink) 45%, var(--surface-canvas)); }
+
+/* 5 Review: readings plot one by one, then the trend is drawn through them */
+.il-pt { fill: var(--color-ink); }
+.il-trend { fill: none; stroke: var(--color-copper); stroke-width: 2; stroke-dasharray: 1; stroke-dashoffset: 0; }
+
+/* 6 Report: the page writes itself, the chart draws, and the report is stamped issued */
+.il-page { fill: var(--color-parchment); stroke: var(--color-ink); stroke-width: 1.4; }
+.il-page-back { fill: var(--surface-elevated); stroke: var(--color-mist); }
+.il-head { fill: var(--color-ink); }
+.il-line { fill: var(--color-stone); transform-box: fill-box; transform-origin: left; }
+.il-chart { fill: none; stroke: var(--color-ink); stroke-width: 1.6; stroke-dasharray: 1; stroke-dashoffset: 0; }
+.il-stamp { color: var(--color-accent); }
+.il-stamp circle { fill: none; stroke: var(--color-copper); stroke-width: 2; }
+.il-stamp circle + circle { stroke-width: 1; }
+.il .il-stamp text { fill: var(--color-accent); font-size: 10px; font-weight: var(--weight-mark); font-stretch: var(--width-mark); letter-spacing: 0.1em; }
+
+/* The loops run only while their card is on screen (main.js .is-live), and never with reduced motion.
+   Every default above is the finished drawing, so without motion each card shows its end state. */
+@media (prefers-reduced-motion: no-preference) {
+	.step.is-live .il * { animation-duration: 7s; animation-iteration-count: infinite; animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1); }
+
+	.step.is-live .il-lens { animation-name: il-scan; animation-timing-function: cubic-bezier(0.65, 0, 0.35, 1); }
+	.step.is-live .il-bh-1 circle { animation-name: il-mark-1; }
+	.step.is-live .il-bh-2 circle { animation-name: il-mark-2; }
+	.step.is-live .il-bh-3 circle { animation-name: il-mark-3; }
+
+	.step.is-live .il-row-1 .il-tick { animation-name: il-tick-1; }
+	.step.is-live .il-row-2 .il-tick { animation-name: il-tick-2; }
+	.step.is-live .il-row-3 .il-tick { animation-name: il-tick-3; }
+	.step.is-live .il-row-1 .il-box { animation-name: il-box-1; }
+	.step.is-live .il-row-2 .il-box { animation-name: il-box-2; }
+	.step.is-live .il-row-3 .il-box { animation-name: il-box-3; }
+
+	.step.is-live .il-bar-1 { animation-name: il-grow-1; }
+	.step.is-live .il-bar-2 { animation-name: il-grow-2; }
+	.step.is-live .il-bar-3 { animation-name: il-grow-3; }
+	.step.is-live .il-bar-4 { animation-name: il-grow-4; }
+	.step.is-live .il-today { animation-name: il-sweep; animation-timing-function: linear; }
+
+	.step.is-live .il-rod { animation-name: il-drill; animation-timing-function: linear; }
+	.step.is-live .il-core-1 { animation-name: il-show-1; }
+	.step.is-live .il-core-2 { animation-name: il-show-2; }
+	.step.is-live .il-core-3 { animation-name: il-show-3; }
+
+	.step.is-live .il-pt-1 { animation-name: il-pt-1; }
+	.step.is-live .il-pt-2 { animation-name: il-pt-2; }
+	.step.is-live .il-pt-3 { animation-name: il-pt-3; }
+	.step.is-live .il-pt-4 { animation-name: il-pt-4; }
+	.step.is-live .il-pt-5 { animation-name: il-pt-5; }
+	.step.is-live .il-pt-6 { animation-name: il-pt-6; }
+	.step.is-live .il-pt-7 { animation-name: il-pt-7; }
+	.step.is-live .il-trend { animation-name: il-trend; }
+
+	.step.is-live .il-line-1 { animation-name: il-grow-1; }
+	.step.is-live .il-line-2 { animation-name: il-grow-2; }
+	.step.is-live .il-line-3 { animation-name: il-grow-3; }
+	.step.is-live .il-line-4, .step.is-live .il-line-5 { animation-name: il-grow-4; }
+	.step.is-live .il-chart { animation-name: il-trend; }
+	.step.is-live .il-stamp { animation-name: il-stamp; }
 }
-/* Running through the steps (main.js .is-cycling, after the chain is drawn): one step at a time
-   is the current one. Its icon redraws, its node turns copper, and copper runs along its segment
-   toward the next step, which then takes over. Pointer or focus on a step selects and holds it. */
-.step-progress {
-	position: absolute;
-	top: calc(var(--node-y) + var(--node) / 2 - 0.5px);
-	left: calc(var(--node) + 6px);
-	right: calc(-1 * var(--gap) + 6px);
-	height: 2px;
-	background: var(--color-copper);
-	transform: scaleX(0);
-	transform-origin: left;
-	pointer-events: none;
+.il-pt, .il-core, .il-stamp { transform-box: fill-box; transform-origin: center; }
+
+@keyframes il-scan {
+	0%, 6% { transform: translate(84px, 196px); }
+	18%, 30% { transform: translate(150px, 112px); }
+	42%, 54% { transform: translate(252px, 152px); }
+	66%, 90% { transform: translate(336px, 98px); }
+	100% { transform: translate(84px, 196px); }
 }
-.process.is-cycling li.is-current .step-progress { animation: step-run var(--step-interval, 3200ms) linear forwards; }
-.process.is-cycling.is-held li.is-current .step-progress { animation-play-state: paused; }
-@keyframes step-run { to { transform: scaleX(1); } }
-.process.is-cycling h3 { color: var(--color-ash); transition: color 260ms var(--ease); }
-.process.is-cycling li.is-current h3 { color: var(--color-ink); }
-.process.is-cycling li.is-current .step-icon { background: var(--color-ink); color: var(--color-parchment); }
-.process.is-cycling li.is-current .step-node { background: var(--color-copper); border-color: var(--color-copper); color: var(--color-ink); transition-delay: 0ms; }
-.process.is-cycling li.is-current .step-icon svg > * { animation: step-icon-draw 900ms cubic-bezier(0.16, 1, 0.3, 1) both; stroke-dasharray: 1; }
-@keyframes step-icon-draw { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
-.process li:last-child .step-progress, .process li:nth-child(3n) .step-progress { display: none; }
-@media (min-width: 1081px) { .process li:nth-child(3n):not(:last-child) .step-progress { display: block; } }
-@media (max-width: 640px) {
-	.process li:nth-child(3n):not(:last-child) .step-progress { display: block; }
-	.step-progress {
-		top: calc(var(--node) + 6px);
-		bottom: calc(-1 * var(--space-32) + 6px);
-		left: calc(var(--node) / 2 - 0.5px);
-		right: auto;
-		width: 2px;
-		height: auto;
-		transform: scaleY(0);
-		transform-origin: top;
-	}
-	@keyframes step-run-y { to { transform: scaleY(1); } }
-	.process.is-cycling li.is-current .step-progress { animation-name: step-run-y; }
+@keyframes il-mark-1 { 0%, 20% { fill: var(--surface-canvas); stroke: var(--color-ink); } 24%, 94% { fill: var(--color-copper); stroke: var(--color-copper); } 100% { fill: var(--surface-canvas); stroke: var(--color-ink); } }
+@keyframes il-mark-2 { 0%, 44% { fill: var(--surface-canvas); stroke: var(--color-ink); } 48%, 94% { fill: var(--color-copper); stroke: var(--color-copper); } 100% { fill: var(--surface-canvas); stroke: var(--color-ink); } }
+@keyframes il-mark-3 { 0%, 68% { fill: var(--surface-canvas); stroke: var(--color-ink); } 72%, 94% { fill: var(--color-copper); stroke: var(--color-copper); } 100% { fill: var(--surface-canvas); stroke: var(--color-ink); } }
+
+@keyframes il-tick-1 { 0%, 12% { stroke-dashoffset: 1; } 22%, 94% { stroke-dashoffset: 0; } 100% { stroke-dashoffset: 1; } }
+@keyframes il-tick-2 { 0%, 34% { stroke-dashoffset: 1; } 44%, 94% { stroke-dashoffset: 0; } 100% { stroke-dashoffset: 1; } }
+@keyframes il-tick-3 { 0%, 56% { stroke-dashoffset: 1; } 66%, 94% { stroke-dashoffset: 0; } 100% { stroke-dashoffset: 1; } }
+@keyframes il-box-1 { 0%, 10% { fill: var(--surface-elevated); } 14%, 94% { fill: var(--color-ink); } 100% { fill: var(--surface-elevated); } }
+@keyframes il-box-2 { 0%, 32% { fill: var(--surface-elevated); } 36%, 94% { fill: var(--color-ink); } 100% { fill: var(--surface-elevated); } }
+@keyframes il-box-3 { 0%, 54% { fill: var(--surface-elevated); } 58%, 94% { fill: var(--color-ink); } 100% { fill: var(--surface-elevated); } }
+
+@keyframes il-grow-1 { 0%, 4% { transform: scaleX(0); } 20%, 94% { transform: scaleX(1); } 100% { transform: scaleX(0); } }
+@keyframes il-grow-2 { 0%, 18% { transform: scaleX(0); } 38%, 94% { transform: scaleX(1); } 100% { transform: scaleX(0); } }
+@keyframes il-grow-3 { 0%, 34% { transform: scaleX(0); } 54%, 94% { transform: scaleX(1); } 100% { transform: scaleX(0); } }
+@keyframes il-grow-4 { 0%, 50% { transform: scaleX(0); } 70%, 94% { transform: scaleX(1); } 100% { transform: scaleX(0); } }
+@keyframes il-sweep { 0% { transform: translateX(142px); } 80%, 100% { transform: translateX(440px); } }
+
+@keyframes il-drill { 0%, 6% { stroke-dashoffset: 1; } 70%, 94% { stroke-dashoffset: 0; } 100% { stroke-dashoffset: 1; } }
+@keyframes il-show-1 { 0%, 24% { opacity: 0; transform: scale(0.6); } 30%, 94% { opacity: 1; transform: none; } 100% { opacity: 0; } }
+@keyframes il-show-2 { 0%, 42% { opacity: 0; transform: scale(0.6); } 48%, 94% { opacity: 1; transform: none; } 100% { opacity: 0; } }
+@keyframes il-show-3 { 0%, 62% { opacity: 0; transform: scale(0.6); } 68%, 94% { opacity: 1; transform: none; } 100% { opacity: 0; } }
+
+@keyframes il-pt-1 { 0%, 4% { opacity: 0; transform: scale(0); } 8%, 94% { opacity: 1; transform: none; } 100% { opacity: 0; } }
+@keyframes il-pt-2 { 0%, 10% { opacity: 0; transform: scale(0); } 14%, 94% { opacity: 1; transform: none; } 100% { opacity: 0; } }
+@keyframes il-pt-3 { 0%, 16% { opacity: 0; transform: scale(0); } 20%, 94% { opacity: 1; transform: none; } 100% { opacity: 0; } }
+@keyframes il-pt-4 { 0%, 22% { opacity: 0; transform: scale(0); } 26%, 94% { opacity: 1; transform: none; } 100% { opacity: 0; } }
+@keyframes il-pt-5 { 0%, 28% { opacity: 0; transform: scale(0); } 32%, 94% { opacity: 1; transform: none; } 100% { opacity: 0; } }
+@keyframes il-pt-6 { 0%, 34% { opacity: 0; transform: scale(0); } 38%, 94% { opacity: 1; transform: none; } 100% { opacity: 0; } }
+@keyframes il-pt-7 { 0%, 40% { opacity: 0; transform: scale(0); } 44%, 94% { opacity: 1; transform: none; } 100% { opacity: 0; } }
+@keyframes il-trend { 0%, 46% { stroke-dashoffset: 1; } 74%, 94% { stroke-dashoffset: 0; } 100% { stroke-dashoffset: 1; } }
+@keyframes il-stamp { 0%, 72% { opacity: 0; transform: scale(1.6) rotate(-14deg); } 78%, 94% { opacity: 1; transform: rotate(-14deg); } 100% { opacity: 0; transform: rotate(-14deg); } }
+.il-stamp { transform: rotate(-14deg); }
+
+@media (max-width: 900px) {
+	.how { grid-template-columns: 1fr; gap: var(--space-32); }
+	.how-intro { position: static; }
 }
-@media (prefers-reduced-motion: reduce) {
-	.step-node, .process li::before, .process li::after { transition: none; }
+@media (max-width: 600px) {
+	.step { grid-template-columns: 28px minmax(0, 1fr); gap: var(--space-12); }
+	.step-num { width: 28px; height: 28px; font-size: 12px; top: calc(56px + var(--space-16)); }
+	.step::before { left: 13.5px; top: 36px; }
+	.step-card { padding: var(--space-16); }
 }
 
 /* ---------- Who We Are: dark band, large statement, four principles ---------- */
