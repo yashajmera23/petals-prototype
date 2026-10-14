@@ -38,31 +38,26 @@ document.addEventListener('keydown', (e) => {
 	else if (mobile.matches && nav.dataset.open === 'true') { setMenu(false); menuToggle.focus(); }
 });
 
-// Hero section drawing. One timeline from 0 to 1: the page-load entrance draws the site and the
-// ground investigation (0 → 0.5); scrolling raises the frame storey by storey (0.5 → 1).
-// While the frame builds, the hero stage is pinned so the drawing stays in view.
-// Without this script, or with reduced motion, the drawing is shown complete and nothing pins.
+// Hero ground model. One timeline from 0 to 1: the page-load entrance settles the layers into a
+// closed stack and starts to open it (0 → 0.35); scrolling opens it fully and names each layer
+// (0.35 → 1). While it opens, the hero stage is pinned so the model stays in view.
+// Without this script, or with reduced motion, the model is shown open and nothing pins.
 const hero = document.querySelector('.hero');
-const drawing = document.querySelector('.section-drawing');
-if (hero && drawing) {
+const model = document.querySelector('.hero-model');
+if (hero && model) {
 	const track = hero.querySelector('.hero-track');
-	const windows = (attr) => [...drawing.querySelectorAll(`[${attr}]`)].map((el) => {
-		const [from, to] = el.getAttribute(attr).split(',').map(Number);
-		return { el, from, to };
-	});
-	const strokes = windows('data-draw');
-	const fades = windows('data-fade');
+	const layers = [...model.querySelectorAll('.model-layer')]; // bottom to top
+	// Offsets in picture px (box is 720 tall): closed stack → fully open
+	const CLOSED = { foundations: -18, block: 0, rock: 40, grid: 70, survey: 104 };
+	const OPEN = { foundations: 26, block: 0, rock: -8, grid: -22, survey: -38 };
 	const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-	const narrow = window.matchMedia('(max-width: 860px)');
-	const wideViewBox = drawing.getAttribute('viewBox');
-	const narrowViewBox = drawing.dataset.viewboxNarrow || wideViewBox;
-	const ENTRANCE_SHARE = 0.5;
-	const ENTRANCE_MS = 1600;
+	const ENTRANCE_SHARE = 0.35;
+	const ENTRANCE_MS = 1500;
 	const clamp01 = (v) => Math.min(1, Math.max(0, v));
-	const easeOut = (x) => 1 - Math.pow(1 - x, 3);
+	const ease = (x) => 1 - Math.pow(1 - x, 3);
 
 	// Design-review aid: ?drawing=0.5 freezes the timeline at a given point for screenshots.
-	const pinned = Number.parseFloat(new URLSearchParams(location.search).get('drawing'));
+	const frozen = Number.parseFloat(new URLSearchParams(location.search).get('drawing'));
 
 	let intro = 0;
 	let scrollProgress = 0;
@@ -70,21 +65,21 @@ if (hero && drawing) {
 
 	const render = () => {
 		queued = 0;
-		const t = Number.isFinite(pinned) ? clamp01(pinned)
+		const t = Number.isFinite(frozen) ? clamp01(frozen)
 			: reduceMotion.matches ? 1 : ENTRANCE_SHARE * intro + (1 - ENTRANCE_SHARE) * scrollProgress;
-		for (const s of strokes) s.el.style.strokeDashoffset = String(1 - clamp01((t - s.from) / (s.to - s.from)));
-		for (const f of fades) f.el.style.opacity = String(clamp01((t - f.from) / (f.to - f.from)));
+		const open = ease(t);
+		layers.forEach((layer, i) => {
+			const name = layer.className.match(/model-(\w+)$/)[1];
+			const px = CLOSED[name] + (OPEN[name] - CLOSED[name]) * open;
+			layer.style.setProperty('--y', (px / 720 * 100).toFixed(3));
+			// labels appear one by one, top layer first, as the stack opens
+			const order = layers.length - 1 - i;
+			layer.style.setProperty('--label', clamp01((t - 0.42 - order * 0.1) / 0.12).toFixed(3));
+		});
 	};
 	const schedule = () => { if (!queued) queued = requestAnimationFrame(render); };
 
-	// Pin only when it can work well: motion allowed and a screen tall enough for the stage.
-	const canPin = () => !reduceMotion.matches && !Number.isFinite(pinned) && window.innerHeight >= 600;
-	const layout = () => {
-		hero.classList.toggle('is-pinned', canPin());
-		drawing.setAttribute('viewBox', narrow.matches ? narrowViewBox : wideViewBox);
-		drawing.setAttribute('preserveAspectRatio', narrow.matches ? 'xMidYMid meet' : 'xMidYMax meet');
-		onScroll();
-	};
+	const canPin = () => !reduceMotion.matches && !Number.isFinite(frozen) && window.innerHeight >= 600;
 	const onScroll = () => {
 		if (hero.classList.contains('is-pinned')) {
 			const stage = track.firstElementChild;
@@ -96,29 +91,22 @@ if (hero && drawing) {
 		}
 		schedule();
 	};
+	const layout = () => { hero.classList.toggle('is-pinned', canPin()); onScroll(); };
 
 	const playIntro = () => {
 		const start = performance.now();
 		const step = (now) => {
-			intro = easeOut(clamp01((now - start) / ENTRANCE_MS));
+			intro = clamp01((now - start) / ENTRANCE_MS);
 			render();
 			if (intro < 1) requestAnimationFrame(step);
 		};
 		requestAnimationFrame(step);
 	};
 
-	drawing.classList.add('is-live');
 	layout();
 	render();
-
-	if (reduceMotion.matches) {
-		intro = 1;
-	} else {
-		const io = new IntersectionObserver((entries) => {
-			if (entries.some((e) => e.isIntersecting)) { io.disconnect(); playIntro(); }
-		}, { threshold: 0.2 });
-		io.observe(drawing);
-	}
+	if (reduceMotion.matches) intro = 1;
+	else playIntro();
 
 	window.addEventListener('scroll', onScroll, { passive: true });
 	window.addEventListener('resize', layout);
