@@ -1032,6 +1032,83 @@
 	.about-grid { display: none; }
 }
 
+/* ---------- Testimonials (draft until real quotes exist) ---------- */
+/* Hidden unless the page is opened with ?drafts=1 (main.js adds .show-drafts to <html>). */
+[data-draft] { display: none; }
+.show-drafts [data-draft] { display: block; }
+.draft { color: var(--color-text-quiet); border-bottom: 1px dashed var(--color-mist); }
+
+.testimonials { padding-top: var(--section-gap); }
+.t-controls { display: inline-flex; gap: var(--space-4); }
+.t-controls .band-arrow { width: 40px; height: 40px; background: var(--surface-elevated); }
+.t-controls .band-arrow:hover { background: var(--color-ink); color: var(--color-parchment); }
+/* A scroll-snap row: swipe and trackpad work natively; main.js adds the slow auto-advance */
+.t-viewport {
+	overflow-x: auto;
+	scroll-snap-type: x mandatory;
+	scrollbar-width: none;
+	overscroll-behavior-x: contain;
+}
+.t-viewport::-webkit-scrollbar { display: none; }
+.t-track {
+	display: grid;
+	grid-auto-flow: column;
+	grid-auto-columns: calc((100% - 2 * var(--space-16)) / 3);
+	gap: var(--space-16);
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+.t-card { scroll-snap-align: start; }
+.t-card figure {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	margin: 0;
+	padding: var(--space-32) var(--space-24) var(--space-24);
+	background: var(--surface-card);
+	border-radius: var(--radius);
+	transition: background-color 220ms var(--ease), transform 420ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+.quote-mark { width: 32px; height: 24px; fill: var(--color-copper); }
+.t-card blockquote { flex: 1; margin: var(--space-20) 0 var(--space-32); }
+.t-card blockquote p { font-size: var(--text-lede); line-height: 1.5; text-wrap: pretty; }
+.t-card figcaption {
+	display: flex;
+	align-items: center;
+	gap: var(--space-16);
+	padding-top: var(--space-20);
+	border-top: 1px solid var(--line-hairline);
+}
+.t-logo { flex: none; display: grid; place-items: center; width: 56px; height: 56px; border-radius: var(--radius); background: var(--surface-canvas); font-size: 11px; text-align: center; }
+.t-who { display: grid; gap: 2px; }
+.t-name { font-weight: var(--weight-strong); font-stretch: var(--width-title); }
+.t-role { font-size: var(--text-body-sm); color: var(--color-text-quiet); }
+@media (hover: hover) {
+	.t-card figure:hover { background: var(--surface-elevated); }
+}
+/* The card in view at the left edge is the current one: it lifts a step from the rest */
+.t-viewport.is-live .t-card figure { transform: translateY(var(--space-12)); }
+.t-viewport.is-live .t-card.is-current figure { transform: none; }
+
+.t-dots { display: flex; gap: 6px; margin-top: var(--space-24); }
+.t-dot { position: relative; width: 28px; height: 20px; padding: 0; border: 0; background: none; cursor: pointer; }
+.t-dot::before, .t-dot::after { content: ""; position: absolute; left: 0; right: 0; top: 9px; height: 2px; border-radius: 1px; }
+.t-dot::before { background: var(--color-stone); }
+.t-dot::after { background: var(--color-copper); transform: scaleX(0); transform-origin: left; }
+.t-dot[aria-current='true']::after { animation: band-progress var(--t-interval, 5000ms) linear forwards; }
+.testimonials.is-held .t-dot[aria-current='true']::after { animation-play-state: paused; }
+
+@media (max-width: 900px) { .t-track { grid-auto-columns: calc((100% - var(--space-16)) / 2); } }
+@media (max-width: 600px) {
+	.t-track { grid-auto-columns: 86%; }
+	.t-card blockquote p { font-size: var(--text-body); }
+}
+@media (prefers-reduced-motion: reduce) {
+	.t-viewport.is-live .t-card figure { transform: none; }
+	.t-dot[aria-current='true']::after { animation: none; transform: scaleX(1); }
+}
+
 /* ---------- Closing enquiry band ---------- */
 .enquiry-band {
 	position: relative;

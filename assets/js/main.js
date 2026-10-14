@@ -460,3 +460,92 @@ if (clients && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
 	clients.classList.add('is-live');
 	fill();
 }
+
+// Draft sections (e.g. testimonials awaiting real quotes) show only with ?drafts=1
+if (new URLSearchParams(location.search).has('drafts')) document.documentElement.classList.add('show-drafts');
+
+// Testimonials: a scroll-snap row that advances one card every few seconds and loops. Swipe,
+// trackpad and the arrows move it by hand; pointer, focus, offscreen or a hidden tab hold it.
+const testimonials = document.querySelector('.testimonials');
+if (testimonials && document.documentElement.classList.contains('show-drafts')) {
+	const viewport = testimonials.querySelector('.t-viewport');
+	const cards = [...testimonials.querySelectorAll('.t-card')];
+	const dotsWrap = testimonials.querySelector('.t-dots');
+	const INTERVAL = 5000;
+	const reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+	const holds = new Set();
+	let current = 0;
+	let timer = null;
+
+	testimonials.style.setProperty('--t-interval', `${INTERVAL}ms`);
+	const dots = cards.map((_, i) => {
+		const dot = document.createElement('button');
+		dot.type = 'button';
+		dot.className = 't-dot';
+		dot.addEventListener('click', () => go(i));
+		dotsWrap.append(dot);
+		return dot;
+	});
+	dotsWrap.removeAttribute('aria-hidden');
+	dots.forEach((d, i) => d.setAttribute('aria-label', `Testimonial ${i + 1}`));
+
+	const lastStart = () => viewport.scrollWidth - viewport.clientWidth - 2;
+	function mark(i) {
+		current = i;
+		cards.forEach((c, k) => c.classList.toggle('is-current', k === i));
+		dots.forEach((d, k) => {
+			d.removeAttribute('aria-current');
+			if (k === i) { void d.offsetWidth; d.setAttribute('aria-current', 'true'); }
+		});
+	}
+	const leftOf = (k) => cards[k].offsetLeft - cards[0].offsetLeft;
+	// The last card that can sit at the left edge (with 3 cards in view, the row stops early)
+	function lastIndex() {
+		let m = 0;
+		cards.forEach((_, k) => { if (leftOf(k) <= lastStart() + 2) m = k; });
+		dots.forEach((d, k) => { d.hidden = k > m; });
+		return m;
+	}
+	function go(i) {
+		const m = lastIndex();
+		const n = i > m ? 0 : i < 0 ? m : i; // loop at either end
+		viewport.scrollTo({ left: leftOf(n), behavior: reduce.matches ? 'auto' : 'smooth' });
+		mark(n);
+		schedule();
+	}
+	function schedule() {
+		clearTimeout(timer);
+		testimonials.classList.toggle('is-held', holds.size > 0);
+		if (!holds.size && !reduce.matches) timer = setTimeout(() => go(current + 1), INTERVAL);
+	}
+	const hold = (why) => { holds.add(why); schedule(); };
+	const release = (why) => { holds.delete(why); schedule(); };
+
+	// After a manual swipe, follow whichever card settled at the left edge
+	let settle = null;
+	viewport.addEventListener('scroll', () => {
+		clearTimeout(settle);
+		settle = setTimeout(() => {
+			const x = viewport.scrollLeft;
+			let best = 0;
+			const m = lastIndex();
+			for (let k = 0; k <= m; k++) if (Math.abs(leftOf(k) - x) < Math.abs(leftOf(best) - x)) best = k;
+			if (best !== current) { mark(best); schedule(); }
+		}, 140);
+	}, { passive: true });
+
+	testimonials.querySelector('.t-prev').addEventListener('click', () => go(current - 1));
+	testimonials.querySelector('.t-next').addEventListener('click', () => go(current + 1));
+	viewport.addEventListener('pointerenter', (e) => { if (e.pointerType === 'mouse') hold('hover'); });
+	viewport.addEventListener('pointerleave', (e) => { if (e.pointerType === 'mouse') release('hover'); });
+	testimonials.addEventListener('focusin', () => hold('focus'));
+	testimonials.addEventListener('focusout', (e) => { if (!testimonials.contains(e.relatedTarget)) release('focus'); });
+	new IntersectionObserver(([entry]) => (entry.isIntersecting ? release('offscreen') : hold('offscreen')), { threshold: 0.3 }).observe(viewport);
+	document.addEventListener('visibilitychange', () => (document.hidden ? hold('hidden') : release('hidden')));
+
+	window.addEventListener('resize', lastIndex);
+	viewport.classList.add('is-live');
+	holds.add('offscreen');
+	lastIndex();
+	mark(0);
+}

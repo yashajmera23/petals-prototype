@@ -11,9 +11,9 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..600&display=swap">
 	<!-- Bump ?v= on these four links whenever CSS or JS changes, so browsers never pair new HTML with stale files -->
-	<link rel="stylesheet" href="assets/css/tokens.css?v=2026-10-15h">
-	<link rel="stylesheet" href="assets/css/base.css?v=2026-10-15h">
-	<link rel="stylesheet" href="assets/css/components.css?v=2026-10-15h">
+	<link rel="stylesheet" href="assets/css/tokens.css?v=2026-10-15i">
+	<link rel="stylesheet" href="assets/css/base.css?v=2026-10-15i">
+	<link rel="stylesheet" href="assets/css/components.css?v=2026-10-15i">
 </head>
 <body>
 	<a class="skip-link" href="#main">Skip to content</a>
@@ -389,6 +389,67 @@
 			</div>
 		</section>
 
+		<!-- Testimonials: DRAFT. Hidden on the live page until the client supplies real quotes with
+		     the client's permission; preview it with ?drafts=1. Never fill these with invented quotes. -->
+		<section class="section container testimonials" data-draft aria-labelledby="testimonials-title">
+			<div class="section-head">
+				<h2 id="testimonials-title">What Our Clients Say</h2>
+				<span class="t-controls">
+					<button class="band-arrow t-prev" type="button" aria-label="Previous testimonial">
+						<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M10 3.5 5.5 8l4.5 4.5"/></svg>
+					</button>
+					<button class="band-arrow t-next" type="button" aria-label="Next testimonial">
+						<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5"/></svg>
+					</button>
+				</span>
+			</div>
+			<div class="t-viewport" aria-roledescription="carousel" aria-label="Client testimonials">
+				<ul class="t-track">
+					<li class="t-card" role="group" aria-roledescription="slide" aria-label="1 of 4">
+						<figure>
+							<svg class="quote-mark" viewBox="0 0 32 24" aria-hidden="true"><path d="M0 24V14C0 6.5 4.2 1.6 11.5 0l1.3 3.2C8.6 4.6 6.6 7.5 6.4 11H12v13H0Zm19 0V14C19 6.5 23.2 1.6 30.5 0l1.3 3.2c-4.2 1.4-6.2 4.3-6.4 7.8H31v13H19Z"/></svg>
+							<blockquote><p><span class="draft">[Client quote: two to four sentences about working with PETALS: the project, what PETALS did, and the result.]</span></p></blockquote>
+							<figcaption>
+								<span class="t-logo"><span class="draft">[Client logo]</span></span>
+								<span class="t-who"><span class="t-name"><span class="draft">[Full name]</span></span><span class="t-role"><span class="draft">[Role, Company]</span></span></span>
+							</figcaption>
+						</figure>
+					</li>
+					<li class="t-card" role="group" aria-roledescription="slide" aria-label="2 of 4">
+						<figure>
+							<svg class="quote-mark" viewBox="0 0 32 24" aria-hidden="true"><path d="M0 24V14C0 6.5 4.2 1.6 11.5 0l1.3 3.2C8.6 4.6 6.6 7.5 6.4 11H12v13H0Zm19 0V14C19 6.5 23.2 1.6 30.5 0l1.3 3.2c-4.2 1.4-6.2 4.3-6.4 7.8H31v13H19Z"/></svg>
+							<blockquote><p><span class="draft">[Client quote: two to four sentences about working with PETALS: the project, what PETALS did, and the result.]</span></p></blockquote>
+							<figcaption>
+								<span class="t-logo"><span class="draft">[Client logo]</span></span>
+								<span class="t-who"><span class="t-name"><span class="draft">[Full name]</span></span><span class="t-role"><span class="draft">[Role, Company]</span></span></span>
+							</figcaption>
+						</figure>
+					</li>
+					<li class="t-card" role="group" aria-roledescription="slide" aria-label="3 of 4">
+						<figure>
+							<svg class="quote-mark" viewBox="0 0 32 24" aria-hidden="true"><path d="M0 24V14C0 6.5 4.2 1.6 11.5 0l1.3 3.2C8.6 4.6 6.6 7.5 6.4 11H12v13H0Zm19 0V14C19 6.5 23.2 1.6 30.5 0l1.3 3.2c-4.2 1.4-6.2 4.3-6.4 7.8H31v13H19Z"/></svg>
+							<blockquote><p><span class="draft">[Client quote: two to four sentences about working with PETALS: the project, what PETALS did, and the result.]</span></p></blockquote>
+							<figcaption>
+								<span class="t-logo"><span class="draft">[Client logo]</span></span>
+								<span class="t-who"><span class="t-name"><span class="draft">[Full name]</span></span><span class="t-role"><span class="draft">[Role, Company]</span></span></span>
+							</figcaption>
+						</figure>
+					</li>
+					<li class="t-card" role="group" aria-roledescription="slide" aria-label="4 of 4">
+						<figure>
+							<svg class="quote-mark" viewBox="0 0 32 24" aria-hidden="true"><path d="M0 24V14C0 6.5 4.2 1.6 11.5 0l1.3 3.2C8.6 4.6 6.6 7.5 6.4 11H12v13H0Zm19 0V14C19 6.5 23.2 1.6 30.5 0l1.3 3.2c-4.2 1.4-6.2 4.3-6.4 7.8H31v13H19Z"/></svg>
+							<blockquote><p><span class="draft">[Client quote: two to four sentences about working with PETALS: the project, what PETALS did, and the result.]</span></p></blockquote>
+							<figcaption>
+								<span class="t-logo"><span class="draft">[Client logo]</span></span>
+								<span class="t-who"><span class="t-name"><span class="draft">[Full name]</span></span><span class="t-role"><span class="draft">[Role, Company]</span></span></span>
+							</figcaption>
+						</figure>
+					</li>
+				</ul>
+			</div>
+			<div class="t-dots" aria-hidden="true"></div>
+		</section>
+
 		<section class="enquiry-band" aria-labelledby="enquiry-title">
 			<div class="container enquiry-inner">
 				<div>
@@ -447,6 +508,6 @@
 		</div>
 	</footer>
 
-	<script src="assets/js/main.js?v=2026-10-15h" defer></script>
+	<script src="assets/js/main.js?v=2026-10-15i" defer></script>
 </body>
 </html>
