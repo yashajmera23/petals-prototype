@@ -6,20 +6,25 @@
 	<title>PETALS Engineering Consultancy | Engineering Precision</title>
 	<meta name="description" content="PETALS Engineering Consultancy provides geotechnical investigation, geophysics, testing, NDT, engineering design, BIM and technical advisory services across India.">
 	<meta name="robots" content="noindex">
+	<link rel="icon" type="image/svg+xml" href="assets/img/brand/petals-mark.svg">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..600&display=swap">
 	<!-- Bump ?v= on these four links whenever CSS or JS changes, so browsers never pair new HTML with stale files -->
-	<link rel="stylesheet" href="assets/css/tokens.css?v=2026-10-14d">
-	<link rel="stylesheet" href="assets/css/base.css?v=2026-10-14d">
-	<link rel="stylesheet" href="assets/css/components.css?v=2026-10-14d">
+	<link rel="stylesheet" href="assets/css/tokens.css?v=2026-10-15a">
+	<link rel="stylesheet" href="assets/css/base.css?v=2026-10-15a">
+	<link rel="stylesheet" href="assets/css/components.css?v=2026-10-15a">
 </head>
 <body>
 	<a class="skip-link" href="#main">Skip to content</a>
 
 	<header class="site-header">
 		<div class="container header-inner">
-			<a class="wordmark" href="index.html" aria-label="PETALS home">PETALS</a>
+			<!-- Client logo (assets/img/brand, cleaned from the client's Canva export). The header uses the
+			     compact lockup without "Engineering Consultancy", which is unreadable at header size. -->
+			<a class="brand" href="index.html" aria-label="PETALS Engineering Consultancy, home">
+				<img src="assets/img/brand/petals-logo-compact.svg" width="962" height="318" alt="">
+			</a>
 
 			<nav class="primary-nav" aria-label="Main" data-open="false" id="primary-nav">
 				<ul class="nav-list">
@@ -401,8 +406,9 @@
 		<div class="container">
 			<div class="footer-top">
 				<div class="footer-brand">
-					<a class="wordmark" href="index.html" aria-label="PETALS home">PETALS</a>
-					<p class="footer-name">PETALS Engineering Consultancy</p>
+					<a class="brand" href="index.html" aria-label="PETALS Engineering Consultancy, home">
+						<img src="assets/img/brand/petals-logo-on-dark.svg" width="962" height="318" alt="" loading="lazy">
+					</a>
 					<p class="footer-tagline">Engineering Precision. From Ground to Design.</p>
 				</div>
 
@@ -436,6 +442,6 @@
 		</div>
 	</footer>
 
-	<script src="assets/js/main.js?v=2026-10-14d" defer></script>
+	<script src="assets/js/main.js?v=2026-10-15a" defer></script>
 </body>
 </html>
