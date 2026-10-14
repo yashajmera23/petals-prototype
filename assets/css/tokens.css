@@ -10,8 +10,9 @@
 	--color-driftwood: #84847e;
 	--color-ash: #7a7974;      /* large text and icons only */
 	--color-text-quiet: #63625c; /* small secondary text, 5.6:1 on parchment */
-	--color-ink: #26251e;
-	--color-ember: #f54e00;
+	--color-ink: #00132e;      /* logo navy */
+	--color-copper: #c28050;   /* logo copper: marks, and text on dark */
+	--color-accent: #9c5f33;   /* logo copper deepened for text on parchment, 4.8:1 */
 	--color-selection: #8bc4f8;
 
 	--surface-canvas: var(--color-parchment);

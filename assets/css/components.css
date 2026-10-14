@@ -6,7 +6,7 @@
 	font-variant-numeric: tabular-nums lining-nums;
 }
 .link-accent {
-	color: var(--color-ember);
+	color: var(--color-accent);
 	text-decoration: none;
 	transition: text-decoration-color 150ms var(--ease);
 }
@@ -532,7 +532,7 @@
 	transition: transform 200ms var(--ease), color 200ms var(--ease);
 }
 .service-card:hover { box-shadow: var(--shadow-card); transform: translateY(-2px); }
-.service-card:hover .arrow { color: var(--color-ember); transform: translateX(3px); }
+.service-card:hover .arrow { color: var(--color-accent); transform: translateX(3px); }
 
 /* ---------- Industries: a ruled schedule, deliberately not clickable ---------- */
 .industry-grid {
