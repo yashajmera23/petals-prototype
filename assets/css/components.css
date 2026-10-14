@@ -616,7 +616,7 @@
 /* ---------- Footer ---------- */
 .site-footer {
 	background: var(--color-ink);
-	color: color-mix(in oklab, var(--color-parchment) 72%, transparent);
+	color: var(--color-mist-navy);
 	font-size: var(--text-body-sm);
 }
 .site-footer a { color: var(--color-parchment); text-decoration: none; }
@@ -814,7 +814,7 @@
 /* ---------- Who We Are: dark band, large statement, four principles ---------- */
 .about-band {
 	--on-dark: var(--color-parchment);
-	--on-dark-quiet: color-mix(in oklab, var(--color-parchment) 66%, var(--color-ink));
+	--on-dark-quiet: var(--color-mist-navy);
 	--on-dark-line: color-mix(in oklab, var(--color-parchment) 16%, var(--color-ink));
 	position: relative;
 	overflow: hidden;

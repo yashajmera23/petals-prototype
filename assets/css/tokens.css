@@ -13,6 +13,7 @@
 	--color-ink: #00132e;      /* logo navy */
 	--color-copper: #c28050;   /* logo copper: marks, and text on dark */
 	--color-accent: #9c5f33;   /* logo copper deepened for text on parchment, 4.8:1 */
+	--color-mist-navy: #b3bfd1; /* quiet text on navy: a light tint of the navy, not a warm grey */
 	--color-selection: #8bc4f8;
 
 	--surface-canvas: var(--color-parchment);
