@@ -277,7 +277,58 @@ if (processChain && !window.matchMedia('(prefers-reduced-motion: reduce)').match
 		if (!entries.some((e) => e.isIntersecting)) return;
 		processChain.classList.add('is-drawn');
 		io.disconnect();
+		setTimeout(startStepCycle, 6 * 180 + 500); // once the chain has finished drawing
 	}, { threshold: 0.35 }).observe(processChain);
+}
+
+// How We Work, after the chain is drawn: the steps take turns being current. Copper runs along
+// each segment to the next step; pointer or keyboard focus on a step selects it and holds there.
+// Stops while the section is offscreen or the tab is hidden.
+function startStepCycle() {
+	const steps = [...processChain.children];
+	const INTERVAL = 3200;
+	const holds = new Set();
+	let current = -1;
+	let timer = null;
+
+	steps.forEach((li) => {
+		const bar = document.createElement('span');
+		bar.className = 'step-progress';
+		bar.setAttribute('aria-hidden', 'true');
+		li.append(bar);
+		li.querySelectorAll('.step-icon svg > *').forEach((shape) => shape.setAttribute('pathLength', '1'));
+	});
+	processChain.style.setProperty('--step-interval', `${INTERVAL}ms`);
+
+	function setCurrent(i) {
+		if (current >= 0) steps[current].classList.remove('is-current');
+		current = (i + steps.length) % steps.length;
+		const li = steps[current];
+		// restart the icon and progress animations even when re-selecting the same step
+		li.querySelectorAll('.step-icon svg > *, .step-progress').forEach((el) => { el.style.animation = 'none'; void el.offsetWidth; el.style.animation = ''; });
+		li.classList.add('is-current');
+		schedule();
+	}
+	function schedule() {
+		clearTimeout(timer);
+		processChain.classList.toggle('is-held', holds.size > 0);
+		if (!holds.size) timer = setTimeout(() => setCurrent(current + 1), INTERVAL);
+	}
+	const hold = (why) => { holds.add(why); schedule(); };
+	const release = (why) => { holds.delete(why); schedule(); };
+
+	steps.forEach((li, i) => {
+		li.addEventListener('pointerenter', (e) => { if (e.pointerType === 'mouse') { if (i !== current) setCurrent(i); hold('hover'); } });
+		li.addEventListener('pointerleave', (e) => { if (e.pointerType === 'mouse') release('hover'); });
+		li.tabIndex = 0;
+		li.addEventListener('focus', () => { if (i !== current) setCurrent(i); hold('focus'); });
+		li.addEventListener('blur', () => release('focus'));
+	});
+	new IntersectionObserver(([entry]) => (entry.isIntersecting ? release('offscreen') : hold('offscreen'))).observe(processChain);
+	document.addEventListener('visibilitychange', () => (document.hidden ? hold('hidden') : release('hidden')));
+
+	processChain.classList.add('is-cycling');
+	setCurrent(0);
 }
 
 // Client logos: the row is repeated to fill the strip, then drifts left. The pointer brings it

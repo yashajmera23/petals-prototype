@@ -836,6 +836,46 @@
 	}
 	.process li:last-child::before, .process li:last-child::after { display: none; }
 }
+/* Running through the steps (main.js .is-cycling, after the chain is drawn): one step at a time
+   is the current one. Its icon redraws, its node turns copper, and copper runs along its segment
+   toward the next step, which then takes over. Pointer or focus on a step selects and holds it. */
+.step-progress {
+	position: absolute;
+	top: calc(var(--node-y) + var(--node) / 2 - 0.5px);
+	left: calc(var(--node) + 6px);
+	right: calc(-1 * var(--gap) + 6px);
+	height: 2px;
+	background: var(--color-copper);
+	transform: scaleX(0);
+	transform-origin: left;
+	pointer-events: none;
+}
+.process.is-cycling li.is-current .step-progress { animation: step-run var(--step-interval, 3200ms) linear forwards; }
+.process.is-cycling.is-held li.is-current .step-progress { animation-play-state: paused; }
+@keyframes step-run { to { transform: scaleX(1); } }
+.process.is-cycling h3 { color: var(--color-ash); transition: color 260ms var(--ease); }
+.process.is-cycling li.is-current h3 { color: var(--color-ink); }
+.process.is-cycling li.is-current .step-icon { background: var(--color-ink); color: var(--color-parchment); }
+.process.is-cycling li.is-current .step-node { background: var(--color-copper); border-color: var(--color-copper); color: var(--color-ink); transition-delay: 0ms; }
+.process.is-cycling li.is-current .step-icon svg > * { animation: step-icon-draw 900ms cubic-bezier(0.16, 1, 0.3, 1) both; stroke-dasharray: 1; }
+@keyframes step-icon-draw { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
+.process li:last-child .step-progress, .process li:nth-child(3n) .step-progress { display: none; }
+@media (min-width: 1081px) { .process li:nth-child(3n):not(:last-child) .step-progress { display: block; } }
+@media (max-width: 640px) {
+	.process li:nth-child(3n):not(:last-child) .step-progress { display: block; }
+	.step-progress {
+		top: calc(var(--node) + 6px);
+		bottom: calc(-1 * var(--space-32) + 6px);
+		left: calc(var(--node) / 2 - 0.5px);
+		right: auto;
+		width: 2px;
+		height: auto;
+		transform: scaleY(0);
+		transform-origin: top;
+	}
+	@keyframes step-run-y { to { transform: scaleY(1); } }
+	.process.is-cycling li.is-current .step-progress { animation-name: step-run-y; }
+}
 @media (prefers-reduced-motion: reduce) {
 	.step-node, .process li::before, .process li::after { transition: none; }
 }
