@@ -461,13 +461,10 @@ if (clients && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
 	fill();
 }
 
-// Draft sections (e.g. testimonials awaiting real quotes) show only with ?drafts=1
-if (new URLSearchParams(location.search).has('drafts')) document.documentElement.classList.add('show-drafts');
-
 // Testimonials: a scroll-snap row that advances one card every few seconds and loops. Swipe,
 // trackpad and the arrows move it by hand; pointer, focus, offscreen or a hidden tab hold it.
 const testimonials = document.querySelector('.testimonials');
-if (testimonials && document.documentElement.classList.contains('show-drafts')) {
+if (testimonials) {
 	const viewport = testimonials.querySelector('.t-viewport');
 	const cards = [...testimonials.querySelectorAll('.t-card')];
 	const dotsWrap = testimonials.querySelector('.t-dots');
