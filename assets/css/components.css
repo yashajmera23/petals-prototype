@@ -286,7 +286,7 @@
 .hero-band.is-paused .band-dot[aria-current='true']::after { animation-play-state: paused; }
 .band-dot:hover::before, .band-dot[aria-current='true']::before { background: var(--color-ash); }
 @keyframes band-progress { to { transform: scaleX(1); } }
-.band-pause {
+.band-pause, .marquee-pause {
 	display: grid;
 	place-items: center;
 	width: 28px;
@@ -298,7 +298,7 @@
 	color: var(--color-ink);
 	cursor: pointer;
 }
-.band-pause svg { width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.band-pause svg, .marquee-pause svg { width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
 
 /* Previous / next */
 .band-arrow {
@@ -379,6 +379,96 @@
 	background: var(--surface-canvas);
 	padding: 3px 7px;
 	border-radius: 2px;
+}
+
+/* ---------- Client logos: a ruled strip that drifts ---------- */
+/* Without JS (or with reduced motion) the strip is a plain row you can scroll sideways.
+   main.js adds .is-live: the row repeats, drifts left, follows the page scroll direction,
+   eases to a stop under the pointer and can be dragged. */
+/* Sits close under the hero as its proof line, then a full section gap before Services */
+.clients { margin-top: calc(var(--space-48) - var(--section-gap)); padding-bottom: var(--section-gap); }
+.clients-strip {
+	display: grid;
+	grid-template-columns: auto minmax(0, 1fr) auto;
+	align-items: center;
+	border-block: 1px solid var(--line-hairline);
+}
+.clients-title {
+	padding-right: var(--space-32);
+	font-size: var(--text-heading-sm);
+	font-weight: var(--weight-strong);
+	font-stretch: var(--width-title);
+	line-height: var(--leading-heading-sm);
+	letter-spacing: var(--tracking-heading-sm);
+	white-space: nowrap;
+}
+.marquee {
+	align-self: stretch;
+	overflow-x: auto;
+	scrollbar-width: thin;
+	mask-image: linear-gradient(to right, transparent, #000 56px, #000 calc(100% - 56px), transparent);
+}
+.marquee-track {
+	display: flex;
+	width: max-content;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+.marquee-item {
+	flex: none;
+	display: grid;
+	place-items: center;
+	width: clamp(150px, 15vw, 200px);
+	height: 96px;
+	padding: var(--space-16) var(--space-24);
+	border-left: 1px solid var(--line-hairline);
+	transition: background-color 200ms var(--ease);
+}
+/* --lw (set per logo in the HTML) balances ink area across square marks and long wordmarks */
+.marquee-item img {
+	width: calc(var(--lw, 110) * var(--logo-scale, 1) * 1px);
+	max-width: 100%;
+	height: auto;
+	filter: grayscale(1);
+	opacity: 0.62;
+	transition: filter 200ms var(--ease), opacity 200ms var(--ease);
+	-webkit-user-drag: none;
+	user-select: none;
+}
+.clients.is-live .marquee { overflow: hidden; cursor: grab; touch-action: pan-y; user-select: none; }
+.clients.is-live .marquee.is-dragging { cursor: grabbing; }
+.clients.is-live .marquee-track { will-change: transform; }
+.marquee-pause { margin-left: var(--space-16); }
+.marquee-pause[hidden] { display: none; }
+.marquee-pause .i-play { fill: currentColor; stroke-width: 1; display: none; }
+.clients.is-user-paused .marquee-pause .i-pause { display: none; }
+.clients.is-user-paused .marquee-pause .i-play { display: block; }
+
+/* Pointer over the strip: the logo under it comes up in full colour, the rest step back */
+@media (hover: hover) {
+	.marquee-item:hover { background: var(--surface-card); }
+	.marquee-item:hover img { filter: none; opacity: 1; }
+	.marquee:hover .marquee-item:not(:hover) img { opacity: 0.4; }
+}
+
+/* Phones: title and pause share a row above a full-width strip */
+@media (max-width: 640px) {
+	.clients-strip {
+		grid-template-columns: minmax(0, 1fr) auto;
+		border-block: 0;
+		row-gap: var(--space-12);
+	}
+	.clients-title { padding-right: 0; }
+	.marquee {
+		grid-column: 1 / -1;
+		grid-row: 2;
+		border-block: 1px solid var(--line-hairline);
+		margin-inline: calc(var(--gutter) * -1);
+		mask-image: linear-gradient(to right, transparent, #000 24px, #000 calc(100% - 24px), transparent);
+	}
+	.marquee { --logo-scale: 0.74; }
+	.marquee-item { width: 136px; height: 76px; padding: var(--space-12) var(--space-20); }
 }
 
 /* ---------- Section header ---------- */

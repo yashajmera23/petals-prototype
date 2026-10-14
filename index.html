@@ -172,6 +172,46 @@
 			</figure>
 		</section>
 
+		<!-- Client logos (cleaned copies in assets/img/clients). --lw is each logo's display width,
+		     balanced so marks of different shapes carry similar weight. main.js repeats the row to
+		     fill the strip and drives the drift, scroll response and drag. -->
+		<section class="clients" aria-labelledby="clients-title">
+			<div class="container">
+				<div class="clients-strip">
+					<h2 class="clients-title" id="clients-title">Trusted by</h2>
+					<div class="marquee">
+						<ul class="marquee-track">
+							<li class="marquee-item"><img src="assets/img/clients/larsen-toubro.webp" width="420" height="86" style="--lw: 140" alt="Larsen &amp; Toubro" loading="lazy" decoding="async"></li>
+							<li class="marquee-item"><img src="assets/img/clients/tata-projects.webp" width="272" height="140" style="--lw: 88" alt="Tata Projects" loading="lazy" decoding="async"></li>
+							<li class="marquee-item"><img src="assets/img/clients/adani.webp" width="410" height="140" style="--lw: 108" alt="Adani" loading="lazy" decoding="async"></li>
+							<li class="marquee-item"><img src="assets/img/clients/afcons.webp" width="420" height="111" style="--lw: 108" alt="Afcons Infrastructure" loading="lazy" decoding="async"></li>
+							<li class="marquee-item"><img src="assets/img/clients/hcc.svg" width="800" height="223" style="--lw: 96" alt="Hindustan Construction Company" loading="lazy" decoding="async"></li>
+							<li class="marquee-item"><img src="assets/img/clients/rvnl.webp" width="286" height="53" style="--lw: 147" alt="Rail Vikas Nigam Limited" loading="lazy" decoding="async"></li>
+							<li class="marquee-item"><img src="assets/img/clients/irb.webp" width="210" height="80" style="--lw: 82" alt="IRB Infrastructure" loading="lazy" decoding="async"></li>
+							<li class="marquee-item"><img src="assets/img/clients/kec.webp" width="216" height="140" style="--lw: 69" alt="KEC International" loading="lazy" decoding="async"></li>
+							<li class="marquee-item"><img src="assets/img/clients/hindustan-zinc.webp" width="420" height="129" style="--lw: 128" alt="Hindustan Zinc" loading="lazy" decoding="async"></li>
+							<li class="marquee-item"><img src="assets/img/clients/kalpataru.webp" width="420" height="115" style="--lw: 131" alt="Kalpataru Power Transmission" loading="lazy" decoding="async"></li>
+							<li class="marquee-item"><img src="assets/img/clients/meil.webp" width="171" height="46" style="--lw: 122" alt="Megha Engineering &amp; Infrastructures (MEIL)" loading="lazy" decoding="async"></li>
+							<li class="marquee-item"><img src="assets/img/clients/gr-infra.webp" width="375" height="140" style="--lw: 116" alt="GR Infraprojects" loading="lazy" decoding="async"></li>
+							<li class="marquee-item"><img src="assets/img/clients/hg-infra.webp" width="420" height="115" style="--lw: 133" alt="H.G. Infra Engineering" loading="lazy" decoding="async"></li>
+							<li class="marquee-item"><img src="assets/img/clients/j-kumar.webp" width="140" height="140" style="--lw: 48" alt="J. Kumar Infraprojects" loading="lazy" decoding="async"></li>
+							<li class="marquee-item"><img src="assets/img/clients/ashoka.webp" width="420" height="124" style="--lw: 116" alt="Ashoka Buildcon" loading="lazy" decoding="async"></li>
+							<li class="marquee-item"><img src="assets/img/clients/montecarlo.webp" width="149" height="132" style="--lw: 63" alt="Montecarlo" loading="lazy" decoding="async"></li>
+							<li class="marquee-item"><img src="assets/img/clients/gawar.webp" width="420" height="109" style="--lw: 124" alt="Gawar Construction" loading="lazy" decoding="async"></li>
+							<li class="marquee-item"><img src="assets/img/clients/tractebel.webp" width="420" height="89" style="--lw: 137" alt="Tractebel (ENGIE)" loading="lazy" decoding="async"></li>
+							<li class="marquee-item"><img src="assets/img/clients/ict.webp" width="135" height="140" style="--lw: 57" alt="Intercontinental Consultants and Technocrats (ICT)" loading="lazy" decoding="async"></li>
+							<li class="marquee-item"><img src="assets/img/clients/oriental.webp" width="324" height="140" style="--lw: 87" alt="Oriental Structural Engineers" loading="lazy" decoding="async"></li>
+							<li class="marquee-item"><img src="assets/img/clients/galfar.webp" width="131" height="94" style="--lw: 75" alt="Galfar" loading="lazy" decoding="async"></li>
+						</ul>
+					</div>
+					<button class="marquee-pause" type="button" aria-label="Pause logo strip" hidden>
+						<svg class="i-pause" viewBox="0 0 16 16" aria-hidden="true"><path d="M5.5 3.5v9M10.5 3.5v9"/></svg>
+						<svg class="i-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.5 12 8l-7 4.5Z"/></svg>
+					</button>
+				</div>
+			</div>
+		</section>
+
 		<section class="section container" id="services" aria-labelledby="services-title">
 			<div class="section-head">
 				<h2 id="services-title">Our Services</h2>

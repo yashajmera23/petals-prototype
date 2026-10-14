@@ -279,3 +279,134 @@ if (processChain && !window.matchMedia('(prefers-reduced-motion: reduce)').match
 		io.disconnect();
 	}, { threshold: 0.35 }).observe(processChain);
 }
+
+// Client logos: the row is repeated to fill the strip, then drifts left. Scrolling the page
+// pushes it along in the same direction, the pointer brings it to rest, and it can be dragged
+// or flicked. Without this script, or with reduced motion, the strip is a static row.
+const clients = document.querySelector('.clients');
+if (clients && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+	const marquee = clients.querySelector('.marquee');
+	const track = clients.querySelector('.marquee-track');
+	const pauseBtn = clients.querySelector('.marquee-pause');
+	const originals = [...track.children];
+	const BASE = 34; // drift speed, px per second
+	const clamp = (n, lo, hi) => Math.min(hi, Math.max(lo, n));
+
+	let period = 0; // width of one full set of logos
+	let x = 0;
+	let v = BASE;
+	let dir = 1; // 1 = leftward; flips with page scroll direction
+	let kick = 0; // extra speed from page scrolling, decays
+	let hovering = false;
+	let userPaused = false;
+	let drag = null;
+	let running = false;
+	let last = 0;
+	let lastY = window.scrollY;
+
+	function fill() {
+		track.querySelectorAll('[data-clone]').forEach((n) => n.remove());
+		period = track.getBoundingClientRect().width;
+		if (!period) return;
+		const sets = Math.ceil(marquee.clientWidth / period) + 1;
+		for (let s = 0; s < sets; s++) {
+			originals.forEach((item) => {
+				const copy = item.cloneNode(true);
+				copy.dataset.clone = '';
+				copy.setAttribute('aria-hidden', 'true');
+				track.append(copy);
+			});
+		}
+	}
+
+	function frame(now) {
+		if (!running) return;
+		const dt = Math.min((now - last) / 1000, 0.05);
+		last = now;
+
+		const y = window.scrollY;
+		const dy = y - lastY;
+		lastY = y;
+		if (dy && !userPaused) {
+			dir = dy > 0 ? 1 : -1;
+			kick = clamp(kick + dy * 2.5, -520, 520);
+		}
+		kick *= Math.exp(-dt * 3);
+
+		if (!(drag && drag.axis === 'x')) {
+			const target = hovering || userPaused ? 0 : BASE * dir;
+			v += (target - v) * (1 - Math.exp(-dt * 3));
+			x += (v + kick) * dt;
+		}
+		if (period) x = ((x % period) + period) % period;
+		track.style.transform = `translate3d(${-x}px, 0, 0)`;
+		requestAnimationFrame(frame);
+	}
+
+	function start() {
+		if (running || document.hidden) return;
+		// Logos sitting off to the side never cross the viewport, so lazy loading would leave
+		// them blank as they slide in. Load the lot once the strip is near.
+		track.querySelectorAll('img[loading="lazy"]').forEach((img) => { img.loading = 'eager'; });
+		running = true;
+		last = performance.now();
+		lastY = window.scrollY;
+		requestAnimationFrame(frame);
+	}
+	const stop = () => { running = false; };
+
+	marquee.addEventListener('pointerenter', (e) => { if (e.pointerType === 'mouse') hovering = true; });
+	marquee.addEventListener('pointerleave', (e) => { if (e.pointerType === 'mouse') hovering = false; });
+
+	// Drag or flick sideways; a vertical swipe is left to the page
+	marquee.addEventListener('pointerdown', (e) => {
+		if (e.button !== 0) return;
+		drag = { id: e.pointerId, x0: e.clientX, y0: e.clientY, x: e.clientX, t: performance.now(), v: 0, axis: null };
+	});
+	marquee.addEventListener('pointermove', (e) => {
+		if (!drag || e.pointerId !== drag.id) return;
+		if (!drag.axis) {
+			const ax = Math.abs(e.clientX - drag.x0);
+			const ay = Math.abs(e.clientY - drag.y0);
+			if (ax < 5 && ay < 5) return;
+			drag.axis = ax > ay ? 'x' : 'y';
+			if (drag.axis === 'x') {
+				marquee.setPointerCapture(e.pointerId);
+				marquee.classList.add('is-dragging');
+			}
+		}
+		if (drag.axis !== 'x') return;
+		const now = performance.now();
+		const dx = e.clientX - drag.x;
+		x -= dx;
+		drag.v = (-dx / Math.max(8, now - drag.t)) * 1000;
+		drag.x = e.clientX;
+		drag.t = now;
+	});
+	const endDrag = (e) => {
+		if (!drag || e.pointerId !== drag.id) return;
+		if (drag.axis === 'x') {
+			// A flick keeps its speed for a moment, then eases back to the drift
+			v = performance.now() - drag.t < 80 ? clamp(drag.v, -1600, 1600) : 0;
+			marquee.classList.remove('is-dragging');
+		}
+		drag = null;
+	};
+	marquee.addEventListener('pointerup', endDrag);
+	marquee.addEventListener('pointercancel', endDrag);
+
+	pauseBtn.hidden = false;
+	pauseBtn.addEventListener('click', () => {
+		userPaused = !userPaused;
+		clients.classList.toggle('is-user-paused', userPaused);
+		pauseBtn.setAttribute('aria-label', userPaused ? 'Play logo strip' : 'Pause logo strip');
+		if (userPaused) kick = 0;
+	});
+
+	new ResizeObserver(fill).observe(marquee);
+	new IntersectionObserver(([entry]) => (entry.isIntersecting ? start() : stop()), { rootMargin: '200px 0px' }).observe(marquee);
+	document.addEventListener('visibilitychange', () => (document.hidden ? stop() : start()));
+
+	clients.classList.add('is-live');
+	fill();
+}
