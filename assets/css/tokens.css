@@ -5,16 +5,17 @@
 	--color-parchment: #f7f7f4;
 	--color-bone: #f2f1ed;
 	--color-linen: #e6e5e0;
-	--color-stone: #cdcdc9;
-	--color-mist: #a1a19f;
-	--color-driftwood: #84847e;
-	--color-ash: #7a7974;      /* large text and icons only */
-	--color-text-quiet: #63625c; /* small secondary text, 5.6:1 on parchment */
+	/* Neutrals are steps from parchment toward the logo navy, so greys share the ink's temperature */
+	--color-stone: #cbced0;
+	--color-mist: #a1a7af;
+	--color-driftwood: #88909b;
+	--color-ash: #6f7a87;      /* large text and icons only, 4.1:1 on parchment */
+	--color-text-quiet: #5e6a79; /* small secondary text, 5.1:1 on parchment */
 	--color-ink: #00132e;      /* logo navy */
 	--color-copper: #c28050;   /* logo copper: marks, and text on dark */
 	--color-accent: #9c5f33;   /* logo copper deepened for text on parchment, 4.8:1 */
 	--color-mist-navy: #b3bfd1; /* quiet text on navy: a light tint of the navy, not a warm grey */
-	--color-selection: #8bc4f8;
+	--color-selection: color-mix(in oklab, var(--color-copper) 38%, var(--color-parchment));
 
 	--surface-canvas: var(--color-parchment);
 	--surface-card: var(--color-bone);

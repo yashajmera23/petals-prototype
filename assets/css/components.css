@@ -181,6 +181,8 @@
 .section-drawing .d-ink { stroke: var(--color-ink); stroke-width: 1.3; }
 .section-drawing .d-soft { stroke: var(--color-ash); stroke-width: 1; }
 .section-drawing .d-faint { stroke: var(--color-stone); stroke-width: 1; }
+/* The borehole is the investigation itself: drawn in the logo's copper, the drill in its P */
+.section-drawing .d-probe { stroke: var(--color-copper); }
 .section-drawing .d-dash { stroke-dasharray: 3 4; }
 .section-drawing .d-grid circle, .section-drawing .d-grid path { stroke: var(--color-stone); stroke-width: 1; }
 .section-drawing .d-grid path { stroke-dasharray: 2 6; }

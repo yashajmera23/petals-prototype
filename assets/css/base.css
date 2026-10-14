@@ -14,7 +14,8 @@ body {
 	-webkit-font-smoothing: antialiased;
 }
 
-::selection { background: var(--color-selection); }
+::selection { background: var(--color-selection); color: var(--color-ink); }
+html { scrollbar-color: var(--color-mist) var(--surface-canvas); accent-color: var(--color-ink); caret-color: var(--color-accent); }
 
 h1, h2, h3 { font-weight: 400; margin: 0; }
 p { margin: 0; }
