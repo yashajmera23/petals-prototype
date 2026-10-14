@@ -10,9 +10,9 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..600&display=swap">
 	<!-- Bump ?v= on these four links whenever CSS or JS changes, so browsers never pair new HTML with stale files -->
-	<link rel="stylesheet" href="assets/css/tokens.css?v=2026-10-14b">
-	<link rel="stylesheet" href="assets/css/base.css?v=2026-10-14b">
-	<link rel="stylesheet" href="assets/css/components.css?v=2026-10-14b">
+	<link rel="stylesheet" href="assets/css/tokens.css?v=2026-10-14c">
+	<link rel="stylesheet" href="assets/css/base.css?v=2026-10-14c">
+	<link rel="stylesheet" href="assets/css/components.css?v=2026-10-14c">
 </head>
 <body>
 	<a class="skip-link" href="#main">Skip to content</a>
@@ -175,7 +175,7 @@
 
 		<!-- Client logos (cleaned copies in assets/img/clients). --lw is each logo's display width,
 		     balanced so marks of different shapes carry similar weight. main.js repeats the row to
-		     fill the strip and drives the drift, scroll response and drag. -->
+		     fill the strip and drives the drift, drag, trackpad and arrow-key movement. -->
 		<section class="clients" aria-labelledby="clients-title">
 			<div class="container">
 				<div class="clients-strip">
@@ -205,10 +205,6 @@
 							<li class="marquee-item"><img src="assets/img/clients/galfar.webp" width="131" height="94" style="--lw: 75" alt="Galfar" loading="lazy" decoding="async"></li>
 						</ul>
 					</div>
-					<button class="marquee-pause" type="button" aria-label="Pause logo strip" hidden>
-						<svg class="i-pause" viewBox="0 0 16 16" aria-hidden="true"><path d="M5.5 3.5v9M10.5 3.5v9"/></svg>
-						<svg class="i-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.5 12 8l-7 4.5Z"/></svg>
-					</button>
 				</div>
 			</div>
 		</section>
@@ -440,6 +436,6 @@
 		</div>
 	</footer>
 
-	<script src="assets/js/main.js?v=2026-10-14b" defer></script>
+	<script src="assets/js/main.js?v=2026-10-14c" defer></script>
 </body>
 </html>

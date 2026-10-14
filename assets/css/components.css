@@ -286,7 +286,7 @@
 .hero-band.is-paused .band-dot[aria-current='true']::after { animation-play-state: paused; }
 .band-dot:hover::before, .band-dot[aria-current='true']::before { background: var(--color-ash); }
 @keyframes band-progress { to { transform: scaleX(1); } }
-.band-pause, .marquee-pause {
+.band-pause {
 	display: grid;
 	place-items: center;
 	width: 28px;
@@ -298,7 +298,7 @@
 	color: var(--color-ink);
 	cursor: pointer;
 }
-.band-pause svg, .marquee-pause svg { width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.band-pause svg { width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
 
 /* Previous / next */
 .band-arrow {
@@ -383,13 +383,13 @@
 
 /* ---------- Client logos: a ruled strip that drifts ---------- */
 /* Without JS (or with reduced motion) the strip is a plain row you can scroll sideways.
-   main.js adds .is-live: the row repeats, drifts left, follows the page scroll direction,
-   eases to a stop under the pointer and can be dragged. */
+   main.js adds .is-live: the row repeats and drifts left, eases to a stop under the pointer
+   or on keyboard focus, and can be dragged, flicked, swiped on a trackpad or moved with arrows. */
 /* Sits close under the hero as its proof line, then a full section gap before Services */
 .clients { margin-top: calc(var(--space-48) - var(--section-gap)); padding-bottom: var(--section-gap); }
 .clients-strip {
 	display: grid;
-	grid-template-columns: auto minmax(0, 1fr) auto;
+	grid-template-columns: auto minmax(0, 1fr);
 	align-items: center;
 	border-block: 1px solid var(--line-hairline);
 }
@@ -439,11 +439,8 @@
 .clients.is-live .marquee { overflow: hidden; cursor: grab; touch-action: pan-y; user-select: none; }
 .clients.is-live .marquee.is-dragging { cursor: grabbing; }
 .clients.is-live .marquee-track { will-change: transform; }
-.marquee-pause { margin-left: var(--space-16); }
-.marquee-pause[hidden] { display: none; }
-.marquee-pause .i-play { fill: currentColor; stroke-width: 1; display: none; }
-.clients.is-user-paused .marquee-pause .i-pause { display: none; }
-.clients.is-user-paused .marquee-pause .i-play { display: block; }
+.clients.is-live .marquee:focus-visible { outline: none; }
+.clients-strip:has(.marquee:focus-visible) { outline: 2px solid var(--color-ink); outline-offset: 4px; border-radius: var(--radius); }
 
 /* Pointer over the strip: the logo under it comes up in full colour, the rest step back */
 @media (hover: hover) {
@@ -452,10 +449,10 @@
 	.marquee:hover .marquee-item:not(:hover) img { opacity: 0.4; }
 }
 
-/* Phones: title and pause share a row above a full-width strip */
+/* Phones: title above a full-width strip */
 @media (max-width: 640px) {
 	.clients-strip {
-		grid-template-columns: minmax(0, 1fr) auto;
+		grid-template-columns: minmax(0, 1fr);
 		border-block: 0;
 		row-gap: var(--space-12);
 	}

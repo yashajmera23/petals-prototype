@@ -280,29 +280,26 @@ if (processChain && !window.matchMedia('(prefers-reduced-motion: reduce)').match
 	}, { threshold: 0.35 }).observe(processChain);
 }
 
-// Client logos: the row is repeated to fill the strip, then drifts left. Scrolling the page
-// pushes it along in the same direction, the pointer brings it to rest, and it can be dragged
-// or flicked. Without this script, or with reduced motion, the strip is a static row.
+// Client logos: the row is repeated to fill the strip, then drifts left. The pointer brings it
+// to rest; it can be dragged or flicked with a mouse or finger, swiped sideways on a trackpad,
+// or moved with the arrow keys once focused (focus also holds it still).
+// Without this script, or with reduced motion, the strip is a static row.
 const clients = document.querySelector('.clients');
 if (clients && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
 	const marquee = clients.querySelector('.marquee');
 	const track = clients.querySelector('.marquee-track');
-	const pauseBtn = clients.querySelector('.marquee-pause');
 	const originals = [...track.children];
 	const BASE = 34; // drift speed, px per second
+	const EASE = 3; // how quickly speed settles back to the drift (per second)
 	const clamp = (n, lo, hi) => Math.min(hi, Math.max(lo, n));
 
 	let period = 0; // width of one full set of logos
 	let x = 0;
 	let v = BASE;
-	let dir = 1; // 1 = leftward; flips with page scroll direction
-	let kick = 0; // extra speed from page scrolling, decays
-	let hovering = false;
-	let userPaused = false;
+	const holds = new Set(); // reasons the drift is at rest: 'hover', 'focus'
 	let drag = null;
 	let running = false;
 	let last = 0;
-	let lastY = window.scrollY;
 
 	function fill() {
 		track.querySelectorAll('[data-clone]').forEach((n) => n.remove());
@@ -323,20 +320,10 @@ if (clients && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
 		if (!running) return;
 		const dt = Math.min((now - last) / 1000, 0.05);
 		last = now;
-
-		const y = window.scrollY;
-		const dy = y - lastY;
-		lastY = y;
-		if (dy && !userPaused) {
-			dir = dy > 0 ? 1 : -1;
-			kick = clamp(kick + dy * 2.5, -520, 520);
-		}
-		kick *= Math.exp(-dt * 3);
-
 		if (!(drag && drag.axis === 'x')) {
-			const target = hovering || userPaused ? 0 : BASE * dir;
-			v += (target - v) * (1 - Math.exp(-dt * 3));
-			x += (v + kick) * dt;
+			const target = holds.size ? 0 : BASE;
+			v += (target - v) * (1 - Math.exp(-dt * EASE));
+			x += v * dt;
 		}
 		if (period) x = ((x % period) + period) % period;
 		track.style.transform = `translate3d(${-x}px, 0, 0)`;
@@ -350,15 +337,15 @@ if (clients && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
 		track.querySelectorAll('img[loading="lazy"]').forEach((img) => { img.loading = 'eager'; });
 		running = true;
 		last = performance.now();
-		lastY = window.scrollY;
 		requestAnimationFrame(frame);
 	}
 	const stop = () => { running = false; };
 
-	marquee.addEventListener('pointerenter', (e) => { if (e.pointerType === 'mouse') hovering = true; });
-	marquee.addEventListener('pointerleave', (e) => { if (e.pointerType === 'mouse') hovering = false; });
+	marquee.addEventListener('pointerenter', (e) => { if (e.pointerType === 'mouse') holds.add('hover'); });
+	marquee.addEventListener('pointerleave', (e) => { if (e.pointerType === 'mouse') holds.delete('hover'); });
 
-	// Drag or flick sideways; a vertical swipe is left to the page
+	// Drag or flick sideways with a mouse, pen or finger; a vertical swipe is left to the page
+	marquee.addEventListener('dragstart', (e) => e.preventDefault());
 	marquee.addEventListener('pointerdown', (e) => {
 		if (e.button !== 0) return;
 		drag = { id: e.pointerId, x0: e.clientX, y0: e.clientY, x: e.clientX, t: performance.now(), v: 0, axis: null };
@@ -395,12 +382,24 @@ if (clients && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
 	marquee.addEventListener('pointerup', endDrag);
 	marquee.addEventListener('pointercancel', endDrag);
 
-	pauseBtn.hidden = false;
-	pauseBtn.addEventListener('click', () => {
-		userPaused = !userPaused;
-		clients.classList.toggle('is-user-paused', userPaused);
-		pauseBtn.setAttribute('aria-label', userPaused ? 'Play logo strip' : 'Pause logo strip');
-		if (userPaused) kick = 0;
+	// Sideways trackpad swipe or Shift + mouse wheel; plain vertical scrolling still scrolls the page
+	marquee.addEventListener('wheel', (e) => {
+		if (Math.abs(e.deltaX) <= Math.abs(e.deltaY)) return;
+		e.preventDefault();
+		x += e.deltaX;
+	}, { passive: false });
+
+	// Keyboard: focusing the strip holds it; arrows glide it about one logo at a time
+	marquee.tabIndex = 0;
+	marquee.setAttribute('role', 'region');
+	marquee.setAttribute('aria-label', 'Client logos. Use the left and right arrow keys to move.');
+	marquee.addEventListener('focus', () => holds.add('focus'));
+	marquee.addEventListener('blur', () => holds.delete('focus'));
+	marquee.addEventListener('keydown', (e) => {
+		if (e.key !== 'ArrowLeft' && e.key !== 'ArrowRight') return;
+		e.preventDefault();
+		const step = originals[0].getBoundingClientRect().width;
+		v = (e.key === 'ArrowRight' ? 1 : -1) * step * EASE; // decays to rest after travelling about one step
 	});
 
 	new ResizeObserver(fill).observe(marquee);
