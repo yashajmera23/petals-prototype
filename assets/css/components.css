@@ -954,7 +954,8 @@
 	border-bottom: 1px solid var(--on-dark-line);
 }
 .principles li:nth-child(-n + 3) { padding-top: 0; }
-/* The initial of each word spells the name down the grid, in the logo's copper */
+/* The initials spell the name down the grid, coloured as in the logo: light letters
+   (the on-dark version of its navy) with the A in copper */
 .principle-letter {
 	display: block;
 	margin-bottom: var(--space-12);
@@ -962,8 +963,9 @@
 	line-height: 1;
 	font-weight: var(--weight-strong);
 	font-stretch: var(--width-mark);
-	color: var(--color-copper);
+	color: var(--on-dark);
 }
+.principle-letter.is-accent { color: var(--color-copper); }
 .principles h4 {
 	font-size: var(--text-heading-sm);
 	line-height: var(--leading-heading-sm);
