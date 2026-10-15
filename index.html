@@ -11,9 +11,9 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..600&display=swap">
 	<!-- Bump ?v= on these four links whenever CSS or JS changes, so browsers never pair new HTML with stale files -->
-	<link rel="stylesheet" href="assets/css/tokens.css?v=2026-10-15x">
-	<link rel="stylesheet" href="assets/css/base.css?v=2026-10-15x">
-	<link rel="stylesheet" href="assets/css/components.css?v=2026-10-15x">
+	<link rel="stylesheet" href="assets/css/tokens.css?v=2026-10-16b">
+	<link rel="stylesheet" href="assets/css/base.css?v=2026-10-16b">
+	<link rel="stylesheet" href="assets/css/components.css?v=2026-10-16b">
 </head>
 <body>
 	<a class="skip-link" href="#main">Skip to content</a>
@@ -80,33 +80,36 @@
 						<!-- Ground model from the PETALS brochure (page 2), split into five layers. They settle
 						     together on load, then open apart as the page scrolls, each layer labelled.
 						     Without JS, or with reduced motion, the model is shown open, as in the brochure. -->
-						<figure class="hero-model" role="img" aria-label="Exploded model of a site: survey and topography, investigation grid, filled-up soil, natural soil strata, rock surface, and the foundations and structure beneath">
+						<figure class="hero-model" role="img" aria-label="Exploded model of a site: survey and topography, investigation grid, filled-up soil, natural soil strata over the rock surface, and the foundations beneath">
 							<div class="model-layer model-foundations" style="--i: 0">
 								<div class="model-float">
 									<img src="assets/img/model/model-foundations.webp?v=2" width="530" height="639" alt="" decoding="async">
+									<span class="model-label" style="--ax: 522; --ay: 528; --lead: 6">Foundations</span>
 								</div>
 							</div>
 							<div class="model-layer model-block" style="--i: 1">
 								<div class="model-float">
 									<img src="assets/img/model/model-block.webp?v=2" width="530" height="639" alt="" decoding="async" fetchpriority="high">
-									<span class="model-lead" style="--ex: 482; --ay: 328"></span><span class="model-label" style="--ay: 328">Natural Soil Strata</span>
-									<span class="model-lead" style="--ex: 482; --ay: 398"></span><span class="model-label" style="--ay: 398">Rock Surface</span>
+									<span class="model-label" style="--ax: 522; --ay: 328; --lead: 41">Natural soil strata</span>
+									<span class="model-label" style="--ax: 522; --ay: 393; --lead: 42">Rock surface</span>
 								</div>
 							</div>
 							<div class="model-layer model-rock" style="--i: 2">
 								<div class="model-float">
 									<img src="assets/img/model/model-rock.webp" width="530" height="639" alt="" decoding="async">
-									<span class="model-lead" style="--ex: 484; --ay: 252"></span><span class="model-label" style="--ay: 252">Filled-Up Soil</span>
+									<span class="model-label" style="--ax: 522; --ay: 252; --lead: 40">Filled-up soil</span>
 								</div>
 							</div>
 							<div class="model-layer model-grid" style="--i: 3">
 								<div class="model-float">
 									<img src="assets/img/model/model-grid.webp" width="530" height="639" alt="" decoding="async">
+									<span class="model-label" style="--ax: 522; --ay: 201; --lead: 46">Investigation grid</span>
 								</div>
 							</div>
 							<div class="model-layer model-survey" style="--i: 4">
 								<div class="model-float">
 									<img src="assets/img/model/model-survey.webp" width="530" height="639" alt="" decoding="async">
+									<span class="model-label" style="--ax: 522; --ay: 97; --lead: 42">Survey &amp; topography</span>
 								</div>
 							</div>
 						</figure>
@@ -573,6 +576,6 @@
 		</div>
 	</footer>
 
-	<script src="assets/js/main.js?v=2026-10-15x" defer></script>
+	<script src="assets/js/main.js?v=2026-10-16b" defer></script>
 </body>
 </html>
