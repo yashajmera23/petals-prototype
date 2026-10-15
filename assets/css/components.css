@@ -228,32 +228,34 @@
 }
 @keyframes model-drift { from { transform: translateY(-0.5%); } to { transform: translateY(0.5%); } }
 
-/* Labels: a copper leader from the layer's right corner, then the name */
-.model-label {
+/* Labels: every dot sits on one vertical line (x = 522 of the 530-wide picture), with a copper
+   leader running back to its layer's edge (--ex) at the label's height (--ay). */
+.model-lead, .model-label {
 	position: absolute;
-	left: calc(var(--ax) / 530 * 100%);
 	top: calc((40 + var(--ay)) / 720 * 100%);
+	opacity: var(--label, 1);
+}
+.model-lead {
+	left: calc((var(--ex) + 3) / 530 * 100%);
+	width: calc((522 - var(--ex) - 3) / 530 * 100%);
+	height: 1px;
+	background: var(--color-copper);
+}
+.model-label {
+	left: calc(522 / 530 * 100%);
 	display: flex;
 	align-items: center;
 	gap: var(--space-8);
-	transform: translateY(-50%);
+	transform: translate(-2.5px, -50%);
 	font-size: var(--text-meta);
 	font-weight: var(--weight-strong);
 	font-stretch: var(--width-title);
 	color: var(--color-ink);
 	white-space: nowrap;
-	opacity: var(--label, 1);
 }
 .model-label::before {
 	content: "";
-	width: 28px;
-	height: 1px;
-	background: var(--color-copper);
-	box-shadow: -3px 0 0 0 var(--color-copper);
-}
-.model-label::after {
-	content: "";
-	order: -1;
+	flex: none;
 	width: 5px;
 	height: 5px;
 	border-radius: 50%;
@@ -267,7 +269,7 @@
 }
 @media (max-width: 600px) {
 	.hero-model { margin-right: 0; }
-	.model-label { display: none; }
+	.model-label, .model-lead { display: none; }
 }
 
 /* Full-bleed photo band under the drawing. --band-inset / --band-radius are driven by

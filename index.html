@@ -11,9 +11,9 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..600&display=swap">
 	<!-- Bump ?v= on these four links whenever CSS or JS changes, so browsers never pair new HTML with stale files -->
-	<link rel="stylesheet" href="assets/css/tokens.css?v=2026-10-15u">
-	<link rel="stylesheet" href="assets/css/base.css?v=2026-10-15u">
-	<link rel="stylesheet" href="assets/css/components.css?v=2026-10-15u">
+	<link rel="stylesheet" href="assets/css/tokens.css?v=2026-10-15w">
+	<link rel="stylesheet" href="assets/css/base.css?v=2026-10-15w">
+	<link rel="stylesheet" href="assets/css/components.css?v=2026-10-15w">
 </head>
 <body>
 	<a class="skip-link" href="#main">Skip to content</a>
@@ -80,35 +80,36 @@
 						<!-- Ground model from the PETALS brochure (page 2), split into five layers. They settle
 						     together on load, then open apart as the page scrolls, each layer labelled.
 						     Without JS, or with reduced motion, the model is shown open, as in the brochure. -->
-						<figure class="hero-model" role="img" aria-label="Exploded model of a site: survey and topography, investigation grid, rock surface, soil strata, and the foundations and structure beneath">
+						<figure class="hero-model" role="img" aria-label="Exploded model of a site: survey and topography, investigation grid, filled-up soil, natural soil strata, rock surface, and the foundations and structure beneath">
 							<div class="model-layer model-foundations" style="--i: 0">
 								<div class="model-float">
 									<img src="assets/img/model/model-foundations.webp?v=2" width="530" height="639" alt="" decoding="async">
-									<span class="model-label" style="--ax: 516; --ay: 528">Foundations</span>
+									<span class="model-lead" style="--ex: 516; --ay: 528"></span><span class="model-label" style="--ay: 528">Foundations</span>
 								</div>
 							</div>
 							<div class="model-layer model-block" style="--i: 1">
 								<div class="model-float">
 									<img src="assets/img/model/model-block.webp?v=2" width="530" height="639" alt="" decoding="async" fetchpriority="high">
-									<span class="model-label" style="--ax: 482; --ay: 352">Soil strata</span>
+									<span class="model-lead" style="--ex: 482; --ay: 328"></span><span class="model-label" style="--ay: 328">Natural Soil Strata</span>
+									<span class="model-lead" style="--ex: 482; --ay: 398"></span><span class="model-label" style="--ay: 398">Rock Surface</span>
 								</div>
 							</div>
 							<div class="model-layer model-rock" style="--i: 2">
 								<div class="model-float">
 									<img src="assets/img/model/model-rock.webp" width="530" height="639" alt="" decoding="async">
-									<span class="model-label" style="--ax: 484; --ay: 252">Rock surface</span>
+									<span class="model-lead" style="--ex: 484; --ay: 252"></span><span class="model-label" style="--ay: 252">Filled-Up Soil</span>
 								</div>
 							</div>
 							<div class="model-layer model-grid" style="--i: 3">
 								<div class="model-float">
 									<img src="assets/img/model/model-grid.webp" width="530" height="639" alt="" decoding="async">
-									<span class="model-label" style="--ax: 478; --ay: 201">Investigation grid</span>
+									<span class="model-lead" style="--ex: 478; --ay: 201"></span><span class="model-label" style="--ay: 201">Investigation Grid</span>
 								</div>
 							</div>
 							<div class="model-layer model-survey" style="--i: 4">
 								<div class="model-float">
 									<img src="assets/img/model/model-survey.webp" width="530" height="639" alt="" decoding="async">
-									<span class="model-label" style="--ax: 480; --ay: 97">Survey &amp; topography</span>
+									<span class="model-lead" style="--ex: 480; --ay: 97"></span><span class="model-label" style="--ay: 97">Survey &amp; Topography</span>
 								</div>
 							</div>
 						</figure>
@@ -575,6 +576,6 @@
 		</div>
 	</footer>
 
-	<script src="assets/js/main.js?v=2026-10-15u" defer></script>
+	<script src="assets/js/main.js?v=2026-10-15w" defer></script>
 </body>
 </html>
