@@ -11,9 +11,9 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..600&display=swap">
 	<!-- Bump ?v= on these four links whenever CSS or JS changes, so browsers never pair new HTML with stale files -->
-	<link rel="stylesheet" href="assets/css/tokens.css?v=2026-10-17a">
-	<link rel="stylesheet" href="assets/css/base.css?v=2026-10-17a">
-	<link rel="stylesheet" href="assets/css/components.css?v=2026-10-17a">
+	<link rel="stylesheet" href="assets/css/tokens.css?v=2026-10-18h">
+	<link rel="stylesheet" href="assets/css/base.css?v=2026-10-18h">
+	<link rel="stylesheet" href="assets/css/components.css?v=2026-10-18h">
 </head>
 <body>
 	<a class="skip-link" href="#main">Skip to content</a>
@@ -31,7 +31,7 @@
 			<nav class="primary-nav" aria-label="Main" data-open="false" id="primary-nav">
 				<ul class="nav-list">
 					<li><a class="nav-link" href="index.html">Home</a></li>
-					<li><a class="nav-link" href="#">About Us</a></li>
+					<li><a class="nav-link" href="about-us.html">About Us</a></li>
 					<li class="has-dropdown">
 						<button class="nav-link is-section" type="button" aria-expanded="false" aria-controls="expertise-menu" data-dropdown-toggle>
 							Expertise
@@ -77,6 +77,7 @@
 							<svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M8.5 3.5 13 8l-4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.4"/></svg>
 						</a>
 						<a class="btn btn-ghost" href="#scope">See what we cover</a>
+						<a class="btn btn-ghost" href="assets/docs/PETALS-Brochure.pdf" download="PETALS-Engineering-Consultancy-Brochure.pdf">Download brochure</a>
 					</div>
 				</div>
 				<figure class="svc-hero-media">
@@ -366,6 +367,18 @@
 			</ul>
 		</section>
 
+		<section class="brochure-band container" aria-labelledby="brochure-title">
+			<div class="brochure-card">
+				<img class="brochure-cover" src="assets/img/brochure-cover.webp" width="420" height="594" alt="Cover of the PETALS Engineering Consultancy brochure" loading="lazy">
+				<div class="brochure-text">
+					<h2 id="brochure-title">Company brochure</h2>
+					<p>Our services, how we work, the industries we serve and our delivery model, in one document.</p>
+					<a class="btn btn-primary" href="assets/docs/PETALS-Brochure.pdf" download="PETALS-Engineering-Consultancy-Brochure.pdf">Download brochure <svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2.5v8M4.5 7 8 10.5 11.5 7M3 13.5h10" fill="none" stroke="currentColor" stroke-width="1.4"/></svg></a>
+					<span class="brochure-meta">PDF, 18 pages, 6.4 MB</span>
+				</div>
+			</div>
+		</section>
+
 		<section class="enquiry-band" id="enquiry" aria-labelledby="enquiry-title">
 			<div class="container enquiry-inner">
 				<div>
@@ -397,7 +410,7 @@
 					<h2 class="footer-heading" id="footer-links-title">Quick links</h2>
 					<ul>
 						<li><a href="index.html">Home</a></li>
-						<li><a href="#">About Us</a></li>
+						<li><a href="about-us.html">About Us</a></li>
 						<li><a href="#">Expertise</a></li>
 						<li><a href="#">How We Work</a></li>
 						<li><a href="#">Careers</a></li>
@@ -423,6 +436,6 @@
 		</div>
 	</footer>
 
-	<script src="assets/js/main.js?v=2026-10-17a" defer></script>
+	<script src="assets/js/main.js?v=2026-10-18h" defer></script>
 </body>
 </html>

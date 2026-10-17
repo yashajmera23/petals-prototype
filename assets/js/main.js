@@ -275,3 +275,152 @@ document.querySelectorAll('.step-streams').forEach((block) => {
 		buttons.forEach((b) => b.setAttribute('aria-pressed', String(b === btn)));
 	}));
 });
+
+// About, Why PETALS: tabs over eight strengths. Steps on by itself every few seconds; pointer,
+// focus, an offscreen section or a hidden tab hold it. Arrow keys move between tabs.
+const why = document.querySelector('.why');
+if (why) {
+	const tabs = [...why.querySelectorAll('.why-tab')];
+	const panels = tabs.map((t) => document.getElementById(t.getAttribute('aria-controls')));
+	const INTERVAL = 4500;
+	const reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+	const holds = new Set();
+	let current = 0;
+	let timer = null;
+
+	function select(i, focus) {
+		current = (i + tabs.length) % tabs.length;
+		tabs.forEach((t, k) => {
+			const on = k === current;
+			t.setAttribute('aria-selected', String(on));
+			t.tabIndex = on ? 0 : -1;
+			panels[k].classList.toggle('is-active', on);
+		});
+		if (focus) tabs[current].focus();
+		schedule();
+	}
+	function schedule() {
+		clearTimeout(timer);
+		why.classList.toggle('is-held', holds.size > 0);
+		if (!holds.size && !reduce.matches) timer = setTimeout(() => select(current + 1), INTERVAL);
+	}
+	const hold = (r) => { holds.add(r); schedule(); };
+	const release = (r) => { holds.delete(r); schedule(); };
+
+	tabs.forEach((t, i) => {
+		t.addEventListener('click', () => select(i));
+		t.addEventListener('pointerenter', (e) => { if (e.pointerType === 'mouse') select(i); });
+		t.addEventListener('keydown', (e) => {
+			const step = { ArrowDown: 1, ArrowRight: 1, ArrowUp: -1, ArrowLeft: -1 }[e.key];
+			if (step) { e.preventDefault(); select(current + step, true); }
+		});
+	});
+	const layout = why.querySelector('.why-layout');
+	layout.addEventListener('pointerenter', (e) => { if (e.pointerType === 'mouse') hold('hover'); });
+	layout.addEventListener('pointerleave', (e) => { if (e.pointerType === 'mouse') release('hover'); });
+	why.addEventListener('focusin', () => hold('focus'));
+	why.addEventListener('focusout', (e) => { if (!why.contains(e.relatedTarget)) release('focus'); });
+	new IntersectionObserver(([en]) => (en.isIntersecting ? release('offscreen') : hold('offscreen')), { threshold: 0.3 }).observe(layout);
+	document.addEventListener('visibilitychange', () => (document.hidden ? hold('hidden') : release('hidden')));
+
+	why.style.setProperty('--why-interval', `${INTERVAL}ms`);
+	why.classList.add('is-cycling');
+	holds.add('offscreen');
+	select(0);
+}
+// About, Delivery model: pointing at (or focusing) a row lights its ring in the diagram.
+const dmFigure = document.querySelector('.dm-figure');
+if (dmFigure) {
+	document.querySelectorAll('.dm-list li').forEach((li) => {
+		const on = () => { dmFigure.dataset.focus = li.dataset.ring; li.classList.add('is-on'); };
+		const off = () => { delete dmFigure.dataset.focus; li.classList.remove('is-on'); };
+		li.addEventListener('pointerenter', on);
+		li.addEventListener('pointerleave', off);
+		li.addEventListener('focus', on);
+		li.addEventListener('blur', off);
+	});
+}
+
+// Cursor trail: a small copper square follows the pointer and draws a fading line behind it,
+// like a pen tracing on a drawing sheet. It sits over interactive elements as an outline.
+// Fine pointers with motion allowed only; the system cursor stays as it is.
+if (window.matchMedia('(hover: hover) and (pointer: fine)').matches && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+	const canvas = document.createElement('canvas');
+	canvas.className = 'cursor-trail';
+	canvas.setAttribute('aria-hidden', 'true');
+	document.body.append(canvas);
+	const ctx = canvas.getContext('2d');
+	const LIFE = 420; // ms a point of the line stays visible
+	const COPPER = getComputedStyle(document.documentElement).getPropertyValue('--color-copper').trim() || '#c28050';
+	let dpr = 1;
+	let pts = [];
+	let head = null; // eased square position
+	let target = null;
+	let overLink = 0; // 0..1, eases toward 1 over links and buttons
+	let wantLink = 0;
+	let running = false;
+
+	const size = () => {
+		dpr = Math.min(window.devicePixelRatio || 1, 2);
+		canvas.width = innerWidth * dpr;
+		canvas.height = innerHeight * dpr;
+	};
+	size();
+	window.addEventListener('resize', size);
+
+	window.addEventListener('pointermove', (e) => {
+		if (e.pointerType !== 'mouse') return;
+		target = { x: e.clientX, y: e.clientY };
+		if (!head) head = { ...target };
+		pts.push({ x: e.clientX, y: e.clientY, t: performance.now() });
+		wantLink = e.target instanceof Element && e.target.closest('a, button, summary, [role="tab"], [tabindex="0"]') ? 1 : 0;
+		if (!running) { running = true; requestAnimationFrame(draw); }
+	}, { passive: true });
+	document.addEventListener('pointerleave', () => { target = null; head = null; });
+
+	function draw(now) {
+		pts = pts.filter((p) => now - p.t < LIFE);
+		ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+		ctx.clearRect(0, 0, innerWidth, innerHeight);
+
+		// the line: smoothed through midpoints, fading and thinning toward its tail
+		ctx.lineCap = 'round';
+		for (let i = 1; i < pts.length - 1; i++) {
+			const a = pts[i - 1], b = pts[i], c = pts[i + 1];
+			const life = 1 - (now - b.t) / LIFE;
+			ctx.strokeStyle = COPPER;
+			ctx.globalAlpha = Math.max(0, life) * 0.9;
+			ctx.lineWidth = 0.6 + life * 1.4;
+			ctx.beginPath();
+			ctx.moveTo((a.x + b.x) / 2, (a.y + b.y) / 2);
+			ctx.quadraticCurveTo(b.x, b.y, (b.x + c.x) / 2, (b.y + c.y) / 2);
+			ctx.stroke();
+		}
+
+		// the square: eases after the pointer; over a link it opens into a larger outline
+		if (target && head) {
+			head.x += (target.x - head.x) * 0.35;
+			head.y += (target.y - head.y) * 0.35;
+			overLink += (wantLink - overLink) * 0.2;
+			const s = 9 + overLink * 13;
+			ctx.globalAlpha = 1;
+			ctx.save();
+			ctx.translate(head.x, head.y);
+			ctx.rotate(overLink * Math.PI / 4);
+			if (overLink > 0.5) {
+				ctx.strokeStyle = COPPER;
+				ctx.lineWidth = 1.5;
+				ctx.strokeRect(-s / 2, -s / 2, s, s);
+			} else {
+				ctx.fillStyle = COPPER;
+				ctx.fillRect(-s / 2, -s / 2, s, s);
+			}
+			ctx.restore();
+		}
+		ctx.globalAlpha = 1;
+
+		const settled = !pts.length && (!target || (Math.abs(target.x - head.x) < 0.3 && Math.abs(target.y - head.y) < 0.3 && Math.abs(wantLink - overLink) < 0.01));
+		if (settled) { running = false; return; }
+		requestAnimationFrame(draw);
+	}
+}
