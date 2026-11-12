@@ -424,3 +424,401 @@ if (window.matchMedia('(hover: hover) and (pointer: fine)').matches && !window.m
 		requestAnimationFrame(draw);
 	}
 }
+
+// Careers, team row: while motion is allowed on a wide, tall-enough screen, the section pins and
+// vertical scrolling slides the row right to left. Otherwise the row is a plain sideways scroller.
+// The arrows step one card either way in both modes.
+const team = document.querySelector('.team');
+if (team) {
+	const track = team.querySelector('.team-track');
+	const stage = team.querySelector('.team-stage');
+	const viewport = team.querySelector('.team-viewport');
+	const row = team.querySelector('.team-row');
+	const bar = team.querySelector('.team-progress span');
+	const reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+	const HEADER = 56;
+	let pinned = false;
+	let dist = 0;
+
+	const canPin = () => !reduce.matches && window.innerWidth > 760 && window.innerHeight >= 600;
+	const update = () => {
+		let p;
+		if (pinned) {
+			const top = track.getBoundingClientRect().top + window.scrollY;
+			p = dist ? Math.min(1, Math.max(0, (window.scrollY + HEADER - top) / dist)) : 0;
+			row.style.transform = `translate3d(${-p * dist}px, 0, 0)`;
+		} else {
+			row.style.transform = '';
+			p = dist ? viewport.scrollLeft / dist : 0;
+		}
+		bar.style.transform = `scaleX(${p.toFixed(4)})`;
+	};
+	const layout = () => {
+		pinned = canPin();
+		team.classList.toggle('is-pinned', pinned);
+		row.style.transform = '';
+		dist = Math.max(0, row.scrollWidth - viewport.clientWidth);
+		track.style.height = pinned ? `${stage.offsetHeight + dist}px` : '';
+		update();
+	};
+	const step = (dir) => {
+		const card = row.firstElementChild;
+		const by = (card.getBoundingClientRect().width + parseFloat(getComputedStyle(row).columnGap || 0)) * dir;
+		if (pinned) window.scrollBy({ top: by, behavior: reduce.matches ? 'auto' : 'smooth' });
+		else viewport.scrollBy({ left: by, behavior: reduce.matches ? 'auto' : 'smooth' });
+	};
+	team.querySelector('.team-prev').addEventListener('click', () => step(-1));
+	team.querySelector('.team-next').addEventListener('click', () => step(1));
+	window.addEventListener('scroll', () => { if (pinned) update(); }, { passive: true });
+	viewport.addEventListener('scroll', () => { if (!pinned) update(); }, { passive: true });
+	window.addEventListener('resize', layout);
+	window.addEventListener('load', layout);
+	layout();
+}
+
+// Careers, openings: ?openings=0 previews the empty state the page shows when no vacancy is published.
+// "Apply" on a card carries its role into the form.
+const jobList = document.querySelector('.job-list');
+if (jobList) {
+	if (new URLSearchParams(location.search).get('openings') === '0') {
+		jobList.hidden = true;
+		document.querySelector('.openings-empty').hidden = false;
+		document.querySelector('.openings-count').textContent = 'No open roles right now';
+	}
+	const roleSelect = document.getElementById('f-role');
+	jobList.querySelectorAll('.job-apply').forEach((a) => a.addEventListener('click', () => { roleSelect.value = a.dataset.role; }));
+}
+
+// Careers, Share Your Profile: checks each field with a plain message beside it, then shows the
+// thank-you state. The prototype sends nothing.
+const applyForm = document.querySelector('.apply-form');
+if (applyForm) {
+	const cv = applyForm.querySelector('#f-cv');
+	const zone = applyForm.querySelector('.dropzone');
+	const zoneText = zone.querySelector('.dz-text');
+	const MAX = 5 * 1024 * 1024;
+	const messages = {
+		name: 'Please enter your full name.',
+		email: 'Please enter a valid email address, like name@company.com.',
+		phone: 'Please enter a phone number with at least 10 digits.',
+		location: 'Please enter the city you are based in.',
+		discipline: 'Please choose a discipline.',
+		experience: 'Please choose your experience.',
+		consent: 'Please agree to the privacy notice so we can store your details.',
+	};
+	const errorOf = (el) => el.closest('.field').querySelector('.field-error');
+	const cvProblem = () => {
+		const f = cv.files[0];
+		if (!f) return 'Please attach your CV.';
+		if (!/\.(pdf|docx?)$/i.test(f.name)) return 'Please attach a PDF or Word file.';
+		if (f.size > MAX) return 'This file is larger than 5 MB. Please attach a smaller file.';
+		return '';
+	};
+	const check = (el) => {
+		let msg = '';
+		if (el === cv) msg = cvProblem();
+		else if (!el.checkValidity()) msg = messages[el.name] || 'Please fill in this field.';
+		errorOf(el).textContent = msg;
+		el.setAttribute('aria-invalid', String(Boolean(msg)));
+		if (el === cv) zone.classList.toggle('is-invalid', Boolean(msg));
+		return !msg;
+	};
+	const fields = [...applyForm.querySelectorAll('input, select')].filter((el) => el.required);
+	fields.forEach((el) => el.addEventListener(el.type === 'checkbox' || el.tagName === 'SELECT' || el === cv ? 'change' : 'blur', () => check(el)));
+
+	cv.addEventListener('change', () => {
+		const f = cv.files[0];
+		zone.classList.toggle('has-file', Boolean(f));
+		zoneText.innerHTML = f ? `<b>${f.name.replace(/[<>&]/g, '')}</b> · ${(f.size / 1048576).toFixed(1)} MB` : '<b>Drop your CV here</b> or click to choose';
+	});
+	['dragenter', 'dragover'].forEach((t) => zone.addEventListener(t, () => zone.classList.add('is-over')));
+	['dragleave', 'drop'].forEach((t) => zone.addEventListener(t, () => zone.classList.remove('is-over')));
+
+	applyForm.addEventListener('submit', (e) => {
+		e.preventDefault();
+		const results = fields.map(check);
+		const firstBad = fields[results.indexOf(false)];
+		if (firstBad) { firstBad.focus(); return; }
+		applyForm.hidden = true;
+		const done = document.querySelector('.apply-done');
+		done.hidden = false;
+		done.focus();
+	});
+}
+
+// How We Work page, stage ruler: marks the stage crossing the middle of the screen and fills
+// the copper rule up to it. The links jump to each stage.
+const ruler = document.querySelector('.stage-ruler');
+if (ruler) {
+	const links = [...ruler.querySelectorAll('a[data-stage]')];
+	const fill = ruler.querySelector('.ruler-fill');
+	const setStage = (n) => {
+		links.forEach((a) => a.classList.toggle('is-current', Number(a.dataset.stage) === n));
+		links.forEach((a) => a.classList.toggle('is-done', Number(a.dataset.stage) < n));
+		fill.style.transform = `scaleX(${(n / links.length).toFixed(3)})`;
+	};
+	const io = new IntersectionObserver((entries) => entries.forEach((e) => {
+		if (e.isIntersecting) setStage(Number(e.target.id.split('-')[1]));
+	}), { rootMargin: '-45% 0px -45% 0px' });
+	links.forEach((a) => { const t = document.getElementById(a.getAttribute('href').slice(1)); if (t) io.observe(t); });
+	setStage(0);
+}
+
+// Insights: category chips and search filter the cards together; an empty result shows a note.
+const insGrid = document.querySelector('.ins-library .ins-grid');
+if (insGrid) {
+	const cards = [...insGrid.children];
+	const chips = [...document.querySelectorAll('.ins-filters .chip')];
+	const search = document.querySelector('.ins-search input');
+	const status = document.querySelector('.ins-status');
+	const empty = document.querySelector('.ins-empty');
+	const reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+	let cat = 'all';
+	const apply = () => {
+		const q = search.value.trim().toLowerCase();
+		let shown = 0;
+		cards.forEach((c) => {
+			const ok = (cat === 'all' || c.dataset.cat === cat) && (!q || c.textContent.toLowerCase().includes(q));
+			c.hidden = !ok;
+			if (ok) {
+				shown++;
+				if (!reduce.matches) { c.classList.remove('is-in'); void c.offsetWidth; c.classList.add('is-in'); }
+			}
+		});
+		// the first visible card takes the wide "feature" slot only when nothing is filtered
+		insGrid.classList.toggle('is-filtered', cat !== 'all' || Boolean(q));
+		empty.hidden = shown > 0;
+		status.textContent = shown === cards.length ? '' : `${shown} of ${cards.length} articles`;
+	};
+	chips.forEach((chip) => chip.addEventListener('click', () => {
+		cat = chip.dataset.cat;
+		chips.forEach((c) => c.setAttribute('aria-pressed', String(c === chip)));
+		apply();
+	}));
+	search.addEventListener('input', apply);
+}
+
+// Contact: copy buttons beside the email and phone.
+document.querySelectorAll('.ct-copy').forEach((btn) => btn.addEventListener('click', async () => {
+	const value = btn.closest('li').querySelector('.ct-value').textContent.trim();
+	try { await navigator.clipboard.writeText(value); } catch (err) { return; }
+	btn.classList.add('is-copied');
+	setTimeout(() => btn.classList.remove('is-copied'), 1600);
+}));
+
+// Contact: project enquiry in three steps. Each step is checked before moving on; step 3 shows a
+// short review of what will be sent. The prototype sends nothing.
+const wiz = document.querySelector('.wiz');
+if (wiz) {
+	const pages = [...wiz.querySelectorAll('.wiz-page')];
+	const markers = [...document.querySelectorAll('.wiz-steps li')];
+	const bar = document.querySelector('.wiz-bar span');
+	const back = wiz.querySelector('.wiz-back');
+	const next = wiz.querySelector('.wiz-next');
+	const submit = wiz.querySelector('.wiz-submit');
+	const scope = wiz.querySelector('#c-scope');
+	const counter = wiz.querySelector('.char-count');
+	let page = 0;
+	const msg = {
+		name: 'Please enter your full name.',
+		email: 'Please enter a valid email address, like name@company.com.',
+		phone: 'Please enter a phone number with at least 10 digits.',
+		location: 'Please enter where the project is.',
+		scope: 'Please describe the scope in a few lines.',
+		service: 'Please choose at least one service.',
+	};
+	const show = (i) => {
+		page = i;
+		pages.forEach((p, k) => { p.hidden = k !== i; p.classList.toggle('is-current', k === i); });
+		markers.forEach((m, k) => { m.classList.toggle('is-current', k === i); m.classList.toggle('is-done', k < i); });
+		bar.style.transform = `scaleX(${((i + 1) / pages.length).toFixed(3)})`;
+		back.hidden = i === 0;
+		next.hidden = i === pages.length - 1;
+		submit.hidden = i !== pages.length - 1;
+		if (i === pages.length - 1) review();
+	};
+	const validate = (p) => {
+		let firstBad = null;
+		p.querySelectorAll('input[required], textarea[required]').forEach((el) => {
+			const bad = !el.checkValidity() || (el.tagName === 'TEXTAREA' && el.value.trim().length < 10);
+			el.setAttribute('aria-invalid', String(bad));
+			el.closest('.field').querySelector('.field-error').textContent = bad ? msg[el.name] : '';
+			if (bad && !firstBad) firstBad = el;
+		});
+		const group = p.querySelector('[data-group="service"]');
+		if (group) {
+			const none = !group.querySelector('input:checked');
+			group.querySelector('.field-error').textContent = none ? msg.service : '';
+			if (none && !firstBad) firstBad = group.querySelector('input');
+		}
+		if (firstBad) firstBad.focus();
+		return !firstBad;
+	};
+	const review = () => {
+		const v = (n) => (wiz.elements[n] && wiz.elements[n].value.trim()) || '—';
+		const services = [...wiz.querySelectorAll('input[name="service"]:checked')].map((x) => x.value).join(', ') || '—';
+		const type = (wiz.querySelector('input[name="type"]:checked') || {}).value || '—';
+		const esc = (t) => t.replace(/[<>&]/g, (c) => ({ '<': '&lt;', '>': '&gt;', '&': '&amp;' }[c]));
+		wiz.querySelector('.wiz-review').innerHTML = `<h3>You are sending</h3><dl>${[
+			['Name', v('name')], ['Organisation', v('org')], ['Email', v('email')], ['Phone', v('phone')],
+			['Services', services], ['Project type', type], ['Location', v('location')], ['Start', v('start')],
+		].map(([k, x]) => `<div><dt>${k}</dt><dd>${esc(x)}</dd></div>`).join('')}</dl>`;
+	};
+	next.addEventListener('click', () => { if (validate(pages[page])) show(page + 1); });
+	back.addEventListener('click', () => show(page - 1));
+	scope.addEventListener('input', () => { counter.textContent = `${scope.value.length} / 1500`; });
+	wiz.addEventListener('submit', (e) => {
+		e.preventDefault();
+		if (!validate(pages[page])) return;
+		wiz.hidden = true;
+		document.querySelector('.wiz-steps').hidden = true;
+		document.querySelector('.wiz-bar').hidden = true;
+		const done = document.querySelector('.wiz-done');
+		done.hidden = false;
+		done.focus();
+	});
+	show(0);
+}
+
+
+/* ---------- Expertise: the row under the pointer, in focus or at mid-screen drives the preview panel ---------- */
+(function () {
+	const index = document.querySelector('.ex-index');
+	if (!index) return;
+	const rows = [...index.querySelectorAll('.ex-row')];
+	const imgs = [...index.querySelectorAll('.ex-media img')];
+	const slides = [...index.querySelectorAll('.ex-slide')];
+	const ruler = index.querySelector('.ex-ruler');
+	const note = index.querySelector('.ex-ruler-n');
+	const counts = rows.map((r) => r.querySelector('.ex-row-count b').textContent);
+	let current = -1, hovering = false;
+	function setActive(i) {
+		if (i === current) return;
+		current = i;
+		rows.forEach((r) => r.classList.toggle('is-active', +r.dataset.svc === i));
+		imgs.forEach((m) => m.classList.toggle('is-on', +m.dataset.svc === i));
+		slides.forEach((s) => s.classList.toggle('is-on', +s.dataset.svc === i));
+		if (ruler) ruler.dataset.active = i;
+		if (note) note.textContent = counts[rows.findIndex((r) => +r.dataset.svc === i)];
+	}
+	rows.forEach((r) => {
+		r.addEventListener('pointerenter', () => { hovering = true; setActive(+r.dataset.svc); });
+		r.addEventListener('pointerleave', () => { hovering = false; });
+		r.addEventListener('focus', () => setActive(+r.dataset.svc));
+	});
+	if ('IntersectionObserver' in window) {
+		const io = new IntersectionObserver((entries) => {
+			if (hovering) return;
+			entries.forEach((e) => { if (e.isIntersecting) setActive(+e.target.dataset.svc); });
+		}, { rootMargin: '-40% 0px -55% 0px' });
+		rows.forEach((r) => io.observe(r));
+	}
+	setActive(0);
+})();
+
+/* ---------- Expertise: scope matrix, dots pop in once, and the hovered column lights up ---------- */
+(function () {
+	const table = document.querySelector('.ex-matrix');
+	if (!table) return;
+	table.addEventListener('pointerover', (e) => {
+		const cell = e.target instanceof Element && e.target.closest('[data-col]');
+		if (cell) table.dataset.col = cell.dataset.col; else delete table.dataset.col;
+	});
+	table.addEventListener('pointerleave', () => { delete table.dataset.col; });
+	if (!('IntersectionObserver' in window) || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+	table.classList.add('is-armed');
+	const io = new IntersectionObserver((entries) => {
+		if (entries[0].isIntersecting) { table.classList.add('is-live'); io.disconnect(); }
+	}, { threshold: 0.3 });
+	io.observe(table);
+})();
+
+/* ---------- Privacy notice and articles: on-this-page highlight and reading progress ---------- */
+(function () {
+	const navs = [...document.querySelectorAll('[data-spy]')];
+	const progress = document.querySelector('.ar-progress span');
+	if (!navs.length && !progress) return;
+	const links = navs.flatMap((n) => [...n.querySelectorAll('a[href^="#"]')]);
+	const targets = links.map((a) => document.getElementById(a.getAttribute('href').slice(1))).filter(Boolean);
+	const bar = document.querySelector('.pv-toc-bar span');
+	const body = document.querySelector('.pv-body, .ar-body');
+	let ticking = false;
+	function update() {
+		ticking = false;
+		const line = innerHeight * 0.3;
+		let cur = null;
+		targets.forEach((t) => { if (t.getBoundingClientRect().top <= line) cur = t; });
+		if (!cur && targets.length) cur = targets[0];
+		links.forEach((a) => a.classList.toggle('is-current', cur && a.getAttribute('href') === '#' + cur.id));
+		targets.forEach((t) => t.classList.toggle('is-current', t === cur));
+		if (body) {
+			const r = body.getBoundingClientRect();
+			const p = Math.min(1, Math.max(0, (innerHeight * 0.6 - r.top) / r.height));
+			if (bar) bar.style.setProperty('--p', p.toFixed(3));
+			if (progress) progress.style.setProperty('--p', p.toFixed(3));
+		}
+	}
+	addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(update); } }, { passive: true });
+	addEventListener('resize', update);
+	update();
+})();
+
+/* ---------- Article: borehole log, pick a layer by button or on the drawing ---------- */
+(function () {
+	const fig = document.querySelector('.bh-fig');
+	if (!fig) return;
+	const svg = fig.querySelector('.bh-svg');
+	const btns = [...fig.querySelectorAll('.bh-btn')];
+	const layers = [...fig.querySelectorAll('.bh-layer')];
+	const descs = [...fig.querySelectorAll('.bh-desc')];
+	function pick(key) {
+		svg.classList.add('has-pick');
+		btns.forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.layer === key)));
+		layers.forEach((l) => l.classList.toggle('is-on', l.dataset.layer === key));
+		descs.forEach((d) => d.classList.toggle('is-on', d.dataset.layer === key));
+	}
+	btns.forEach((b) => {
+		b.addEventListener('click', () => pick(b.dataset.layer));
+		b.addEventListener('pointerenter', () => pick(b.dataset.layer));
+	});
+	layers.forEach((l) => {
+		l.addEventListener('pointerenter', () => pick(l.dataset.layer));
+		l.addEventListener('click', () => pick(l.dataset.layer));
+	});
+	pick(btns[0].dataset.layer);
+	if (!('IntersectionObserver' in window) || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+	fig.classList.add('is-armed');
+	const io = new IntersectionObserver((entries) => {
+		if (entries[0].isIntersecting) { fig.classList.add('is-live'); io.disconnect(); }
+	}, { threshold: 0.35 });
+	io.observe(fig);
+})();
+
+/* ---------- Article: report checklist count ---------- */
+(function () {
+	const box = document.querySelector('.ar-check');
+	if (!box) return;
+	const inputs = [...box.querySelectorAll('input[type="checkbox"]')];
+	const count = box.querySelector('.ar-check-count');
+	const bar = box.querySelector('.ar-check-bar span');
+	function update() {
+		const n = inputs.filter((i) => i.checked).length;
+		count.innerHTML = n === inputs.length ? '<b>All ' + n + '</b> covered' : '<b>' + n + '</b> of ' + inputs.length;
+		bar.style.setProperty('--p', n / inputs.length);
+	}
+	inputs.forEach((i) => i.addEventListener('change', update));
+	update();
+})();
+
+/* ---------- Article: copy link ---------- */
+(function () {
+	const btn = document.querySelector('[data-copy-url]');
+	if (!btn) return;
+	const label = btn.querySelector('span');
+	btn.addEventListener('click', async () => {
+		try { await navigator.clipboard.writeText(location.href.split('#')[0]); label.textContent = 'Link copied'; }
+		catch (err) { label.textContent = 'Copy failed'; }
+		btn.classList.add('is-copied');
+		setTimeout(() => { btn.classList.remove('is-copied'); label.textContent = 'Copy link'; }, 2000);
+	});
+})();

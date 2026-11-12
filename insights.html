@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Engineering Insights &amp; Technical Articles | PETALS</title>
+	<meta name="description" content="Read practical engineering articles on geotechnical investigation, geophysics, laboratory testing, NDT, foundation testing and engineering design.">
+	<meta name="robots" content="noindex">
+	<link rel="icon" type="image/svg+xml" href="assets/img/brand/petals-mark.svg">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..600&display=swap">
+	<!-- Bump ?v= on these four links whenever CSS or JS changes, so browsers never pair new HTML with stale files -->
+	<link rel="stylesheet" href="assets/css/tokens.css?v=2026-11-12b">
+	<link rel="stylesheet" href="assets/css/base.css?v=2026-11-12b">
+	<link rel="stylesheet" href="assets/css/components.css?v=2026-11-12b">
+</head>
+<body>
+	<a class="skip-link" href="#main">Skip to content</a>
+
+	<header class="site-header">
+		<div class="container header-inner">
+			<!-- Client logo (assets/img/brand, cleaned from the client's Canva export). The logo's own
+			     "Engineering Consultancy" line is unreadable at header size, so the full company name
+			     is completed in live text beside the compact lockup. -->
+			<a class="brand brand-header" href="index.html" aria-label="PETALS Engineering Consultancy, home">
+				<img src="assets/img/brand/petals-logo-compact.svg" width="962" height="318" alt="">
+				<span class="brand-name">Engineering<br>Consultancy</span>
+			</a>
+
+			<nav class="primary-nav" aria-label="Main" data-open="false" id="primary-nav">
+				<ul class="nav-list">
+					<li><a class="nav-link" href="index.html">Home</a></li>
+					<li><a class="nav-link" href="about-us.html">About Us</a></li>
+					<li class="has-dropdown">
+						<button class="nav-link" type="button" aria-expanded="false" aria-controls="expertise-menu" data-dropdown-toggle>
+							Expertise
+							<svg class="chev" viewBox="0 0 10 10" aria-hidden="true"><path d="M1.5 3.5 5 7l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.2"/></svg>
+						</button>
+						<ul class="dropdown" id="expertise-menu" hidden>
+							<li class="dropdown-all"><a href="expertise.html">All expertise</a></li>
+							<li><a href="geotechnical-investigation.html">Geotechnical Investigation</a></li>
+							<li><a href="#">Geophysical &amp; Specialized Investigation</a></li>
+							<li><a href="#">Laboratory &amp; Materials Testing</a></li>
+							<li><a href="#">Non-Destructive Testing (NDT)</a></li>
+							<li><a href="#">Foundation &amp; Pile Testing</a></li>
+							<li><a href="#">Engineering Design &amp; Analysis</a></li>
+							<li><a href="#">BIM &amp; Digital Engineering</a></li>
+							<li><a href="#">Advisory &amp; Due Diligence</a></li>
+						</ul>
+					</li>
+					<li><a class="nav-link" href="how-we-work.html">How We Work</a></li>
+					<li><a class="nav-link" href="careers.html">Careers</a></li>
+					<li><a class="nav-link" href="insights.html" aria-current="page">Insights</a></li>
+					<li class="nav-mobile-only"><a class="nav-link" href="contact.html">Contact</a></li>
+				</ul>
+			</nav>
+
+			<div style="display:flex;align-items:center;gap:8px">
+				<a class="btn btn-primary header-cta" href="contact.html">Contact</a>
+				<button class="btn btn-secondary menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav"><span>Menu</span></button>
+			</div>
+		</div>
+	</header>
+
+	<main id="main">
+		<section class="ins-hero container" aria-labelledby="page-title">
+			<nav class="breadcrumb" aria-label="Breadcrumb"><ol><li><a href="index.html">Home</a></li><li><span aria-current="page">Insights</span></li></ol></nav>
+			<div class="ins-hero-grid">
+				<div>
+					<h1 id="page-title">Engineering <span class="mark">Insights</span></h1>
+					<p class="svc-lede">Technical articles, testing guides and practical engineering knowledge.</p>
+				</div>
+				<label class="ins-search">
+					<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>
+					<span class="visually-hidden">Search articles</span>
+					<input type="search" placeholder="Search articles" autocomplete="off">
+				</label>
+			</div>
+		</section>
+
+		<section class="section container ins-library" aria-label="Articles">
+			<div class="ins-filters" role="group" aria-label="Filter by category">
+					<button type="button" class="chip" data-cat="all" aria-pressed="true">All <span>5</span></button>
+					<button type="button" class="chip" data-cat="Geotechnical" aria-pressed="false">Geotechnical <span>1</span></button>
+					<button type="button" class="chip" data-cat="Geophysics" aria-pressed="false">Geophysics <span>1</span></button>
+					<button type="button" class="chip" data-cat="Laboratory Testing" aria-pressed="false">Laboratory Testing <span>1</span></button>
+					<button type="button" class="chip" data-cat="NDT" aria-pressed="false">NDT <span>1</span></button>
+					<button type="button" class="chip" data-cat="Pile Testing" aria-pressed="false">Pile Testing <span>1</span></button>
+					<button type="button" class="chip" data-cat="Design &amp; BIM" aria-pressed="false">Design &amp; BIM <span>0</span></button>
+			</div>
+			<p class="ins-status" aria-live="polite"></p>
+			<!-- Proposed launch topics from the client document. Publish each card only once its article is
+			     complete and technically reviewed; until then the links go nowhere. -->
+			<ul class="ins-grid">
+				<li class="ins-card ins-feature" data-cat="Geotechnical">
+					<a href="insight-geotechnical-investigation.html">
+						<div class="ins-cover"><img src="assets/img/service-geotechnical.webp" width="800" height="600" alt="" loading="eager"></div>
+						<div class="ins-body">
+							<span class="ins-meta"><span class="ins-cat">Geotechnical</span><span>8 min read</span></span>
+							<h2>What Should a Geotechnical Investigation Include?</h2>
+							<p>Boreholes, in-situ tests, sampling and laboratory work: what a well-scoped investigation covers, and how to size it for your structure.</p>
+							<span class="ins-read">Read Article <svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M8.5 3.5 13 8l-4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.4"/></svg></span>
+						</div>
+					</a>
+				</li>
+				<li class="ins-card" data-cat="Geophysics">
+					<a href="#">
+						<div class="ins-cover"><img src="assets/img/service-geophysical.webp" width="800" height="600" alt="" loading="lazy"></div>
+						<div class="ins-body">
+							<span class="ins-meta"><span class="ins-cat">Geophysics</span><span>6 min read</span></span>
+							<h2>Geotechnical vs Geophysical Investigation</h2>
+							<p>Direct sampling or non-invasive imaging? How the two approaches differ, and why the strongest investigations often use both.</p>
+							<span class="ins-read">Read Article <svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M8.5 3.5 13 8l-4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.4"/></svg></span>
+						</div>
+					</a>
+				</li>
+				<li class="ins-card" data-cat="Laboratory Testing">
+					<a href="#">
+						<div class="ins-cover"><img src="assets/img/service-laboratory.webp" width="800" height="600" alt="" loading="lazy"></div>
+						<div class="ins-body">
+							<span class="ins-meta"><span class="ins-cat">Laboratory Testing</span><span>7 min read</span></span>
+							<h2>Understanding Soil Laboratory Test Results</h2>
+							<p>Index properties, strength and consolidation: how to read the numbers in a lab report and what they mean for design.</p>
+							<span class="ins-read">Read Article <svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M8.5 3.5 13 8l-4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.4"/></svg></span>
+						</div>
+					</a>
+				</li>
+				<li class="ins-card" data-cat="NDT">
+					<a href="#">
+						<div class="ins-cover"><img src="assets/img/service-ndt.webp" width="800" height="600" alt="" loading="lazy"></div>
+						<div class="ins-body">
+							<span class="ins-meta"><span class="ins-cat">NDT</span><span>6 min read</span></span>
+							<h2>Common Methods for Concrete NDT</h2>
+							<p>Rebound hammer, ultrasonic pulse velocity, cover meters and cores: what each method tells you about existing concrete.</p>
+							<span class="ins-read">Read Article <svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M8.5 3.5 13 8l-4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.4"/></svg></span>
+						</div>
+					</a>
+				</li>
+				<li class="ins-card" data-cat="Pile Testing">
+					<a href="#">
+						<div class="ins-cover"><img src="assets/img/service-pile-testing.webp" width="800" height="600" alt="" loading="lazy"></div>
+						<div class="ins-body">
+							<span class="ins-meta"><span class="ins-cat">Pile Testing</span><span>7 min read</span></span>
+							<h2>Pile Load Testing and Pile Integrity Testing: Understanding the Difference</h2>
+							<p>Capacity versus soundness: when a project needs a static or dynamic load test, and when an integrity test is enough.</p>
+							<span class="ins-read">Read Article <svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M8.5 3.5 13 8l-4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.4"/></svg></span>
+						</div>
+					</a>
+				</li>
+			</ul>
+			<div class="ins-empty" hidden>
+				<h2>No articles here yet.</h2>
+				<p>We are preparing articles for this topic. In the meantime, ask us directly.</p>
+				<a class="btn btn-ghost" href="contact.html">Ask a question</a>
+			</div>
+		</section>
+
+		<section class="enquiry-band" id="enquiry" aria-labelledby="enquiry-title">
+			<div class="container enquiry-inner">
+				<div>
+					<h2 id="enquiry-title">Have a technical question?</h2>
+					<p>Tell us about your site or project and we will point you to the right approach.</p>
+				</div>
+				<a class="btn btn-primary" href="contact.html">Send an enquiry
+					<svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M8.5 3.5 13 8l-4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.4"/></svg>
+				</a>
+			</div>
+			<svg class="enquiry-ground" viewBox="0 0 1440 12" preserveAspectRatio="none" aria-hidden="true">
+				<path d="M0 1H1440"/>
+				<path class="hatch" d="M8 1l-7 9M24 1l-7 9M40 1l-7 9M56 1l-7 9M72 1l-7 9M88 1l-7 9M104 1l-7 9M120 1l-7 9M136 1l-7 9M152 1l-7 9M168 1l-7 9M184 1l-7 9M200 1l-7 9M216 1l-7 9M232 1l-7 9M248 1l-7 9M264 1l-7 9M280 1l-7 9M296 1l-7 9M312 1l-7 9M328 1l-7 9M344 1l-7 9M360 1l-7 9M376 1l-7 9M392 1l-7 9M408 1l-7 9M424 1l-7 9M440 1l-7 9M456 1l-7 9M472 1l-7 9M488 1l-7 9M504 1l-7 9M520 1l-7 9M536 1l-7 9M552 1l-7 9M568 1l-7 9M584 1l-7 9M600 1l-7 9M616 1l-7 9M632 1l-7 9M648 1l-7 9M664 1l-7 9M680 1l-7 9M696 1l-7 9M712 1l-7 9M728 1l-7 9M744 1l-7 9M760 1l-7 9M776 1l-7 9M792 1l-7 9M808 1l-7 9M824 1l-7 9M840 1l-7 9M856 1l-7 9M872 1l-7 9M888 1l-7 9M904 1l-7 9M920 1l-7 9M936 1l-7 9M952 1l-7 9M968 1l-7 9M984 1l-7 9M1000 1l-7 9M1016 1l-7 9M1032 1l-7 9M1048 1l-7 9M1064 1l-7 9M1080 1l-7 9M1096 1l-7 9M1112 1l-7 9M1128 1l-7 9M1144 1l-7 9M1160 1l-7 9M1176 1l-7 9M1192 1l-7 9M1208 1l-7 9M1224 1l-7 9M1240 1l-7 9M1256 1l-7 9M1272 1l-7 9M1288 1l-7 9M1304 1l-7 9M1320 1l-7 9M1336 1l-7 9M1352 1l-7 9M1368 1l-7 9M1384 1l-7 9M1400 1l-7 9M1416 1l-7 9M1432 1l-7 9"/>
+			</svg>
+		</section>
+	</main>
+
+	<footer class="site-footer">
+		<div class="container">
+			<div class="footer-top">
+				<div class="footer-brand">
+					<a class="brand" href="index.html" aria-label="PETALS Engineering Consultancy, home">
+						<img src="assets/img/brand/petals-logo-line-on-dark.webp" width="617" height="860" alt="" loading="lazy">
+					</a>
+					<p class="footer-tagline">Engineering Precision. From Ground to Design.</p>
+				</div>
+
+				<nav class="footer-col" aria-labelledby="footer-links-title">
+					<h2 class="footer-heading" id="footer-links-title">Quick links</h2>
+					<ul>
+						<li><a href="index.html">Home</a></li>
+						<li><a href="about-us.html">About Us</a></li>
+						<li><a href="expertise.html">Expertise</a></li>
+						<li><a href="how-we-work.html">How We Work</a></li>
+						<li><a href="careers.html">Careers</a></li>
+						<li><a href="insights.html">Insights</a></li>
+						<li><a href="contact.html">Contact</a></li>
+					</ul>
+				</nav>
+
+				<div class="footer-col">
+					<h2 class="footer-heading">Contact</h2>
+					<ul>
+						<li><span class="placeholder" title="Awaiting the verified address from PETALS">[Official Email]</span></li>
+						<li><span class="placeholder" title="Awaiting the verified number from PETALS">[Business Phone]</span></li>
+						<li>Jaipur, Rajasthan, India</li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="footer-bottom">
+				<p>© 2026 PETALS Engineering Consultancy. All rights reserved.</p>
+				<a href="privacy-notice.html">Privacy notice</a>
+			</div>
+		</div>
+	</footer>
+
+	<script src="assets/js/main.js?v=2026-11-12b" defer></script>
+</body>
+</html>
