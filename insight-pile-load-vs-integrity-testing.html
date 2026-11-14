@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Pile Load Testing and Pile Integrity Testing: Understanding the Difference | PETALS</title>
+	<meta name="description" content="Capacity versus soundness: when a project needs a static or dynamic pile load test, and when a pile integrity test is enough.">
+	<meta name="robots" content="noindex">
+	<link rel="icon" type="image/svg+xml" href="assets/img/brand/petals-mark.svg">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..600&display=swap">
+	<!-- Bump ?v= on these four links whenever CSS or JS changes, so browsers never pair new HTML with stale files -->
+	<link rel="stylesheet" href="assets/css/tokens.css?v=2026-11-14a">
+	<link rel="stylesheet" href="assets/css/base.css?v=2026-11-14a">
+	<link rel="stylesheet" href="assets/css/components.css?v=2026-11-14a">
+</head>
+<body>
+	<a class="skip-link" href="#main">Skip to content</a>
+
+	<header class="site-header">
+		<div class="container header-inner">
+			<!-- Client logo (assets/img/brand, cleaned from the client's Canva export). The logo's own
+			     "Engineering Consultancy" line is unreadable at header size, so the full company name
+			     is completed in live text beside the compact lockup. -->
+			<a class="brand brand-header" href="index.html" aria-label="PETALS Engineering Consultancy, home">
+				<img src="assets/img/brand/petals-logo-compact.svg" width="962" height="318" alt="">
+				<span class="brand-name">Engineering<br>Consultancy</span>
+			</a>
+
+			<nav class="primary-nav" aria-label="Main" data-open="false" id="primary-nav">
+				<ul class="nav-list">
+					<li><a class="nav-link" href="index.html">Home</a></li>
+					<li><a class="nav-link" href="about-us.html">About Us</a></li>
+					<li class="has-dropdown">
+						<button class="nav-link" type="button" aria-expanded="false" aria-controls="expertise-menu" data-dropdown-toggle>
+							Expertise
+							<svg class="chev" viewBox="0 0 10 10" aria-hidden="true"><path d="M1.5 3.5 5 7l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.2"/></svg>
+						</button>
+						<ul class="dropdown" id="expertise-menu" hidden>
+							<li class="dropdown-all"><a href="expertise.html">All expertise</a></li>
+							<li><a href="geotechnical-investigation.html">Geotechnical Investigation</a></li>
+							<li><a href="geophysical-specialized-investigation.html">Geophysical &amp; Specialized Investigation</a></li>
+							<li><a href="laboratory-materials-testing-ndt.html">Laboratory, Materials Testing &amp; NDT</a></li>
+							<li><a href="foundation-pile-testing.html">Foundation &amp; Pile Testing</a></li>
+							<li><a href="pavement-infrastructure-investigation.html">Pavement &amp; Infrastructure Investigation</a></li>
+							<li><a href="engineering-design-analysis.html">Engineering Design &amp; Analysis</a></li>
+							<li><a href="bim-digital-engineering.html">BIM &amp; Digital Engineering</a></li>
+							<li><a href="advisory-due-diligence.html">Advisory &amp; Due Diligence</a></li>
+						</ul>
+					</li>
+					<li><a class="nav-link" href="how-we-work.html">How We Work</a></li>
+					<li><a class="nav-link" href="careers.html">Careers</a></li>
+					<li><a class="nav-link is-section" href="insights.html">Insights</a></li>
+					<li class="nav-mobile-only"><a class="nav-link" href="contact.html">Contact</a></li>
+				</ul>
+			</nav>
+
+			<div style="display:flex;align-items:center;gap:8px">
+				<a class="btn btn-primary header-cta" href="contact.html">Contact</a>
+				<button class="btn btn-secondary menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav"><span>Menu</span></button>
+			</div>
+		</div>
+	</header>
+
+	<main id="main">
+		<div class="ar-progress" aria-hidden="true"><span></span></div>
+		<!-- Sample article written for the prototype. It must be completed and technically reviewed by PETALS before it is published. -->
+		<article class="ar">
+			<header class="ar-hero container">
+				<nav class="breadcrumb" aria-label="Breadcrumb"><ol><li><a href="index.html">Home</a></li><li><a href="insights.html">Insights</a></li><li><span aria-current="page">Pile Testing</span></li></ol></nav>
+				<div class="ar-meta"><span class="ins-cat">Pile Testing</span><span>7 min read</span><span>14 November 2026</span></div>
+				<h1 id="page-title">Pile Load Testing and Pile Integrity Testing: Understanding the Difference</h1>
+				<p class="ar-dek">Capacity versus soundness: when a project needs a static or dynamic load test, when an integrity test is enough, and why most piled projects use both.</p>
+				<p class="ar-byline"><span class="ar-avatar" aria-hidden="true"><img src="assets/img/brand/petals-mark.svg" alt="" width="40" height="40"></span><span>By the <b>PETALS engineering team</b><br>Technically reviewed by <span class="pv-ph">[Reviewer name]</span></span></p>
+			</header>
+			<figure class="ar-cover container">
+				<div class="ar-cover-img"><img src="assets/img/insight-pile-testing-cover.webp" width="1600" height="686" alt="A static pile load test: a hydraulic jack on a concrete pile head under a steel reaction beam weighted with concrete blocks"></div>
+				<figcaption>A static load test: the jack pushes against a loaded reaction beam while gauges record settlement.</figcaption>
+			</figure>
+
+			<div class="ar-layout container">
+				<nav class="ar-toc" aria-label="In this article" data-spy>
+					<p class="pv-toc-title">In this article</p>
+					<ol><li><a href="#p-two">Two different questions</a></li><li><a href="#p-load">Load testing</a></li><li><a href="#p-integrity">Integrity testing</a></li><li><a href="#p-signals">What the results look like</a></li><li><a href="#p-compare">Side by side</a></li><li><a href="#p-which">Which one, and when</a></li><li><a href="#p-takeaways">Key takeaways</a></li></ol>
+					<button type="button" class="ar-copy" data-copy-url><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/></svg><span>Copy link</span></button>
+				</nav>
+
+				<div class="ar-body">
+					<section id="p-two">
+						<h2>Two different questions</h2>
+						<p class="ar-lead">A pile load test asks: how much can this pile carry, and how much will it settle? A pile integrity test asks: is this pile built as designed, continuous and without defects? Both matter, but they answer different questions and are not substitutes for each other.</p>
+					</section>
+
+					<section id="p-load">
+						<h2>Load testing</h2>
+						<p>In a <b>static load test</b>, load is applied to the pile head in stages, using a jack against a reaction beam or kentledge, and settlement is recorded at each stage. It is the most direct measure of capacity. <b>Initial tests</b> on trial piles confirm the design before working piles are installed; <b>routine tests</b> check a share of the working piles.</p>
+						<p><b>Dynamic load tests</b> strike the pile with a heavy drop weight and record strain and acceleration at the head. Analysis estimates capacity in a fraction of the time and cost of a static test, which makes it useful for testing more piles.</p>
+						<aside class="ar-note"><b>Codes.</b> IS 2911 (Part 4) covers load tests on piles, including initial and routine tests.</aside>
+					</section>
+
+					<section id="p-integrity">
+						<h2>Integrity testing</h2>
+						<p>A <b>low-strain pile integrity test (PIT)</b> taps the pile head with a small hammer and records the reflected stress wave. A clean reflection from the toe indicates a continuous pile; an early reflection suggests a change in section, a crack or a defect. It takes minutes per pile, so every pile can be tested.</p>
+						<p><b>Cross-hole sonic logging</b> sends ultrasonic signals between tubes cast into the pile and gives a more detailed picture of concrete quality along its length, at the cost of planning the tubes before casting.</p>
+					</section>
+
+					<section id="p-signals">
+						<h2>What the results look like</h2>
+					<figure class="fig-ix pl-fig" data-state="load" aria-labelledby="pl-cap">
+						<div class="fig-ix-bar" role="group" aria-label="Show a result">
+							<button type="button" class="fig-ix-btn" data-set="load" aria-pressed="true">Load test</button>
+							<button type="button" class="fig-ix-btn" data-set="pit" aria-pressed="false">Integrity test, sound pile</button>
+							<button type="button" class="fig-ix-btn" data-set="defect" aria-pressed="false">Integrity test, defect</button>
+						</div>
+						<svg class="pl-svg" viewBox="0 0 640 300" role="img" aria-label="Three illustrative results. A load-settlement curve that stays gentle to the design load and steepens beyond it. A pile integrity reflectogram with a clear toe reflection at 14 metres. A second reflectogram with an early reflection at 6 metres indicating a possible defect.">
+							<g data-when="load">
+								<path class="pl-grid" d="M80 90H600M80 150H600M80 210H600M210 40V260M340 40V260M470 40V260"/>
+								<path class="pl-axis" d="M80 40V260M80 40H600"/>
+								<text class="pl-t" x="600" y="30" text-anchor="end">Load (kN) →</text><text class="pl-t" x="70" y="260" text-anchor="end">Settlement ↓</text>
+								<path class="pl-curve" pathLength="1" d="M80 40 C180 48 280 60 340 76 C400 92 440 118 470 156"/><circle class="pl-end" cx="470" cy="156" r="4"/>
+								<path class="pl-mark" d="M340 40V260"/><text class="pl-tag" x="346" y="250">Design load</text>
+								<path class="pl-mark" d="M470 40V260"/><text class="pl-tag" x="476" y="250">Test load</text>
+							</g>
+							<g data-when="pit">
+								<path class="pl-grid" d="M60 150H600"/>
+								<path class="pl-axis" d="M60 40V260"/>
+								<text class="pl-t" x="600" y="280" text-anchor="end">Depth along the pile (m) →</text>
+								<path class="pl-curve" pathLength="1" d="M60 150 C70 60 80 60 92 150 C110 190 130 160 160 150 C260 146 360 154 470 150 C490 148 500 112 512 96 C524 82 536 120 548 150 C570 156 590 150 600 150"/>
+								<path class="pl-mark" d="M512 40V260"/><text class="pl-tag" x="518" y="250">Toe reflection, 14 m</text>
+							</g>
+							<g data-when="defect">
+								<path class="pl-grid" d="M60 150H600"/>
+								<path class="pl-axis" d="M60 40V260"/>
+								<text class="pl-t" x="600" y="280" text-anchor="end">Depth along the pile (m) →</text>
+								<path class="pl-curve pl-curve-alt" pathLength="1" d="M60 150 C70 60 80 60 92 150 C110 190 130 160 160 150 C200 148 230 150 250 150 C262 146 270 104 280 92 C290 84 300 124 310 150 C360 156 420 148 470 150 C490 150 500 136 512 132 C524 130 536 146 548 150 C570 152 590 150 600 150"/>
+								<path class="pl-mark pl-mark-alt" d="M280 40V260"/><text class="pl-tag" x="286" y="250">Early reflection, 6 m</text>
+							</g>
+						</svg>
+						<p class="fig-ix-say" aria-live="polite"><span data-when="load"><b>Load test.</b> Settlement stays small up to the design load and increases beyond it. The curve shows the pile has the margin the design assumed.</span><span data-when="pit"><b>Sound pile.</b> The wave travels down the pile and reflects clearly from the toe at the expected length. No significant reflections in between.</span><span data-when="defect"><b>Possible defect.</b> A strong reflection at about 6 m, well above the toe, suggests a change in section or a crack. The pile is flagged for further investigation.</span></p>
+						<figcaption id="pl-cap">Illustrative results, simplified for explanation. Switch between them.</figcaption>
+					</figure>
+					</section>
+
+					<blockquote class="ar-quote"><p>A load test proves capacity on a few piles. An integrity test checks every pile was built the way the tested ones were.</p></blockquote>
+
+					<section id="p-compare">
+						<h2>Side by side</h2>
+						<div class="ar-table-wrap" tabindex="0" role="region" aria-label="Comparison (scrolls sideways on small screens)">
+							<table class="ar-table">
+								<thead><tr><th scope="col"></th><th scope="col">Load testing</th><th scope="col">Integrity testing</th></tr></thead>
+								<tbody>
+									<tr><th scope="row">Question</th><td>Capacity and settlement</td><td>Continuity and soundness</td></tr>
+									<tr><th scope="row">Methods</th><td>Static (compression, tension, lateral), dynamic, bi-directional</td><td>Low-strain PIT, cross-hole sonic logging, thermal integrity</td></tr>
+									<tr><th scope="row">Time per pile</th><td>A day or more for static; hours for dynamic</td><td>Minutes for PIT</td></tr>
+									<tr><th scope="row">Coverage</th><td>A few selected piles</td><td>Often every pile</td></tr>
+									<tr><th scope="row">Limitation</th><td>Expensive, so only a sample is tested</td><td>Does not measure capacity</td></tr>
+								</tbody>
+							</table>
+						</div>
+					</section>
+
+					<section id="p-which">
+						<h2>Which one, and when</h2>
+						<p>Most piled projects need both. Initial load tests confirm the design early. Integrity tests on working piles catch construction defects while they can still be fixed. Routine load tests, static or dynamic, then confirm that the working piles match the design.</p>
+						<p>The right number and type of tests depends on the pile type, the ground, the loads and the specification. The testing programme should be agreed before piling starts, not after.</p>
+					</section>
+
+					<section id="p-takeaways" class="ar-takeaways">
+						<h2>Key takeaways</h2>
+						<ul>
+							<li>Load tests measure capacity; integrity tests check soundness.</li>
+							<li>Neither replaces the other; most projects use both.</li>
+							<li>Initial load tests confirm the design before working piles go in.</li>
+							<li>Integrity tests are quick enough to cover every pile.</li>
+						</ul>
+					</section>
+
+					<footer class="ar-end">
+						<p>Planning pile tests? <a href="contact.html">Share the pile details</a> and we will propose a programme.</p>
+						<a class="btn btn-ghost" href="foundation-pile-testing.html">Foundation &amp; Pile Testing service <svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M8.5 3.5 13 8l-4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.4"/></svg></a>
+					</footer>
+				</div>
+			</div>
+		</article>
+
+		<section class="section container ar-related" aria-labelledby="related-title">
+			<div class="section-head"><h2 id="related-title">Keep reading</h2><a class="link-accent" href="insights.html">All insights →</a></div>
+			<ul class="ins-grid">
+				<li class="ins-card"><a href="insight-geotechnical-investigation.html"><div class="ins-cover"><img src="assets/img/service-geotechnical.webp" width="800" height="600" alt="" loading="lazy"></div><div class="ins-body"><span class="ins-meta"><span class="ins-cat">Geotechnical</span><span>8 min read</span></span><h2>What Should a Geotechnical Investigation Include?</h2><span class="ins-read">Read Article <svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M8.5 3.5 13 8l-4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.4"/></svg></span></div></a></li>
+				<li class="ins-card"><a href="insight-geotechnical-vs-geophysical.html"><div class="ins-cover"><img src="assets/img/service-geophysical.webp" width="800" height="600" alt="" loading="lazy"></div><div class="ins-body"><span class="ins-meta"><span class="ins-cat">Geophysics</span><span>6 min read</span></span><h2>Geotechnical vs Geophysical Investigation</h2><span class="ins-read">Read Article <svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M8.5 3.5 13 8l-4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.4"/></svg></span></div></a></li>
+				<li class="ins-card"><a href="insight-soil-laboratory-test-results.html"><div class="ins-cover"><img src="assets/img/service-laboratory.webp" width="800" height="600" alt="" loading="lazy"></div><div class="ins-body"><span class="ins-meta"><span class="ins-cat">Laboratory Testing</span><span>7 min read</span></span><h2>Understanding Soil Laboratory Test Results</h2><span class="ins-read">Read Article <svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M8.5 3.5 13 8l-4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.4"/></svg></span></div></a></li>
+			</ul>
+		</section>
+	</main>
+
+	<footer class="site-footer">
+		<div class="container">
+			<div class="footer-top">
+				<div class="footer-brand">
+					<a class="brand" href="index.html" aria-label="PETALS Engineering Consultancy, home">
+						<img src="assets/img/brand/petals-logo-line-on-dark.webp" width="617" height="860" alt="" loading="lazy">
+					</a>
+					<p class="footer-tagline">Engineering Precision. From Ground to Design.</p>
+				</div>
+
+				<nav class="footer-col" aria-labelledby="footer-links-title">
+					<h2 class="footer-heading" id="footer-links-title">Quick links</h2>
+					<ul>
+						<li><a href="index.html">Home</a></li>
+						<li><a href="about-us.html">About Us</a></li>
+						<li><a href="expertise.html">Expertise</a></li>
+						<li><a href="how-we-work.html">How We Work</a></li>
+						<li><a href="careers.html">Careers</a></li>
+						<li><a href="insights.html">Insights</a></li>
+						<li><a href="contact.html">Contact</a></li>
+					</ul>
+				</nav>
+
+				<div class="footer-col">
+					<h2 class="footer-heading">Contact</h2>
+					<ul>
+						<li><span class="placeholder" title="Awaiting the verified address from PETALS">[Official Email]</span></li>
+						<li><span class="placeholder" title="Awaiting the verified number from PETALS">[Business Phone]</span></li>
+						<li>Jaipur, Rajasthan, India</li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="footer-bottom">
+				<p>© 2026 PETALS Engineering Consultancy. All rights reserved.</p>
+				<a href="privacy-notice.html">Privacy notice</a>
+			</div>
+		</div>
+	</footer>
+
+	<script src="assets/js/main.js?v=2026-11-14a" defer></script>
+</body>
+</html>

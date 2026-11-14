@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Geotechnical vs Geophysical Investigation | PETALS</title>
+	<meta name="description" content="Direct sampling or non-invasive imaging? How geotechnical and geophysical investigation differ, and why strong investigations often use both.">
+	<meta name="robots" content="noindex">
+	<link rel="icon" type="image/svg+xml" href="assets/img/brand/petals-mark.svg">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..600&display=swap">
+	<!-- Bump ?v= on these four links whenever CSS or JS changes, so browsers never pair new HTML with stale files -->
+	<link rel="stylesheet" href="assets/css/tokens.css?v=2026-11-14a">
+	<link rel="stylesheet" href="assets/css/base.css?v=2026-11-14a">
+	<link rel="stylesheet" href="assets/css/components.css?v=2026-11-14a">
+</head>
+<body>
+	<a class="skip-link" href="#main">Skip to content</a>
+
+	<header class="site-header">
+		<div class="container header-inner">
+			<!-- Client logo (assets/img/brand, cleaned from the client's Canva export). The logo's own
+			     "Engineering Consultancy" line is unreadable at header size, so the full company name
+			     is completed in live text beside the compact lockup. -->
+			<a class="brand brand-header" href="index.html" aria-label="PETALS Engineering Consultancy, home">
+				<img src="assets/img/brand/petals-logo-compact.svg" width="962" height="318" alt="">
+				<span class="brand-name">Engineering<br>Consultancy</span>
+			</a>
+
+			<nav class="primary-nav" aria-label="Main" data-open="false" id="primary-nav">
+				<ul class="nav-list">
+					<li><a class="nav-link" href="index.html">Home</a></li>
+					<li><a class="nav-link" href="about-us.html">About Us</a></li>
+					<li class="has-dropdown">
+						<button class="nav-link" type="button" aria-expanded="false" aria-controls="expertise-menu" data-dropdown-toggle>
+							Expertise
+							<svg class="chev" viewBox="0 0 10 10" aria-hidden="true"><path d="M1.5 3.5 5 7l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.2"/></svg>
+						</button>
+						<ul class="dropdown" id="expertise-menu" hidden>
+							<li class="dropdown-all"><a href="expertise.html">All expertise</a></li>
+							<li><a href="geotechnical-investigation.html">Geotechnical Investigation</a></li>
+							<li><a href="geophysical-specialized-investigation.html">Geophysical &amp; Specialized Investigation</a></li>
+							<li><a href="laboratory-materials-testing-ndt.html">Laboratory, Materials Testing &amp; NDT</a></li>
+							<li><a href="foundation-pile-testing.html">Foundation &amp; Pile Testing</a></li>
+							<li><a href="pavement-infrastructure-investigation.html">Pavement &amp; Infrastructure Investigation</a></li>
+							<li><a href="engineering-design-analysis.html">Engineering Design &amp; Analysis</a></li>
+							<li><a href="bim-digital-engineering.html">BIM &amp; Digital Engineering</a></li>
+							<li><a href="advisory-due-diligence.html">Advisory &amp; Due Diligence</a></li>
+						</ul>
+					</li>
+					<li><a class="nav-link" href="how-we-work.html">How We Work</a></li>
+					<li><a class="nav-link" href="careers.html">Careers</a></li>
+					<li><a class="nav-link is-section" href="insights.html">Insights</a></li>
+					<li class="nav-mobile-only"><a class="nav-link" href="contact.html">Contact</a></li>
+				</ul>
+			</nav>
+
+			<div style="display:flex;align-items:center;gap:8px">
+				<a class="btn btn-primary header-cta" href="contact.html">Contact</a>
+				<button class="btn btn-secondary menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav"><span>Menu</span></button>
+			</div>
+		</div>
+	</header>
+
+	<main id="main">
+		<div class="ar-progress" aria-hidden="true"><span></span></div>
+		<!-- Sample article written for the prototype. It must be completed and technically reviewed by PETALS before it is published. -->
+		<article class="ar">
+			<header class="ar-hero container">
+				<nav class="breadcrumb" aria-label="Breadcrumb"><ol><li><a href="index.html">Home</a></li><li><a href="insights.html">Insights</a></li><li><span aria-current="page">Geophysics</span></li></ol></nav>
+				<div class="ar-meta"><span class="ins-cat">Geophysics</span><span>6 min read</span><span>14 November 2026</span></div>
+				<h1 id="page-title">Geotechnical vs Geophysical Investigation</h1>
+				<p class="ar-dek">Direct sampling or non-invasive imaging? How the two approaches differ, what each can and cannot tell you, and why the strongest investigations often use both.</p>
+				<p class="ar-byline"><span class="ar-avatar" aria-hidden="true"><img src="assets/img/brand/petals-mark.svg" alt="" width="40" height="40"></span><span>By the <b>PETALS engineering team</b><br>Technically reviewed by <span class="pv-ph">[Reviewer name]</span></span></p>
+			</header>
+			<figure class="ar-cover container">
+				<div class="ar-cover-img"><img src="assets/img/insight-geophysical-cover.webp" width="1600" height="686" alt="A line of geophone sensors spiked into dry ground and joined by a cable, with survey equipment in the distance"></div>
+				<figcaption>Geophones record seismic waves along a survey line, building a continuous section of the ground.</figcaption>
+			</figure>
+
+			<div class="ar-layout container">
+				<nav class="ar-toc" aria-label="In this article" data-spy>
+					<p class="pv-toc-title">In this article</p>
+					<ol><li><a href="#g-two">Two ways to see the ground</a></li><li><a href="#g-geotech">What a geotechnical investigation gives you</a></li><li><a href="#g-geophys">What geophysics gives you</a></li><li><a href="#g-between">The ground between boreholes</a></li><li><a href="#g-compare">Side by side</a></li><li><a href="#g-both">Using both</a></li><li><a href="#g-takeaways">Key takeaways</a></li></ol>
+					<button type="button" class="ar-copy" data-copy-url><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/></svg><span>Copy link</span></button>
+				</nav>
+
+				<div class="ar-body">
+					<section id="g-two">
+						<h2>Two ways to see the ground</h2>
+						<p class="ar-lead">A geotechnical investigation looks at the ground directly: it drills, samples and tests. A geophysical investigation looks at it indirectly: it measures how the ground responds to waves, currents or radar and infers what lies below. One gives you certainty at a point; the other gives you coverage along a line or across an area.</p>
+						<p>Neither replaces the other. The question on most sites is not which one to use, but how much of each, and in what order.</p>
+					</section>
+
+					<section id="g-geotech">
+						<h2>What a geotechnical investigation gives you</h2>
+						<p>Boreholes and trial pits put the soil and rock in your hands. Samples go to the laboratory for classification, strength and compressibility; in-situ tests such as the SPT measure resistance at each depth; groundwater is observed directly. These are the numbers foundation design is built on.</p>
+						<p>The limitation is coverage. A borehole is perhaps 150 mm wide. Everything between two boreholes is interpolated, and on variable ground that interpolation can be wrong.</p>
+						<aside class="ar-note"><b>Codes.</b> IS 1892 guides the planning of subsurface investigation for foundations, including borehole spacing and depth.</aside>
+					</section>
+
+					<section id="g-geophys">
+						<h2>What geophysics gives you</h2>
+						<p>Geophysical methods measure a physical property continuously. Seismic methods such as refraction and MASW measure wave velocity, which follows the stiffness of the ground. Electrical resistivity follows moisture, clay content and weathering. Ground penetrating radar picks up shallow layers, voids and buried services.</p>
+						<p>The result is a section or a map, not a sample. It shows where conditions change, but it needs boreholes to say what those conditions are. A velocity or resistivity value has to be calibrated against what the drill actually found.</p>
+					</section>
+
+					<section id="g-between">
+						<h2>The ground between boreholes</h2>
+						<p>The figure below shows a common case. Three boreholes find rock at similar depths, so a straight line is drawn between them. A seismic line along the same section shows what the boreholes missed.</p>
+					<figure class="fig-ix gx-fig" data-state="bh" aria-labelledby="gx-cap">
+						<div class="fig-ix-bar" role="group" aria-label="Show the section">
+							<button type="button" class="fig-ix-btn" data-set="bh" aria-pressed="true">Boreholes only</button>
+							<button type="button" class="fig-ix-btn" data-set="geo" aria-pressed="false">Add a seismic line</button>
+						</div>
+						<svg class="gx-svg" viewBox="0 0 640 300" role="img" aria-label="Cross-section 120 metres long. Three boreholes find rock at about 8 to 9 metres, suggesting a level rock surface. A seismic refraction line along the same section reveals a weathered channel between the second and third boreholes where rock drops to about 17 metres.">
+							<defs>
+								<pattern id="gx-soil" width="8" height="8" patternUnits="userSpaceOnUse"><rect width="8" height="8" fill="#f1e6d3"/><circle cx="2" cy="2" r=".9" fill="#a1785a"/><circle cx="6" cy="6" r=".9" fill="#a1785a"/></pattern>
+								<pattern id="gx-rock" width="16" height="10" patternUnits="userSpaceOnUse"><rect width="16" height="10" fill="#b9bec5"/><path d="M0 5h16M8 0v5M0 10V5M16 10V5" stroke="#00132e" stroke-width=".7" opacity=".45"/></pattern>
+								<clipPath id="gx-clip"><rect x="40" y="40" width="580" height="240"/></clipPath>
+							</defs>
+							<g clip-path="url(#gx-clip)">
+								<rect x="40" y="40" width="580" height="240" fill="url(#gx-soil)"/>
+								<path class="gx-rock-true" d="M40 150 C120 146 200 158 300 152 C360 150 380 160 410 200 C440 246 480 250 510 214 C540 176 570 158 620 156 V280 H40Z" fill="url(#gx-rock)"/>
+								<path class="gx-rock-guess" d="M40 150 C140 148 260 154 360 152 S560 156 620 156 V280 H40Z" fill="url(#gx-rock)"/>
+							</g>
+							<path class="gx-ground" d="M40 40H620"/>
+							<path class="gx-guess-line" d="M40 150 C140 148 260 154 360 152 S560 156 620 156"/>
+							<path class="gx-true-line" pathLength="1" d="M40 150 C120 146 200 158 300 152 C360 150 380 160 410 200 C440 246 480 250 510 214 C540 176 570 158 620 156"/>
+							<g class="gx-geophones"><path d="M60 40v-8M100 40v-8M140 40v-8M180 40v-8M220 40v-8M260 40v-8M300 40v-8M340 40v-8M380 40v-8M420 40v-8M460 40v-8M500 40v-8M540 40v-8M580 40v-8"/><text x="620" y="24" text-anchor="end">Seismic line, geophones every 5 m</text></g>
+							<g class="gx-bh"><rect x="114" y="40" width="12" height="126"/><text x="120" y="182" text-anchor="middle">BH-1</text></g>
+							<g class="gx-bh"><rect x="334" y="40" width="12" height="128"/><text x="340" y="184" text-anchor="middle">BH-2</text></g>
+							<g class="gx-bh"><rect x="574" y="40" width="12" height="132"/><text x="580" y="188" text-anchor="middle">BH-3</text></g>
+							<g class="gx-flag"><path d="M460 248V268"/><text x="452" y="264" text-anchor="end">Weathered channel, rock at about 17 m</text></g>
+							<g class="gx-axis"><path d="M30 40V280"/><text x="24" y="44" text-anchor="end">0 m</text><text x="24" y="160" text-anchor="end">10 m</text><text x="24" y="280" text-anchor="end">20 m</text></g>
+						</svg>
+						<p class="fig-ix-say" aria-live="polite"><span data-when="bh"><b>Boreholes only.</b> Rock at 8 to 9 m in all three holes, so the rock surface is drawn level. A pile design on this section would assume short piles everywhere.</span><span data-when="geo"><b>With a seismic line.</b> The velocity section shows a weathered channel between BH-2 and BH-3, where rock drops to about 17 m. One extra borehole in the channel confirms it before piles are designed.</span></p>
+						<figcaption id="gx-cap">An illustrative section, not from a real site. Switch between the two views.</figcaption>
+					</figure>
+					</section>
+
+					<blockquote class="ar-quote"><p>Boreholes tell you what the ground is. Geophysics tells you where it changes.</p></blockquote>
+
+					<section id="g-compare">
+						<h2>Side by side</h2>
+						<div class="ar-table-wrap" tabindex="0" role="region" aria-label="Comparison (scrolls sideways on small screens)">
+							<table class="ar-table">
+								<thead><tr><th scope="col"></th><th scope="col">Geotechnical</th><th scope="col">Geophysical</th></tr></thead>
+								<tbody>
+									<tr><th scope="row">How it works</th><td>Drilling, sampling and in-situ testing</td><td>Measuring the ground’s response to waves, current or radar</td></tr>
+									<tr><th scope="row">Coverage</th><td>Points, at each borehole or pit</td><td>Continuous lines or areas</td></tr>
+									<tr><th scope="row">Output</th><td>Samples, test values, strata logs</td><td>Sections and maps of a physical property</td></tr>
+									<tr><th scope="row">Design parameters</th><td>Directly, from tests</td><td>Some directly (for example shear-wave velocity), most by correlation</td></tr>
+									<tr><th scope="row">Best for</th><td>Foundation design values, groundwater, classification</td><td>Rock profile, variability, voids, services, seismic site class</td></tr>
+								</tbody>
+							</table>
+						</div>
+					</section>
+
+					<section id="g-both">
+						<h2>Using both</h2>
+						<p>On larger or variable sites, the efficient order is often geophysics first, then targeted boreholes. The survey shows where conditions change; the boreholes go where they will answer the most questions, and calibrate the survey so it can be trusted across the rest of the site.</p>
+						<p>Typical cases where geophysics earns its place: long linear projects such as roads and pipelines, sites with suspected cavities or old fill, solar parks where rock depth controls pile length across a large area, and seismic design that needs shear-wave velocity.</p>
+						<aside class="ar-note"><b>Calibrate.</b> Always ask how the geophysical results were tied to boreholes. An uncalibrated section is a picture, not data.</aside>
+					</section>
+
+					<section id="g-takeaways" class="ar-takeaways">
+						<h2>Key takeaways</h2>
+						<ul>
+							<li>Geotechnical investigation gives certainty at points; geophysics gives coverage between them.</li>
+							<li>Geophysics shows where conditions change, boreholes show what they are.</li>
+							<li>Calibrate every geophysical section against borehole data.</li>
+							<li>On large or variable sites, survey first and target the boreholes.</li>
+						</ul>
+					</section>
+
+					<footer class="ar-end">
+						<p>Not sure which approach your site needs? <a href="contact.html">Tell us about the site</a> and we will suggest a combination.</p>
+						<a class="btn btn-ghost" href="geophysical-specialized-investigation.html">Geophysical &amp; Specialized Investigation service <svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M8.5 3.5 13 8l-4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.4"/></svg></a>
+					</footer>
+				</div>
+			</div>
+		</article>
+
+		<section class="section container ar-related" aria-labelledby="related-title">
+			<div class="section-head"><h2 id="related-title">Keep reading</h2><a class="link-accent" href="insights.html">All insights →</a></div>
+			<ul class="ins-grid">
+				<li class="ins-card"><a href="insight-geotechnical-investigation.html"><div class="ins-cover"><img src="assets/img/service-geotechnical.webp" width="800" height="600" alt="" loading="lazy"></div><div class="ins-body"><span class="ins-meta"><span class="ins-cat">Geotechnical</span><span>8 min read</span></span><h2>What Should a Geotechnical Investigation Include?</h2><span class="ins-read">Read Article <svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M8.5 3.5 13 8l-4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.4"/></svg></span></div></a></li>
+				<li class="ins-card"><a href="insight-soil-laboratory-test-results.html"><div class="ins-cover"><img src="assets/img/service-laboratory.webp" width="800" height="600" alt="" loading="lazy"></div><div class="ins-body"><span class="ins-meta"><span class="ins-cat">Laboratory Testing</span><span>7 min read</span></span><h2>Understanding Soil Laboratory Test Results</h2><span class="ins-read">Read Article <svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M8.5 3.5 13 8l-4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.4"/></svg></span></div></a></li>
+				<li class="ins-card"><a href="insight-concrete-ndt-methods.html"><div class="ins-cover"><img src="assets/img/service-ndt.webp" width="800" height="600" alt="" loading="lazy"></div><div class="ins-body"><span class="ins-meta"><span class="ins-cat">NDT</span><span>6 min read</span></span><h2>Common Methods for Concrete NDT</h2><span class="ins-read">Read Article <svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M8.5 3.5 13 8l-4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.4"/></svg></span></div></a></li>
+			</ul>
+		</section>
+	</main>
+
+	<footer class="site-footer">
+		<div class="container">
+			<div class="footer-top">
+				<div class="footer-brand">
+					<a class="brand" href="index.html" aria-label="PETALS Engineering Consultancy, home">
+						<img src="assets/img/brand/petals-logo-line-on-dark.webp" width="617" height="860" alt="" loading="lazy">
+					</a>
+					<p class="footer-tagline">Engineering Precision. From Ground to Design.</p>
+				</div>
+
+				<nav class="footer-col" aria-labelledby="footer-links-title">
+					<h2 class="footer-heading" id="footer-links-title">Quick links</h2>
+					<ul>
+						<li><a href="index.html">Home</a></li>
+						<li><a href="about-us.html">About Us</a></li>
+						<li><a href="expertise.html">Expertise</a></li>
+						<li><a href="how-we-work.html">How We Work</a></li>
+						<li><a href="careers.html">Careers</a></li>
+						<li><a href="insights.html">Insights</a></li>
+						<li><a href="contact.html">Contact</a></li>
+					</ul>
+				</nav>
+
+				<div class="footer-col">
+					<h2 class="footer-heading">Contact</h2>
+					<ul>
+						<li><span class="placeholder" title="Awaiting the verified address from PETALS">[Official Email]</span></li>
+						<li><span class="placeholder" title="Awaiting the verified number from PETALS">[Business Phone]</span></li>
+						<li>Jaipur, Rajasthan, India</li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="footer-bottom">
+				<p>© 2026 PETALS Engineering Consultancy. All rights reserved.</p>
+				<a href="privacy-notice.html">Privacy notice</a>
+			</div>
+		</div>
+	</footer>
+
+	<script src="assets/js/main.js?v=2026-11-14a" defer></script>
+</body>
+</html>

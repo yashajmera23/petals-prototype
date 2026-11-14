@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Common Methods for Concrete NDT | PETALS</title>
+	<meta name="description" content="Rebound hammer, ultrasonic pulse velocity, cover meters, half-cell potential and cores: what each concrete NDT method tells you about an existing structure.">
+	<meta name="robots" content="noindex">
+	<link rel="icon" type="image/svg+xml" href="assets/img/brand/petals-mark.svg">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..600&display=swap">
+	<!-- Bump ?v= on these four links whenever CSS or JS changes, so browsers never pair new HTML with stale files -->
+	<link rel="stylesheet" href="assets/css/tokens.css?v=2026-11-14a">
+	<link rel="stylesheet" href="assets/css/base.css?v=2026-11-14a">
+	<link rel="stylesheet" href="assets/css/components.css?v=2026-11-14a">
+</head>
+<body>
+	<a class="skip-link" href="#main">Skip to content</a>
+
+	<header class="site-header">
+		<div class="container header-inner">
+			<!-- Client logo (assets/img/brand, cleaned from the client's Canva export). The logo's own
+			     "Engineering Consultancy" line is unreadable at header size, so the full company name
+			     is completed in live text beside the compact lockup. -->
+			<a class="brand brand-header" href="index.html" aria-label="PETALS Engineering Consultancy, home">
+				<img src="assets/img/brand/petals-logo-compact.svg" width="962" height="318" alt="">
+				<span class="brand-name">Engineering<br>Consultancy</span>
+			</a>
+
+			<nav class="primary-nav" aria-label="Main" data-open="false" id="primary-nav">
+				<ul class="nav-list">
+					<li><a class="nav-link" href="index.html">Home</a></li>
+					<li><a class="nav-link" href="about-us.html">About Us</a></li>
+					<li class="has-dropdown">
+						<button class="nav-link" type="button" aria-expanded="false" aria-controls="expertise-menu" data-dropdown-toggle>
+							Expertise
+							<svg class="chev" viewBox="0 0 10 10" aria-hidden="true"><path d="M1.5 3.5 5 7l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.2"/></svg>
+						</button>
+						<ul class="dropdown" id="expertise-menu" hidden>
+							<li class="dropdown-all"><a href="expertise.html">All expertise</a></li>
+							<li><a href="geotechnical-investigation.html">Geotechnical Investigation</a></li>
+							<li><a href="geophysical-specialized-investigation.html">Geophysical &amp; Specialized Investigation</a></li>
+							<li><a href="laboratory-materials-testing-ndt.html">Laboratory, Materials Testing &amp; NDT</a></li>
+							<li><a href="foundation-pile-testing.html">Foundation &amp; Pile Testing</a></li>
+							<li><a href="pavement-infrastructure-investigation.html">Pavement &amp; Infrastructure Investigation</a></li>
+							<li><a href="engineering-design-analysis.html">Engineering Design &amp; Analysis</a></li>
+							<li><a href="bim-digital-engineering.html">BIM &amp; Digital Engineering</a></li>
+							<li><a href="advisory-due-diligence.html">Advisory &amp; Due Diligence</a></li>
+						</ul>
+					</li>
+					<li><a class="nav-link" href="how-we-work.html">How We Work</a></li>
+					<li><a class="nav-link" href="careers.html">Careers</a></li>
+					<li><a class="nav-link is-section" href="insights.html">Insights</a></li>
+					<li class="nav-mobile-only"><a class="nav-link" href="contact.html">Contact</a></li>
+				</ul>
+			</nav>
+
+			<div style="display:flex;align-items:center;gap:8px">
+				<a class="btn btn-primary header-cta" href="contact.html">Contact</a>
+				<button class="btn btn-secondary menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav"><span>Menu</span></button>
+			</div>
+		</div>
+	</header>
+
+	<main id="main">
+		<div class="ar-progress" aria-hidden="true"><span></span></div>
+		<!-- Sample article written for the prototype. It must be completed and technically reviewed by PETALS before it is published. -->
+		<article class="ar">
+			<header class="ar-hero container">
+				<nav class="breadcrumb" aria-label="Breadcrumb"><ol><li><a href="index.html">Home</a></li><li><a href="insights.html">Insights</a></li><li><span aria-current="page">NDT</span></li></ol></nav>
+				<div class="ar-meta"><span class="ins-cat">NDT</span><span>6 min read</span><span>14 November 2026</span></div>
+				<h1 id="page-title">Common Methods for Concrete NDT</h1>
+				<p class="ar-dek">Rebound hammer, ultrasonic pulse velocity, cover meters and cores: what each method tells you about existing concrete, and why they work best together.</p>
+				<p class="ar-byline"><span class="ar-avatar" aria-hidden="true"><img src="assets/img/brand/petals-mark.svg" alt="" width="40" height="40"></span><span>By the <b>PETALS engineering team</b><br>Technically reviewed by <span class="pv-ph">[Reviewer name]</span></span></p>
+			</header>
+			<figure class="ar-cover container">
+				<div class="ar-cover-img"><img src="assets/img/insight-ndt-cover.webp" width="1600" height="686" alt="A gloved hand pressing a testing probe against a concrete column marked with a chalk grid, connected to a handheld reader"></div>
+				<figcaption>Test points are marked on a grid so readings can be mapped across the member.</figcaption>
+			</figure>
+
+			<div class="ar-layout container">
+				<nav class="ar-toc" aria-label="In this article" data-spy>
+					<p class="pv-toc-title">In this article</p>
+					<ol><li><a href="#n-why">Why test without breaking</a></li><li><a href="#n-rebound">Rebound hammer</a></li><li><a href="#n-upv">Ultrasonic pulse velocity</a></li><li><a href="#n-steel">Cover, corrosion and carbonation</a></li><li><a href="#n-cores">Cores: the calibration</a></li><li><a href="#n-plan">Planning a test programme</a></li><li><a href="#n-takeaways">Key takeaways</a></li></ol>
+					<button type="button" class="ar-copy" data-copy-url><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/></svg><span>Copy link</span></button>
+				</nav>
+
+				<div class="ar-body">
+					<section id="n-why">
+						<h2>Why test without breaking</h2>
+						<p class="ar-lead">When a structure shows distress, changes use or needs to carry more load, the first question is what the concrete is actually like. Non-destructive testing answers that across the whole structure, quickly and without weakening it.</p>
+						<p>No single method gives the full picture. Each one measures something different, and the results become reliable when they are combined and checked against a few cores.</p>
+					</section>
+
+					<section id="n-rebound">
+						<h2>Rebound hammer</h2>
+						<p>A spring-loaded mass strikes the concrete surface and the rebound is recorded. Harder concrete gives a higher rebound number. It is fast and cheap, which makes it ideal for comparing members and finding weak zones.</p>
+						<p>It only reads the surface, roughly the outer 30 mm. Carbonation, moisture and surface finish all affect it, so rebound values should not be converted to strength without calibration against cores.</p>
+						<aside class="ar-note"><b>Codes.</b> IS 516 (Part 5) covers non-destructive testing of hardened concrete, including rebound hammer and ultrasonic pulse velocity.</aside>
+					</section>
+
+					<section id="n-upv">
+						<h2>Ultrasonic pulse velocity</h2>
+						<p>An ultrasonic pulse is sent through the concrete between two transducers and its travel time is measured. Dense, uniform concrete carries the pulse faster; cracks, voids and honeycombing slow it down. UPV looks through the member, not just at its surface.</p>
+					<figure class="fig-ix upv-fig" aria-labelledby="upv-cap">
+						<div class="upv-top">
+							<label class="upv-label" for="upv-range">Pulse velocity</label>
+							<output class="upv-out" for="upv-range"><b>4.2</b> km/s</output>
+						</div>
+						<input class="upv-range" id="upv-range" type="range" min="2.0" max="5.5" step="0.05" value="4.2" aria-describedby="upv-cap">
+						<ol class="upv-scale" aria-hidden="true"><li data-band="doubtful"><span>Doubtful</span><small>below 3.0</small></li><li data-band="medium"><span>Medium</span><small>3.0–3.5</small></li><li data-band="good" class="is-on"><span>Good</span><small>3.5–4.5</small></li><li data-band="excellent"><span>Excellent</span><small>above 4.5</small></li></ol>
+						<p class="fig-ix-say upv-say" aria-live="polite"><b>Good.</b> Generally sound concrete. Compare with neighbouring readings: a local drop is more telling than any single value.</p>
+						<figcaption id="upv-cap">Quality bands from the earlier IS 13311 (Part 1) grading, still widely quoted. Current practice under IS 516 (Part 5) also considers the concrete grade. Move the slider to see the band.</figcaption>
+					</figure>
+					</section>
+
+					<section id="n-steel">
+						<h2>Cover, corrosion and carbonation</h2>
+						<p>Many concrete problems are really steel problems. Three tests work together:</p>
+						<div class="ar-table-wrap" tabindex="0" role="region" aria-label="Durability tests (scrolls sideways on small screens)">
+							<table class="ar-table">
+								<thead><tr><th scope="col">Test</th><th scope="col">What it measures</th><th scope="col">Why it matters</th></tr></thead>
+								<tbody>
+									<tr><th scope="row">Cover meter</th><td>Bar position and depth of cover</td><td>Thin cover lets moisture and carbon dioxide reach the steel</td></tr>
+									<tr><th scope="row">Carbonation depth</th><td>How far carbonation has advanced from the surface</td><td>Once it reaches the steel, the bar loses its protection</td></tr>
+									<tr><th scope="row">Half-cell potential</th><td>Electrical potential of the reinforcement</td><td>Indicates the likelihood of active corrosion</td></tr>
+								</tbody>
+							</table>
+						</div>
+						<p>Read together, they tell a story: if carbonation depth is greater than cover and half-cell readings indicate corrosion, the steel is at risk even where the concrete looks sound.</p>
+					</section>
+
+					<blockquote class="ar-quote"><p>NDT tells you where to look. Cores tell you what you found.</p></blockquote>
+
+					<section id="n-cores">
+						<h2>Cores: the calibration</h2>
+						<p>Cores are partially destructive, but a small number of them turns NDT readings into numbers you can design with. Cores are taken at locations chosen from the NDT survey, including the best and worst zones, and tested for compressive strength. The rebound and UPV results are then correlated with the core strengths for that structure.</p>
+						<aside class="ar-note"><b>Location matters.</b> Cores should avoid reinforcement. Use the cover meter survey to choose clear locations.</aside>
+					</section>
+
+					<section id="n-plan">
+						<h2>Planning a test programme</h2>
+						<p>A typical programme runs in order: a visual condition survey and crack mapping to define the problem; rebound and UPV on a grid to map variation; cover, carbonation and half-cell where durability is in question; then cores to calibrate. The report should bring these together into a clear view of condition and next steps.</p>
+					</section>
+
+					<section id="n-takeaways" class="ar-takeaways">
+						<h2>Key takeaways</h2>
+						<ul>
+							<li>Rebound hammer reads the surface; UPV reads through the member.</li>
+							<li>Cover, carbonation and half-cell together assess risk to the reinforcement.</li>
+							<li>Calibrate NDT against a few well-placed cores.</li>
+							<li>Look for patterns across the structure, not single values.</li>
+						</ul>
+					</section>
+
+					<footer class="ar-end">
+						<p>Assessing an existing structure? <a href="contact.html">Tell us about it</a> and we will plan the testing.</p>
+						<a class="btn btn-ghost" href="laboratory-materials-testing-ndt.html">Laboratory, Materials Testing &amp; NDT service <svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M8.5 3.5 13 8l-4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.4"/></svg></a>
+					</footer>
+				</div>
+			</div>
+		</article>
+
+		<section class="section container ar-related" aria-labelledby="related-title">
+			<div class="section-head"><h2 id="related-title">Keep reading</h2><a class="link-accent" href="insights.html">All insights →</a></div>
+			<ul class="ins-grid">
+				<li class="ins-card"><a href="insight-geotechnical-investigation.html"><div class="ins-cover"><img src="assets/img/service-geotechnical.webp" width="800" height="600" alt="" loading="lazy"></div><div class="ins-body"><span class="ins-meta"><span class="ins-cat">Geotechnical</span><span>8 min read</span></span><h2>What Should a Geotechnical Investigation Include?</h2><span class="ins-read">Read Article <svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M8.5 3.5 13 8l-4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.4"/></svg></span></div></a></li>
+				<li class="ins-card"><a href="insight-geotechnical-vs-geophysical.html"><div class="ins-cover"><img src="assets/img/service-geophysical.webp" width="800" height="600" alt="" loading="lazy"></div><div class="ins-body"><span class="ins-meta"><span class="ins-cat">Geophysics</span><span>6 min read</span></span><h2>Geotechnical vs Geophysical Investigation</h2><span class="ins-read">Read Article <svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M8.5 3.5 13 8l-4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.4"/></svg></span></div></a></li>
+				<li class="ins-card"><a href="insight-soil-laboratory-test-results.html"><div class="ins-cover"><img src="assets/img/service-laboratory.webp" width="800" height="600" alt="" loading="lazy"></div><div class="ins-body"><span class="ins-meta"><span class="ins-cat">Laboratory Testing</span><span>7 min read</span></span><h2>Understanding Soil Laboratory Test Results</h2><span class="ins-read">Read Article <svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M8.5 3.5 13 8l-4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.4"/></svg></span></div></a></li>
+			</ul>
+		</section>
+	</main>
+
+	<footer class="site-footer">
+		<div class="container">
+			<div class="footer-top">
+				<div class="footer-brand">
+					<a class="brand" href="index.html" aria-label="PETALS Engineering Consultancy, home">
+						<img src="assets/img/brand/petals-logo-line-on-dark.webp" width="617" height="860" alt="" loading="lazy">
+					</a>
+					<p class="footer-tagline">Engineering Precision. From Ground to Design.</p>
+				</div>
+
+				<nav class="footer-col" aria-labelledby="footer-links-title">
+					<h2 class="footer-heading" id="footer-links-title">Quick links</h2>
+					<ul>
+						<li><a href="index.html">Home</a></li>
+						<li><a href="about-us.html">About Us</a></li>
+						<li><a href="expertise.html">Expertise</a></li>
+						<li><a href="how-we-work.html">How We Work</a></li>
+						<li><a href="careers.html">Careers</a></li>
+						<li><a href="insights.html">Insights</a></li>
+						<li><a href="contact.html">Contact</a></li>
+					</ul>
+				</nav>
+
+				<div class="footer-col">
+					<h2 class="footer-heading">Contact</h2>
+					<ul>
+						<li><span class="placeholder" title="Awaiting the verified address from PETALS">[Official Email]</span></li>
+						<li><span class="placeholder" title="Awaiting the verified number from PETALS">[Business Phone]</span></li>
+						<li>Jaipur, Rajasthan, India</li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="footer-bottom">
+				<p>© 2026 PETALS Engineering Consultancy. All rights reserved.</p>
+				<a href="privacy-notice.html">Privacy notice</a>
+			</div>
+		</div>
+	</footer>
+
+	<script src="assets/js/main.js?v=2026-11-14a" defer></script>
+</body>
+</html>

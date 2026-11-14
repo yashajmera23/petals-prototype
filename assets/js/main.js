@@ -822,3 +822,42 @@ if (wiz) {
 		setTimeout(() => { btn.classList.remove('is-copied'); label.textContent = 'Copy link'; }, 2000);
 	});
 })();
+
+/* ---------- Article figures: buttons switch the figure's data-state; CSS shows the matching [data-when] ---------- */
+(function () {
+	const figs = document.querySelectorAll('.fig-ix[data-state]');
+	if (!figs.length) return;
+	figs.forEach((fig) => {
+		const btns = [...fig.querySelectorAll('.fig-ix-btn[data-set]')];
+		btns.forEach((b) => b.addEventListener('click', () => {
+			fig.dataset.state = b.dataset.set;
+			btns.forEach((o) => o.setAttribute('aria-pressed', String(o === b)));
+		}));
+	});
+})();
+
+/* ---------- Article: UPV slider, velocity to quality band ---------- */
+(function () {
+	const range = document.querySelector('.upv-range');
+	if (!range) return;
+	const fig = range.closest('.upv-fig');
+	const out = fig.querySelector('.upv-out b');
+	const say = fig.querySelector('.upv-say');
+	const bands = [...fig.querySelectorAll('.upv-scale li')];
+	const text = {
+		excellent: '<b>Excellent.</b> Dense, uniform concrete with no significant voids or cracking along the path.',
+		good: '<b>Good.</b> Generally sound concrete. Compare with neighbouring readings: a local drop is more telling than any single value.',
+		medium: '<b>Medium.</b> Some lack of uniformity, porosity or cracking may be present. Investigate further, typically with cores.',
+		doubtful: '<b>Doubtful.</b> Likely voids, honeycombing or cracking along the path. Confirm with cores and closer testing.'
+	};
+	function update() {
+		const v = parseFloat(range.value);
+		const band = v > 4.5 ? 'excellent' : v >= 3.5 ? 'good' : v >= 3.0 ? 'medium' : 'doubtful';
+		out.textContent = v.toFixed(2).replace(/0$/, '');
+		range.setAttribute('aria-valuetext', v.toFixed(2) + ' kilometres per second, ' + band);
+		bands.forEach((li) => li.classList.toggle('is-on', li.dataset.band === band));
+		if (say.dataset.band !== band) { say.dataset.band = band; say.innerHTML = text[band]; }
+	}
+	range.addEventListener('input', update);
+	update();
+})();

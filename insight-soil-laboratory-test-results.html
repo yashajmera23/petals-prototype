@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Understanding Soil Laboratory Test Results | PETALS</title>
+	<meta name="description" content="Index properties, strength and consolidation: how to read the numbers in a soil laboratory report and what they mean for design.">
+	<meta name="robots" content="noindex">
+	<link rel="icon" type="image/svg+xml" href="assets/img/brand/petals-mark.svg">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..600&display=swap">
+	<!-- Bump ?v= on these four links whenever CSS or JS changes, so browsers never pair new HTML with stale files -->
+	<link rel="stylesheet" href="assets/css/tokens.css?v=2026-11-14a">
+	<link rel="stylesheet" href="assets/css/base.css?v=2026-11-14a">
+	<link rel="stylesheet" href="assets/css/components.css?v=2026-11-14a">
+</head>
+<body>
+	<a class="skip-link" href="#main">Skip to content</a>
+
+	<header class="site-header">
+		<div class="container header-inner">
+			<!-- Client logo (assets/img/brand, cleaned from the client's Canva export). The logo's own
+			     "Engineering Consultancy" line is unreadable at header size, so the full company name
+			     is completed in live text beside the compact lockup. -->
+			<a class="brand brand-header" href="index.html" aria-label="PETALS Engineering Consultancy, home">
+				<img src="assets/img/brand/petals-logo-compact.svg" width="962" height="318" alt="">
+				<span class="brand-name">Engineering<br>Consultancy</span>
+			</a>
+
+			<nav class="primary-nav" aria-label="Main" data-open="false" id="primary-nav">
+				<ul class="nav-list">
+					<li><a class="nav-link" href="index.html">Home</a></li>
+					<li><a class="nav-link" href="about-us.html">About Us</a></li>
+					<li class="has-dropdown">
+						<button class="nav-link" type="button" aria-expanded="false" aria-controls="expertise-menu" data-dropdown-toggle>
+							Expertise
+							<svg class="chev" viewBox="0 0 10 10" aria-hidden="true"><path d="M1.5 3.5 5 7l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.2"/></svg>
+						</button>
+						<ul class="dropdown" id="expertise-menu" hidden>
+							<li class="dropdown-all"><a href="expertise.html">All expertise</a></li>
+							<li><a href="geotechnical-investigation.html">Geotechnical Investigation</a></li>
+							<li><a href="geophysical-specialized-investigation.html">Geophysical &amp; Specialized Investigation</a></li>
+							<li><a href="laboratory-materials-testing-ndt.html">Laboratory, Materials Testing &amp; NDT</a></li>
+							<li><a href="foundation-pile-testing.html">Foundation &amp; Pile Testing</a></li>
+							<li><a href="pavement-infrastructure-investigation.html">Pavement &amp; Infrastructure Investigation</a></li>
+							<li><a href="engineering-design-analysis.html">Engineering Design &amp; Analysis</a></li>
+							<li><a href="bim-digital-engineering.html">BIM &amp; Digital Engineering</a></li>
+							<li><a href="advisory-due-diligence.html">Advisory &amp; Due Diligence</a></li>
+						</ul>
+					</li>
+					<li><a class="nav-link" href="how-we-work.html">How We Work</a></li>
+					<li><a class="nav-link" href="careers.html">Careers</a></li>
+					<li><a class="nav-link is-section" href="insights.html">Insights</a></li>
+					<li class="nav-mobile-only"><a class="nav-link" href="contact.html">Contact</a></li>
+				</ul>
+			</nav>
+
+			<div style="display:flex;align-items:center;gap:8px">
+				<a class="btn btn-primary header-cta" href="contact.html">Contact</a>
+				<button class="btn btn-secondary menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav"><span>Menu</span></button>
+			</div>
+		</div>
+	</header>
+
+	<main id="main">
+		<div class="ar-progress" aria-hidden="true"><span></span></div>
+		<!-- Sample article written for the prototype. It must be completed and technically reviewed by PETALS before it is published. -->
+		<article class="ar">
+			<header class="ar-hero container">
+				<nav class="breadcrumb" aria-label="Breadcrumb"><ol><li><a href="index.html">Home</a></li><li><a href="insights.html">Insights</a></li><li><span aria-current="page">Laboratory Testing</span></li></ol></nav>
+				<div class="ar-meta"><span class="ins-cat">Laboratory Testing</span><span>7 min read</span><span>14 November 2026</span></div>
+				<h1 id="page-title">Understanding Soil Laboratory Test Results</h1>
+				<p class="ar-dek">Index properties, strength and consolidation: how to read the numbers in a soil laboratory report, and what they mean for the foundation above.</p>
+				<p class="ar-byline"><span class="ar-avatar" aria-hidden="true"><img src="assets/img/brand/petals-mark.svg" alt="" width="40" height="40"></span><span>By the <b>PETALS engineering team</b><br>Technically reviewed by <span class="pv-ph">[Reviewer name]</span></span></p>
+			</header>
+			<figure class="ar-cover container">
+				<div class="ar-cover-img"><img src="assets/img/insight-laboratory-cover.webp" width="1600" height="686" alt="Soil samples in metal trays beside brass test sieves on a laboratory bench, with a compression testing machine behind"></div>
+				<figcaption>Sieve analysis and Atterberg limits are the first tests on almost every soil sample.</figcaption>
+			</figure>
+
+			<div class="ar-layout container">
+				<nav class="ar-toc" aria-label="In this article" data-spy>
+					<p class="pv-toc-title">In this article</p>
+					<ol><li><a href="#l-why">Why the lab report matters</a></li><li><a href="#l-index">Index properties</a></li><li><a href="#l-chart">Reading the plasticity chart</a></li><li><a href="#l-strength">Strength</a></li><li><a href="#l-consol">Compressibility and swell</a></li><li><a href="#l-check">Checking a lab report</a></li><li><a href="#l-takeaways">Key takeaways</a></li></ol>
+					<button type="button" class="ar-copy" data-copy-url><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/></svg><span>Copy link</span></button>
+				</nav>
+
+				<div class="ar-body">
+					<section id="l-why">
+						<h2>Why the lab report matters</h2>
+						<p class="ar-lead">The borehole log tells you what the ground is called. The laboratory tells you how it will behave: how strong it is, how much it will settle, whether it will swell when wet. Those numbers drive the foundation type, its depth and its size.</p>
+						<p>A lab report can run to dozens of pages of tables. Most of the numbers fall into three families: index properties that classify the soil, strength parameters, and compressibility. Read them in that order.</p>
+					</section>
+
+					<section id="l-index">
+						<h2>Index properties</h2>
+						<p>Index tests are simple and cheap, and every sample should have them. They tell you what kind of soil you are dealing with.</p>
+						<div class="ar-table-wrap" tabindex="0" role="region" aria-label="Index tests (scrolls sideways on small screens)">
+							<table class="ar-table">
+								<thead><tr><th scope="col">Test</th><th scope="col">Result</th><th scope="col">What it tells you</th></tr></thead>
+								<tbody>
+									<tr><th scope="row">Grain size analysis</th><td>% gravel, sand, silt, clay</td><td>Coarse or fine grained; drainage behaviour</td></tr>
+									<tr><th scope="row">Atterberg limits</th><td>Liquid limit (LL), plastic limit, plasticity index (PI)</td><td>Type and plasticity of fine soils</td></tr>
+									<tr><th scope="row">Natural moisture content</th><td>% water by dry weight</td><td>Compared with the limits: how soft the soil is in place</td></tr>
+									<tr><th scope="row">Bulk and dry density</th><td>kN/m³ or g/cc</td><td>Overburden pressure, compaction state</td></tr>
+									<tr><th scope="row">Specific gravity</th><td>Typically 2.6 to 2.8</td><td>Input to void ratio and saturation</td></tr>
+								</tbody>
+							</table>
+						</div>
+						<aside class="ar-note"><b>Classification.</b> In India, soils are classified to IS 1498. The two-letter symbols (CL, CI, MH and so on) come from the plasticity chart below.</aside>
+					</section>
+
+					<section id="l-chart">
+						<h2>Reading the plasticity chart</h2>
+						<p>Fine-grained soils are classified by plotting liquid limit against plasticity index. Points above the A-line are clays; points below it are silts. The liquid limit sets the plasticity: low below 35, intermediate from 35 to 50, high above 50.</p>
+					<figure class="fig-ix pc-fig" data-state="cl" aria-labelledby="pc-cap">
+						<div class="pc-grid">
+							<svg class="pc-svg" viewBox="0 0 620 320" role="img" aria-label="Plasticity chart with liquid limit from 0 to 100 on the horizontal axis and plasticity index from 0 to 60 on the vertical axis. The A-line rises from liquid limit 20. Vertical lines at liquid limit 35 and 50 divide low, intermediate and high plasticity. Four samples are plotted.">
+								<g class="pc-gridlines"><path d="M70 230H590M70 190H590M70 150H590M70 110H590M70 70H590M70 30H590M174 30V270M278 30V270M382 30V270M486 30V270"/></g>
+								<path class="pc-zone" d="M252.0 30V270M330.0 30V270"/>
+								<text class="pc-zone-t" x="161.0" y="48" text-anchor="middle">Low</text><text class="pc-zone-t" x="291.0" y="48" text-anchor="middle">Intermediate</text><text class="pc-zone-t" x="460.0" y="48" text-anchor="middle">High</text>
+								<path class="pc-aline" d="M174.0 270.0L590.0 36.4"/>
+								<text class="pc-aline-t" x="584.0" y="58.4" text-anchor="end">A-line, PI = 0.73 (LL − 20)</text>
+								<text class="pc-region" x="470" y="110">Clays (C)</text><text class="pc-region" x="470" y="250">Silts (M)</text>
+								<path class="pc-axis" d="M70 30V270H590"/>
+								<g class="pc-ticks"><text x="70" y="290" text-anchor="middle">0</text><text x="174" y="290" text-anchor="middle">20</text><text x="278" y="290" text-anchor="middle">40</text><text x="382" y="290" text-anchor="middle">60</text><text x="486" y="290" text-anchor="middle">80</text><text x="590" y="290" text-anchor="middle">100</text><text x="60" y="274" text-anchor="end">0</text><text x="60" y="194" text-anchor="end">20</text><text x="60" y="114" text-anchor="end">40</text><text x="60" y="34" text-anchor="end">60</text></g>
+								<text class="pc-axis-t" x="590" y="312" text-anchor="end">Liquid limit, LL (%)</text><text class="pc-axis-t" x="16" y="150" transform="rotate(-90 16 150)" text-anchor="middle">Plasticity index, PI (%)</text>
+								<g class="pc-pt" data-when="cl"><circle cx="215.6" cy="222.0" r="6"/><text x="225.6" y="214.0">S1</text></g><g class="pc-pt" data-when="ci"><circle cx="288.4" cy="190.0" r="6"/><text x="298.4" y="182.0">S2</text></g><g class="pc-pt" data-when="ch"><circle cx="402.8" cy="118.0" r="6"/><text x="412.8" y="110.0">S3</text></g><g class="pc-pt" data-when="mi"><circle cx="309.2" cy="230.0" r="6"/><text x="319.2" y="222.0">S4</text></g>
+							</svg>
+							<div class="pc-side">
+								<div class="fig-ix-bar fig-ix-stack" role="group" aria-label="Samples"><button type="button" class="fig-ix-btn" data-set="cl" aria-pressed="true"><b>S1</b> LL 28, PI 12</button><button type="button" class="fig-ix-btn" data-set="ci" aria-pressed="false"><b>S2</b> LL 42, PI 20</button><button type="button" class="fig-ix-btn" data-set="ch" aria-pressed="false"><b>S3</b> LL 64, PI 38</button><button type="button" class="fig-ix-btn" data-set="mi" aria-pressed="false"><b>S4</b> LL 46, PI 10</button></div>
+								<p class="fig-ix-say" aria-live="polite"><span data-when="cl">LL 28 and PI 12 plot above the A-line and below LL 35: <b>CL, clay of low plasticity</b>. Usually workable and moderately compressible.</span><span data-when="ci">LL 42 and PI 20 plot above the A-line between LL 35 and 50: <b>CI, clay of intermediate plasticity</b>. Check swell and consolidation if foundations are shallow.</span><span data-when="ch">LL 64 and PI 38 plot above the A-line beyond LL 50: <b>CH, clay of high plasticity</b>. Expect high swell and shrinkage potential; black cotton soils often fall here.</span><span data-when="mi">LL 46 and PI 10 plot below the A-line: <b>MI, silt of intermediate compressibility</b>. Same liquid limit range as S2, very different behaviour.</span></p>
+							</div>
+						</div>
+						<figcaption id="pc-cap">Four illustrative samples, simplified from the IS 1498 chart. Select a sample to see how it is classified.</figcaption>
+					</figure>
+					</section>
+
+					<section id="l-strength">
+						<h2>Strength</h2>
+						<p>Shear strength is reported as cohesion (c) and angle of shearing resistance (φ). How it was measured matters as much as the value:</p>
+						<p><b>Unconfined compression</b> gives a quick undrained strength for clays. <b>Direct shear</b> suits sands and gives c and φ on a fixed plane. <b>Triaxial tests</b> control drainage and confining pressure; unconsolidated undrained (UU) results apply to short-term loading, consolidated drained or undrained results with pore pressure to long-term behaviour.</p>
+						<aside class="ar-note"><b>Sample quality.</b> Strength results are only as good as the sample. Check that strength tests were done on undisturbed samples, not remoulded ones.</aside>
+					</section>
+
+					<blockquote class="ar-quote"><p>A strength value without its test type and drainage condition is not a design parameter.</p></blockquote>
+
+					<section id="l-consol">
+						<h2>Compressibility and swell</h2>
+						<p>For clays, settlement often governs design rather than strength. The consolidation test gives the compression index (Cc), which sets how much the clay will settle, and the coefficient of consolidation (cv), which sets how fast. Preconsolidation pressure tells you whether the clay has been loaded more heavily in the past.</p>
+						<p>Expansive soils such as black cotton soil need their own tests: free swell index and swelling pressure. A high swell result changes the foundation approach, often to under-reamed piles or founding below the active zone.</p>
+					</section>
+
+					<section id="l-check">
+						<h2>Checking a lab report</h2>
+						<p>Use this list to check a laboratory report you have received.</p>
+						<div class="ar-check">
+							<div class="ar-check-head"><p>Lab report checklist</p><p class="ar-check-count" aria-live="polite"><b>0</b> of 6</p></div>
+							<ul><li><label><input type="checkbox"><span>Each sample is traced to its borehole and depth</span></label></li><li><label><input type="checkbox"><span>Every test names the standard it follows</span></label></li><li><label><input type="checkbox"><span>Disturbed and undisturbed samples are identified</span></label></li><li><label><input type="checkbox"><span>Strength tests state type and drainage condition</span></label></li><li><label><input type="checkbox"><span>Results are summarised against the borehole logs</span></label></li><li><label><input type="checkbox"><span>Unusual results are flagged, not silently dropped</span></label></li></ul>
+							<span class="ar-check-bar" aria-hidden="true"><span></span></span>
+						</div>
+					</section>
+
+					<section id="l-takeaways" class="ar-takeaways">
+						<h2>Key takeaways</h2>
+						<ul>
+							<li>Read the report in order: classification, strength, compressibility.</li>
+							<li>The plasticity chart separates clays from silts; the liquid limit sets their plasticity.</li>
+							<li>Strength values mean little without the test type and drainage condition.</li>
+							<li>For clays, settlement and swell often govern the foundation.</li>
+						</ul>
+					</section>
+
+					<footer class="ar-end">
+						<p>Have a lab report you are not sure about? <a href="contact.html">Send it to us</a> and we will walk you through it.</p>
+						<a class="btn btn-ghost" href="laboratory-materials-testing-ndt.html">Laboratory, Materials Testing &amp; NDT service <svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M8.5 3.5 13 8l-4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.4"/></svg></a>
+					</footer>
+				</div>
+			</div>
+		</article>
+
+		<section class="section container ar-related" aria-labelledby="related-title">
+			<div class="section-head"><h2 id="related-title">Keep reading</h2><a class="link-accent" href="insights.html">All insights →</a></div>
+			<ul class="ins-grid">
+				<li class="ins-card"><a href="insight-geotechnical-investigation.html"><div class="ins-cover"><img src="assets/img/service-geotechnical.webp" width="800" height="600" alt="" loading="lazy"></div><div class="ins-body"><span class="ins-meta"><span class="ins-cat">Geotechnical</span><span>8 min read</span></span><h2>What Should a Geotechnical Investigation Include?</h2><span class="ins-read">Read Article <svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M8.5 3.5 13 8l-4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.4"/></svg></span></div></a></li>
+				<li class="ins-card"><a href="insight-geotechnical-vs-geophysical.html"><div class="ins-cover"><img src="assets/img/service-geophysical.webp" width="800" height="600" alt="" loading="lazy"></div><div class="ins-body"><span class="ins-meta"><span class="ins-cat">Geophysics</span><span>6 min read</span></span><h2>Geotechnical vs Geophysical Investigation</h2><span class="ins-read">Read Article <svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M8.5 3.5 13 8l-4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.4"/></svg></span></div></a></li>
+				<li class="ins-card"><a href="insight-concrete-ndt-methods.html"><div class="ins-cover"><img src="assets/img/service-ndt.webp" width="800" height="600" alt="" loading="lazy"></div><div class="ins-body"><span class="ins-meta"><span class="ins-cat">NDT</span><span>6 min read</span></span><h2>Common Methods for Concrete NDT</h2><span class="ins-read">Read Article <svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M8.5 3.5 13 8l-4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.4"/></svg></span></div></a></li>
+			</ul>
+		</section>
+	</main>
+
+	<footer class="site-footer">
+		<div class="container">
+			<div class="footer-top">
+				<div class="footer-brand">
+					<a class="brand" href="index.html" aria-label="PETALS Engineering Consultancy, home">
+						<img src="assets/img/brand/petals-logo-line-on-dark.webp" width="617" height="860" alt="" loading="lazy">
+					</a>
+					<p class="footer-tagline">Engineering Precision. From Ground to Design.</p>
+				</div>
+
+				<nav class="footer-col" aria-labelledby="footer-links-title">
+					<h2 class="footer-heading" id="footer-links-title">Quick links</h2>
+					<ul>
+						<li><a href="index.html">Home</a></li>
+						<li><a href="about-us.html">About Us</a></li>
+						<li><a href="expertise.html">Expertise</a></li>
+						<li><a href="how-we-work.html">How We Work</a></li>
+						<li><a href="careers.html">Careers</a></li>
+						<li><a href="insights.html">Insights</a></li>
+						<li><a href="contact.html">Contact</a></li>
+					</ul>
+				</nav>
+
+				<div class="footer-col">
+					<h2 class="footer-heading">Contact</h2>
+					<ul>
+						<li><span class="placeholder" title="Awaiting the verified address from PETALS">[Official Email]</span></li>
+						<li><span class="placeholder" title="Awaiting the verified number from PETALS">[Business Phone]</span></li>
+						<li>Jaipur, Rajasthan, India</li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="footer-bottom">
+				<p>© 2026 PETALS Engineering Consultancy. All rights reserved.</p>
+				<a href="privacy-notice.html">Privacy notice</a>
+			</div>
+		</div>
+	</footer>
+
+	<script src="assets/js/main.js?v=2026-11-14a" defer></script>
+</body>
+</html>

@@ -645,6 +645,7 @@
 	letter-spacing: var(--tracking-display);
 	text-wrap: balance;
 }
+.svc-hero h1.is-long { font-size: clamp(34px, 3.6vw, 52px); }
 .svc-lede { margin-top: var(--space-24); max-width: 40ch; font-size: var(--text-lede); line-height: var(--leading-lede); color: color-mix(in oklab, var(--color-ink) 82%, transparent); text-wrap: pretty; }
 .svc-body { margin-top: var(--space-16); max-width: 52ch; color: var(--color-text-quiet); text-wrap: pretty; }
 .svc-hero-media { margin: 0; aspect-ratio: 4 / 3; border-radius: var(--radius); overflow: hidden; background: var(--surface-elevated); }
@@ -704,6 +705,26 @@
 	.param[open] p { animation: param-open 260ms cubic-bezier(0.16, 1, 0.3, 1); }
 }
 @keyframes param-open { from { opacity: 0; transform: translateY(-4px); } }
+/* Material sub-heads inside a long group (Laboratory, Materials Testing & NDT) */
+.param-sub { grid-column: 1 / -1; display: flex; align-items: center; gap: var(--space-12); padding-top: var(--space-32); padding-bottom: var(--space-4, 4px); }
+.param-sub:first-child { padding-top: var(--space-4, 4px); }
+.param-sub h4 { font-size: var(--text-meta); font-weight: var(--weight-strong); letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-accent); }
+.param-sub::after { content: ""; flex: 1; height: 1px; background: var(--line-hairline); }
+
+/* Laboratory status notice: the lab is not yet open, so the page says so plainly */
+.svc-notice {
+	display: flex;
+	gap: var(--space-16);
+	align-items: flex-start;
+	margin-bottom: var(--space-48);
+	padding: var(--space-20) var(--space-24);
+	border-left: 3px solid var(--color-copper);
+	border-radius: var(--radius);
+	background: var(--surface-card);
+}
+.svc-notice svg { flex: none; width: 22px; height: 22px; margin-top: 2px; fill: none; stroke: var(--color-accent); stroke-width: 1.6; stroke-linecap: round; }
+.svc-notice p { max-width: 80ch; font-size: var(--text-body-sm); line-height: 1.6; color: var(--color-text-quiet); }
+.svc-notice b { color: var(--color-ink); font-weight: var(--weight-strong); }
 
 /* Related services */
 .related-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--space-16); margin: 0; padding: 0; list-style: none; }
@@ -1688,6 +1709,100 @@
 	.bh-grid { grid-template-columns: 1fr; }
 	.ar-cover-img { aspect-ratio: 4 / 3; }
 	.ar-body p { font-size: 17px; }
+}
+
+/* ---------- Article figures: switchable states (data-state + [data-when]) ---------- */
+.ar-body > section > .fig-ix { grid-column: 1 / -1; margin: var(--space-16) 0 0; padding: clamp(16px, 2.4vw, 28px); border-radius: var(--radius-modal); background: var(--surface-card); }
+.fig-ix svg { display: block; width: 100%; height: auto; font-family: var(--font-sans); }
+.fig-ix svg text { font-size: 11px; fill: var(--color-text-quiet); }
+.fig-ix-bar { display: flex; flex-wrap: wrap; gap: var(--space-8); margin-bottom: var(--space-20); }
+.fig-ix-btn { padding: 9px 14px; border: 1px solid var(--line-hairline); border-radius: 999px; background: var(--color-parchment); color: var(--color-ink); font: inherit; font-size: var(--text-body-sm); font-weight: var(--weight-strong); font-stretch: var(--width-title); cursor: pointer; transition: background-color 200ms var(--ease), color 200ms var(--ease), border-color 200ms var(--ease); }
+.fig-ix-btn:hover { border-color: var(--color-ink); }
+.fig-ix-btn[aria-pressed='true'] { background: var(--color-ink); border-color: var(--color-ink); color: var(--color-parchment); }
+.fig-ix-stack { display: grid; gap: 0; margin: 0; border-top: 1px solid var(--line-hairline); }
+.fig-ix-stack .fig-ix-btn { display: flex; gap: var(--space-12); align-items: baseline; padding: 11px var(--space-8); border: 0; border-bottom: 1px solid var(--line-hairline); border-radius: 0; background: none; font-weight: var(--weight-regular); font-stretch: var(--width-body); text-align: left; font-variant-numeric: tabular-nums; }
+.fig-ix-stack .fig-ix-btn b { font-weight: var(--weight-strong); font-stretch: var(--width-title); }
+.fig-ix-stack .fig-ix-btn:hover { background: var(--surface-elevated); }
+.fig-ix-stack .fig-ix-btn[aria-pressed='true'] { background: var(--color-ink); color: var(--color-parchment); }
+.ar-body .fig-ix-say { display: grid; margin-top: var(--space-16); font-size: var(--text-body-sm); line-height: 1.6; color: var(--color-ink); }
+.fig-ix-say b { font-weight: var(--weight-strong); }
+.fig-ix-say > [data-when] { grid-area: 1 / 1; visibility: hidden; opacity: 0; }
+.fig-ix figcaption { margin-top: var(--space-16); font-size: var(--text-meta); color: var(--color-text-quiet); }
+/* Without JS (or before it runs) only the default state shows; the figure switches by data-state */
+.fig-ix [data-when] { transition: opacity 350ms var(--ease); }
+.fig-ix svg [data-when] { opacity: 0; }
+.gx-fig[data-state='bh'] [data-when='bh'], .gx-fig[data-state='geo'] [data-when='geo'],
+.pc-fig[data-state='cl'] [data-when='cl'], .pc-fig[data-state='ci'] [data-when='ci'], .pc-fig[data-state='ch'] [data-when='ch'], .pc-fig[data-state='mi'] [data-when='mi'],
+.pl-fig[data-state='load'] [data-when='load'], .pl-fig[data-state='pit'] [data-when='pit'], .pl-fig[data-state='defect'] [data-when='defect'] { visibility: visible; opacity: 1; }
+
+/* Geotechnical vs geophysical section */
+.gx-ground { fill: none; stroke: var(--color-ink); stroke-width: 1.4; }
+.gx-guess-line { fill: none; stroke: var(--color-ink); stroke-width: 1.4; stroke-dasharray: 6 5; transition: opacity 350ms var(--ease); }
+.gx-true-line { fill: none; stroke: var(--color-accent); stroke-width: 2.4; stroke-linejoin: round; opacity: 0; }
+.gx-rock-true { opacity: 0; transition: opacity 500ms var(--ease); }
+.gx-rock-guess { transition: opacity 500ms var(--ease); }
+.gx-bh rect { fill: var(--color-ink); }
+.fig-ix svg .gx-bh text { font-size: 11px; font-weight: 600; fill: var(--color-ink); }
+.gx-geophones { opacity: 0; transition: opacity 350ms var(--ease); }
+.gx-geophones path { stroke: var(--color-accent); stroke-width: 2; }
+.gx-flag { opacity: 0; transition: opacity 350ms var(--ease) 600ms; }
+.gx-flag path { stroke: var(--color-accent); stroke-width: 1.4; }
+.fig-ix svg .gx-flag text { font-weight: 600; fill: var(--color-accent); }
+.gx-axis path { stroke: var(--color-mist); }
+.gx-fig[data-state='geo'] .gx-rock-true, .gx-fig[data-state='geo'] .gx-true-line, .gx-fig[data-state='geo'] .gx-geophones, .gx-fig[data-state='geo'] .gx-flag { opacity: 1; }
+.gx-fig[data-state='geo'] .gx-rock-guess { opacity: 0; }
+.gx-fig[data-state='geo'] .gx-guess-line { opacity: 0.5; }
+@media (prefers-reduced-motion: no-preference) {
+	.gx-true-line { stroke-dasharray: 1; stroke-dashoffset: 1; transition: stroke-dashoffset 1200ms cubic-bezier(0.65, 0, 0.35, 1), opacity 200ms; }
+	.gx-fig[data-state='geo'] .gx-true-line { stroke-dashoffset: 0; }
+}
+
+/* Plasticity chart */
+.pc-grid { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: var(--space-32); align-items: start; }
+.pc-gridlines path { stroke: var(--line-hairline); }
+.pc-axis { fill: none; stroke: var(--color-ink); stroke-width: 1.2; }
+.pc-zone { stroke: var(--color-mist); stroke-dasharray: 4 4; }
+.fig-ix svg .pc-zone-t { font-size: 10px; letter-spacing: 0.06em; text-transform: uppercase; }
+.pc-aline { stroke: var(--color-ink); stroke-width: 1.8; }
+.fig-ix svg .pc-aline-t { font-weight: 600; fill: var(--color-ink); }
+.fig-ix svg .pc-region { font-size: 13px; font-weight: 600; fill: var(--color-mist); }
+.fig-ix svg .pc-axis-t { font-weight: 500; fill: var(--color-ink); }
+.pc-pt circle { fill: var(--color-copper); stroke: var(--color-parchment); stroke-width: 2; }
+.fig-ix svg .pc-pt text { font-size: 12px; font-weight: 600; fill: var(--color-accent); }
+.pc-fig svg .pc-pt { opacity: 0.22; }
+.pc-fig svg .pc-pt circle { transform-box: fill-box; transform-origin: center; transition: transform 400ms cubic-bezier(0.34, 1.56, 0.64, 1); }
+.pc-fig[data-state='cl'] svg [data-when='cl'] circle, .pc-fig[data-state='ci'] svg [data-when='ci'] circle, .pc-fig[data-state='ch'] svg [data-when='ch'] circle, .pc-fig[data-state='mi'] svg [data-when='mi'] circle { transform: scale(1.35); }
+
+/* Pile results */
+.pl-grid { fill: none; stroke: var(--line-hairline); }
+.pl-axis { fill: none; stroke: var(--color-ink); stroke-width: 1.2; }
+.pl-curve { fill: none; stroke: var(--color-accent); stroke-width: 2.4; stroke-linejoin: round; stroke-linecap: round; }
+.pl-mark { stroke: var(--color-ink); stroke-dasharray: 4 4; }
+.pl-mark-alt { stroke: var(--color-accent); }
+.pl-end { fill: var(--color-accent); }
+.fig-ix svg .pl-tag { font-weight: 600; fill: var(--color-ink); }
+.fig-ix svg .pl-t { font-weight: 500; }
+@media (prefers-reduced-motion: no-preference) {
+	.pl-fig .pl-curve { stroke-dasharray: 1; stroke-dashoffset: 1; transition: stroke-dashoffset 1100ms cubic-bezier(0.65, 0, 0.35, 1); }
+	.pl-fig[data-state='load'] [data-when='load'] .pl-curve, .pl-fig[data-state='pit'] [data-when='pit'] .pl-curve, .pl-fig[data-state='defect'] [data-when='defect'] .pl-curve { stroke-dashoffset: 0; }
+}
+
+/* UPV slider */
+.upv-top { display: flex; justify-content: space-between; align-items: baseline; gap: var(--space-16); }
+.upv-label { font-weight: var(--weight-strong); font-stretch: var(--width-title); }
+.upv-out { font-size: var(--text-body-sm); color: var(--color-text-quiet); font-variant-numeric: tabular-nums; }
+.upv-out b { font-size: 32px; font-weight: var(--weight-strong); font-stretch: var(--width-heading); color: var(--color-ink); }
+.upv-range { width: 100%; margin: var(--space-16) 0 var(--space-8); accent-color: var(--color-accent); height: 28px; cursor: pointer; }
+.upv-scale { display: grid; grid-template-columns: 1fr 0.5fr 1fr 1fr; gap: 4px; margin: 0; padding: 0; list-style: none; }
+.upv-scale li { display: grid; gap: 2px; padding: 10px 12px; border-radius: var(--radius); background: var(--color-parchment); transition: background-color 250ms var(--ease), color 250ms var(--ease); }
+.upv-scale span { font-weight: var(--weight-strong); font-stretch: var(--width-title); font-size: var(--text-body-sm); }
+.upv-scale small { font-size: var(--text-meta); color: var(--color-text-quiet); font-variant-numeric: tabular-nums; }
+.upv-scale li.is-on { background: var(--color-ink); color: var(--color-parchment); }
+.upv-scale li.is-on small { color: var(--color-mist-navy); }
+
+@media (max-width: 760px) {
+	.pc-grid { grid-template-columns: 1fr; }
+	.upv-scale { grid-template-columns: repeat(2, 1fr); }
 }
 
 /* ---------- Footer ---------- */
