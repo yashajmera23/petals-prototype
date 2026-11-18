@@ -11,9 +11,9 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..600&display=swap">
 	<!-- Bump ?v= on these four links whenever CSS or JS changes, so browsers never pair new HTML with stale files -->
-	<link rel="stylesheet" href="assets/css/tokens.css?v=2026-11-14a">
-	<link rel="stylesheet" href="assets/css/base.css?v=2026-11-14a">
-	<link rel="stylesheet" href="assets/css/components.css?v=2026-11-14a">
+	<link rel="stylesheet" href="assets/css/tokens.css?v=2026-11-18b">
+	<link rel="stylesheet" href="assets/css/base.css?v=2026-11-18b">
+	<link rel="stylesheet" href="assets/css/components.css?v=2026-11-18b">
 </head>
 <body>
 	<a class="skip-link" href="#main">Skip to content</a>
@@ -138,7 +138,7 @@
 						</details></li>
 						<li><details class="param">
 							<summary><span class="param-name">Clash Detection</span><svg class="param-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 3v10M3 8h10"/></svg></summary>
-							<p>Finds conflicts between elements of different disciplines before they reach site.</p>
+							<p>Identifies geometric and coordination conflicts between multidisciplinary models before construction. Outputs may include clash reports, issue registers, conflict locations, assigned responsibilities and resolution status, as agreed for the project.</p>
 						</details></li>
 						<li><details class="param">
 							<summary><span class="param-name">Integrated Design Coordination</span><svg class="param-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 3v10M3 8h10"/></svg></summary>
@@ -184,19 +184,19 @@
 					<ul class="param-list">
 						<li><details class="param">
 							<summary><span class="param-name">BIM Execution Planning Support</span><svg class="param-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 3v10M3 8h10"/></svg></summary>
-							<p>Helps define the BIM goals, standards, responsibilities and deliverables for a project.</p>
+							<p>Helps establish project BIM objectives, roles, modelling standards, Level of Development (LOD), Level of Information (LOI), software and file-format requirements, coordination procedures, review stages and agreed information handover deliverables.</p>
 						</details></li>
 						<li><details class="param">
 							<summary><span class="param-name">Scan-to-BIM</span><svg class="param-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 3v10M3 8h10"/></svg></summary>
-							<p>Converts laser scan point clouds of existing buildings and sites into accurate models.</p>
+							<p>Converts laser-scan point-cloud data of existing buildings and sites into BIM models at the agreed level of detail and information. Modelling accuracy, tolerances and verification requirements are defined according to the survey data and project specifications.</p>
 						</details></li>
 						<li><details class="param">
 							<summary><span class="param-name">As-Built BIM Modelling</span><svg class="param-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 3v10M3 8h10"/></svg></summary>
-							<p>Updates the model to reflect what was actually built, for handover and facility management.</p>
+							<p>Develops or updates BIM models to represent the constructed condition using verified site records, approved mark-ups and/or as-built survey information. Model content, verification level and handover information are defined according to project requirements.</p>
 						</details></li>
 						<li><details class="param">
 							<summary><span class="param-name">IFC &amp; OpenBIM Exchange</span><svg class="param-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 3v10M3 8h10"/></svg></summary>
-							<p>Exchanges models in open formats so that different software and teams can share information.</p>
+							<p>Prepares and exchanges BIM models using agreed openBIM formats, such as IFC, where specified. File formats, versions, exchange requirements and model compatibility are established according to the project's information requirements.</p>
 						</details></li>
 						<li><details class="param">
 							<summary><span class="param-name">Model Documentation &amp; Visualisation</span><svg class="param-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 3v10M3 8h10"/></svg></summary>
@@ -205,6 +205,26 @@
 					</ul>
 				</div>
 			</div>
+		</section>
+
+		<section class="section container bim-deliverables" aria-labelledby="deliv-title">
+			<div class="section-head">
+				<div class="section-head-text">
+					<h2 id="deliv-title">Typical BIM deliverables</h2>
+					<p class="section-intro">Depending on the agreed project scope, BIM deliverables may include:</p>
+				</div>
+			</div>
+			<ul class="bim-del-list">
+				<li><span class="bim-del-n" aria-hidden="true">01</span>Discipline-wise or federated 3D models</li>
+				<li><span class="bim-del-n" aria-hidden="true">02</span>Coordinated models</li>
+				<li><span class="bim-del-n" aria-hidden="true">03</span>Clash detection reports and issue registers</li>
+				<li><span class="bim-del-n" aria-hidden="true">04</span>Drawings and schedules</li>
+				<li><span class="bim-del-n" aria-hidden="true">05</span>Quantity take-offs</li>
+				<li><span class="bim-del-n" aria-hidden="true">06</span>4D construction sequencing</li>
+				<li><span class="bim-del-n" aria-hidden="true">07</span>5D cost-linked information</li>
+				<li><span class="bim-del-n" aria-hidden="true">08</span>IFC exchange files</li>
+				<li><span class="bim-del-n" aria-hidden="true">09</span>As-built BIM models</li>
+			</ul>
 		</section>
 
 		<section class="section container svc-related" aria-labelledby="related-title">
@@ -257,6 +277,13 @@
 						<img src="assets/img/brand/petals-logo-line-on-dark.webp" width="617" height="860" alt="" loading="lazy">
 					</a>
 					<p class="footer-tagline">Engineering Precision. From Ground to Design.</p>
+					<!-- Social links: URLs awaited from PETALS -->
+					<ul class="footer-social">
+						<li><a href="#" aria-label="PETALS on Facebook" data-placeholder><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 8h3V4h-3a4 4 0 0 0-4 4v2H8v4h2v8h4v-8h3l1-4h-4V8.5a.5.5 0 0 1 .5-.5Z"/></svg></a></li>
+						<li><a href="#" aria-label="PETALS on X" data-placeholder><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h4.5L20 20h-4.5ZM20 4l-6.6 7.3M4 20l6.6-7.3"/></svg></a></li>
+						<li><a href="#" aria-label="PETALS on Instagram" data-placeholder><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/></svg></a></li>
+						<li><a href="#" aria-label="PETALS on LinkedIn" data-placeholder><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 10.5V17M8 7.2v.1M12 17v-6.5M12 13.5c0-1.8 1.2-3 2.6-3 1.5 0 2.4 1 2.4 3V17"/></svg></a></li>
+					</ul>
 				</div>
 
 				<nav class="footer-col" aria-labelledby="footer-links-title">
@@ -289,6 +316,6 @@
 		</div>
 	</footer>
 
-	<script src="assets/js/main.js?v=2026-11-14a" defer></script>
+	<script src="assets/js/main.js?v=2026-11-18b" defer></script>
 </body>
 </html>

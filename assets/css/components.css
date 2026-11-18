@@ -705,6 +705,13 @@
 	.param[open] p { animation: param-open 260ms cubic-bezier(0.16, 1, 0.3, 1); }
 }
 @keyframes param-open { from { opacity: 0; transform: translateY(-4px); } }
+/* BIM page: typical deliverables, a numbered grid of outputs */
+.bim-del-list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0 var(--space-32); margin: 0; padding: 0; list-style: none; counter-reset: none; }
+.bim-del-list li { display: flex; gap: var(--space-16); align-items: baseline; padding: var(--space-20) 0; border-top: 1px solid var(--line-hairline); font-weight: var(--weight-strong); font-stretch: var(--width-title); line-height: 1.35; }
+.bim-del-n { flex: none; font-size: var(--text-meta); color: var(--color-accent); font-variant-numeric: tabular-nums; }
+@media (max-width: 900px) { .bim-del-list { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 560px) { .bim-del-list { grid-template-columns: 1fr; } }
+
 /* Material sub-heads inside a long group (Laboratory, Materials Testing & NDT) */
 .param-sub { grid-column: 1 / -1; display: flex; align-items: center; gap: var(--space-12); padding-top: var(--space-32); padding-bottom: var(--space-4, 4px); }
 .param-sub:first-child { padding-top: var(--space-4, 4px); }
@@ -1056,6 +1063,7 @@
 .team-head { display: flex; justify-content: space-between; align-items: end; gap: var(--space-24); margin-bottom: var(--space-32); }
 .team-head h2 { font-size: var(--text-heading-lg); line-height: var(--leading-heading-lg); font-weight: var(--weight-strong); font-stretch: var(--width-heading); letter-spacing: var(--tracking-heading-lg); }
 .team-head .section-intro { margin-top: var(--space-12); }
+.team.is-static .team-controls, .team.is-static .team-progress { display: none; }
 .team-controls { display: flex; gap: var(--space-4); }
 .team-controls .band-arrow { width: 40px; height: 40px; background: var(--surface-elevated); }
 .team-controls .band-arrow:hover { background: var(--color-ink); color: var(--color-parchment); }
@@ -1223,7 +1231,7 @@
 /* the ruler sticks under the header for the length of the six stages */
 .stage-ruler { position: sticky; top: 56px; z-index: 5; padding-block: var(--space-12) 0; background: color-mix(in oklab, var(--surface-canvas) 94%, transparent); backdrop-filter: blur(8px); }
 .stage-ruler .container { position: relative; }
-.stage-ruler ol { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); margin: 0; padding: 0; list-style: none; border-bottom: 1px solid var(--line-hairline); }
+.stage-ruler ol { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); margin: 0; padding: 0; list-style: none; border-bottom: 1px solid var(--line-hairline); }
 .stage-ruler a {
 	position: relative;
 	display: grid;
@@ -1241,7 +1249,7 @@
 .ruler-name { font-size: var(--text-body-sm); font-weight: var(--weight-strong); font-stretch: var(--width-title); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .ruler-fill { position: absolute; left: var(--gutter); right: var(--gutter); bottom: -1px; height: 2px; background: var(--color-copper); transform: scaleX(0); transform-origin: left; transition: transform 500ms cubic-bezier(0.16, 1, 0.3, 1); }
 .hw-steps { padding-top: var(--space-48); border-top: 0; }
-.hw-steps .how-intro, .hw-steps .step-num { top: calc(56px + 92px); }
+.hw-steps .step-num { top: calc(56px + var(--ruler-h, 108px)); }
 .hw-streams .step-streams { max-width: 980px; }
 .hw-streams .streams-card { padding: var(--space-32); }
 .hw-streams .streams-head h3 { display: none; }
@@ -1825,6 +1833,10 @@
 	padding-block: var(--space-64) var(--space-48);
 }
 .footer-tagline { margin-top: var(--space-20); max-width: 30ch; }
+.footer-social { display: flex; gap: var(--space-8); margin: var(--space-20) 0 0; padding: 0; list-style: none; }
+.footer-social a { display: grid; place-items: center; width: 40px; height: 40px; border: 1px solid color-mix(in oklab, var(--color-parchment) 22%, transparent); border-radius: 50%; color: var(--color-parchment); transition: background-color 200ms var(--ease), border-color 200ms var(--ease), color 200ms var(--ease); }
+.footer-social a:hover, .footer-social a:focus-visible { background: var(--color-copper); border-color: var(--color-copper); color: var(--color-ink); }
+.footer-social svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
 .footer-heading {
 	font-size: var(--text-heading-sm);
 	font-stretch: var(--width-title);
@@ -2366,3 +2378,146 @@
 
 /* Cursor trail (main.js): drawn on a canvas above everything, never in the way of clicks */
 .cursor-trail { position: fixed; inset: 0; z-index: 100; width: 100vw; height: 100vh; pointer-events: none; }
+
+/* ---------- Page transitions ---------- */
+/* Same-origin navigations cross-fade with a short slide (View Transitions API). Browsers without
+   support simply change page; reduced motion turns it off. */
+@media (prefers-reduced-motion: no-preference) {
+	@view-transition { navigation: auto; }
+	::view-transition-old(root) { animation: page-out 260ms cubic-bezier(0.4, 0, 1, 1) both; }
+	::view-transition-new(root) { animation: page-in 420ms cubic-bezier(0.16, 1, 0.3, 1) both; }
+}
+@keyframes page-out { to { opacity: 0; transform: translateX(-24px); } }
+@keyframes page-in { from { opacity: 0; transform: translateX(32px); } }
+
+/* ---------- How We Work: seven stages, one illustrative project ---------- */
+.stage-ruler a { padding-right: var(--space-12); }
+.stage-ruler .ruler-name { white-space: normal; text-wrap: balance; }
+.hw-steps .step { scroll-margin-top: calc(56px + var(--ruler-h, 108px)); }
+.ruler-sub { font-size: var(--text-meta); line-height: 1.3; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.hw-steps { grid-template-columns: minmax(0, 1fr); gap: var(--space-32); }
+.hw-steps .how-intro { position: static; max-width: 720px; }
+.hw-steps .how-intro .section-intro { max-width: 60ch; }
+.hw-steps .step-card { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: var(--space-32); align-items: start; padding: var(--space-32); }
+.hw-steps .step-card h3 { margin-top: var(--space-8); }
+.hw-steps .step-card p { max-width: 44ch; }
+.step-eyebrow { font-size: var(--text-meta); font-weight: var(--weight-strong); letter-spacing: 0.04em; color: var(--color-accent) !important; }
+.step-note { padding-left: var(--space-12); border-left: 2px solid var(--color-copper); font-size: var(--text-body-sm); }
+.hw-il text { font-size: 11px; }
+.hw-il .il-label { font-size: 12.5px; }
+.hw-il .il-cap { font-size: 12px; }
+
+.hw-foot { fill: color-mix(in oklab, var(--color-copper) 12%, var(--surface-canvas)); stroke: var(--color-ink); stroke-width: 1.4; }
+.hw-pre { fill: var(--surface-canvas); stroke: var(--color-copper); stroke-width: 1.6; stroke-dasharray: 3 2; }
+.hw-lens { transform: translate(300px, 140px); }
+.hw-lens circle { fill: color-mix(in oklab, var(--color-copper) 10%, transparent); stroke: var(--color-ink); stroke-width: 2; }
+.hw-lens path { stroke: var(--color-ink); stroke-width: 4; stroke-linecap: round; }
+.hw-box { fill: var(--color-ink); }
+.hw-tick { fill: none; stroke: var(--color-parchment); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.hw-d { stroke-dasharray: 1; }
+.hw-bar { fill: var(--color-ink); }
+.hw-bar-l { fill: color-mix(in oklab, var(--color-copper) 55%, var(--surface-canvas)); }
+.hw-bar-d { fill: var(--color-copper); }
+.hw-qline { fill: none; stroke: var(--color-ink); stroke-width: 2; }
+.hw-qdot { fill: var(--color-parchment); stroke: var(--color-ink); stroke-width: 1.6; }
+.hw-ms { fill: var(--color-copper); stroke: var(--color-ink); stroke-width: 1.2; }
+.hw-head { transform: translateX(150px); }
+.hw-head path { stroke: var(--color-copper); stroke-width: 2; }
+.hw-head .hw-head-cap { fill: var(--color-copper); stroke: none; }
+.hw-4d-face { fill: color-mix(in oklab, var(--color-copper) 14%, var(--surface-canvas)); }
+.hw-4d-bh { stroke: var(--color-copper); stroke-width: 2.4; stroke-linecap: round; }
+.hw-4d-raft { fill: var(--color-ink); }
+.hw-inst { fill: var(--color-ink); }
+.hw-sight { stroke: var(--color-copper); stroke-width: 1.4; stroke-dasharray: 3 3; }
+.hw-hyp { fill: none; stroke: var(--color-copper); stroke-width: 1.6; }
+.hw-pipe { fill: var(--color-copper); }
+.hw-rod { fill: none; stroke: var(--color-ink); stroke-width: 3; }
+.hw-wave { fill: none; stroke: var(--color-copper); stroke-width: 1.4; }
+.hw-soil { fill: color-mix(in oklab, var(--color-copper) 45%, var(--surface-canvas)); }
+.hw-water { fill: color-mix(in oklab, var(--color-ink) 22%, var(--surface-canvas)); transform-box: fill-box; transform-origin: bottom; }
+.hw-chip { fill: var(--surface-canvas); stroke: var(--color-mist); }
+.hw-folder { fill: var(--color-parchment); stroke: var(--color-ink); stroke-width: 1.4; stroke-linejoin: round; }
+.hw-conv { fill: none; stroke: var(--color-mist); stroke-width: 1.4; }
+.hw-node { fill: var(--color-ink); }
+.hw-bhline { fill: none; stroke: var(--color-ink); stroke-width: 2.4; }
+.hw-gwl { fill: none; stroke: var(--color-ink); stroke-width: 1.2; stroke-dasharray: 6 4; }
+.hw-gwl-mark { fill: var(--color-ink); }
+.hw-conc { fill: color-mix(in oklab, var(--color-ink) 30%, var(--surface-canvas)); stroke: var(--color-ink); stroke-width: 1.2; }
+.hw-pile { fill: none; stroke: var(--color-ink); stroke-width: 3; }
+.hw-member { fill: none; stroke: var(--color-ink); stroke-width: 3; stroke-linecap: round; }
+.hw-stamp { fill: var(--color-parchment); stroke: var(--color-copper); stroke-width: 2; }
+.hw-il .hw-stamp-t { fill: var(--color-accent); font-size: 11px; font-weight: var(--weight-mark); letter-spacing: 0.12em; }
+.hw-x, .hw-p, .hw-water { transform-box: fill-box; }
+.hw-x { transform-origin: left; }
+.hw-p { transform-origin: center; }
+
+@keyframes hw-rise { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+@keyframes hw-draw { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
+@keyframes hw-grow { from { transform: scaleX(0); } to { transform: none; } }
+@keyframes hw-pop { from { opacity: 0; transform: scale(0.3); } to { opacity: 1; transform: none; } }
+@keyframes hw-fill { from { fill: var(--surface-canvas); stroke: var(--color-mist); } to { fill: var(--color-ink); stroke: var(--color-ink); } }
+@keyframes hw-scan {
+	0%, 8% { transform: translate(84px, 96px); }
+	22%, 30% { transform: translate(236px, 86px); }
+	44%, 52% { transform: translate(150px, 220px); }
+	66%, 74% { transform: translate(308px, 288px); }
+	88%, 100% { transform: translate(84px, 96px); }
+}
+@keyframes hw-sweep { 0% { transform: translateX(0); } 85%, 100% { transform: translateX(208px); } }
+@keyframes hw-4d-1 { 0% { opacity: 0.15; } 3%, 96% { opacity: 1; } 100% { opacity: 0.15; } }
+@keyframes hw-4d-2 { 0%, 13% { opacity: 0.08; } 16%, 96% { opacity: 1; } 100% { opacity: 0.08; } }
+@keyframes hw-4d-3 { 0%, 30% { opacity: 0.08; } 36%, 96% { opacity: 1; } 100% { opacity: 0.08; } }
+@keyframes hw-4d-4 { 0%, 55% { opacity: 0; } 60%, 96% { opacity: 1; } 100% { opacity: 0; } }
+@keyframes hw-4d-5 { 0%, 66% { opacity: 0.08; } 70%, 96% { opacity: 1; } 100% { opacity: 0.08; } }
+@keyframes hw-4d-6 { 0%, 78% { opacity: 0.08; transform: translateY(6px); } 84%, 96% { opacity: 1; transform: none; } 100% { opacity: 0.08; } }
+@keyframes hw-cart { 0%, 100% { transform: translateX(-26px); } 50% { transform: translateX(30px); } }
+@keyframes hw-blink { 0%, 100% { opacity: 0.25; } 50% { opacity: 1; } }
+@keyframes hw-drill { 0% { stroke-dashoffset: 1; } 70%, 100% { stroke-dashoffset: 0; } }
+@keyframes hw-press { 0%, 100% { transform: none; } 50% { transform: translateY(14px); } }
+@keyframes hw-drain { 0% { transform: none; } 80%, 100% { transform: scaleY(0.4); } }
+
+@media (prefers-reduced-motion: no-preference) {
+	.hw-steps.is-armed .step:not(.is-live) :is(.hw-a, .hw-d, .hw-x, .hw-p) { opacity: 0; }
+	.hw-steps.is-armed .step:not(.is-live) .hw-box { fill: var(--surface-canvas); stroke: var(--color-mist); }
+	.hw-steps.is-armed .step.is-live .hw-a { animation: hw-rise 650ms cubic-bezier(0.16, 1, 0.3, 1) calc(var(--d, 0) * 1ms) both; }
+	.hw-steps.is-armed .step.is-live .hw-d { animation: hw-draw 800ms cubic-bezier(0.65, 0, 0.35, 1) calc(var(--d, 0) * 1ms) both; }
+	.hw-steps.is-armed .step.is-live .hw-x { animation: hw-grow 650ms cubic-bezier(0.16, 1, 0.3, 1) calc(var(--d, 0) * 1ms) both; }
+	.hw-steps.is-armed .step.is-live .hw-p { animation: hw-pop 500ms cubic-bezier(0.34, 1.56, 0.64, 1) calc(var(--d, 0) * 1ms) both; }
+	.hw-steps.is-armed .step.is-live .hw-box { animation: hw-fill 300ms ease calc(var(--d, 0) * 1ms) both; }
+	/* Loops that run after a drawing has built */
+	.hw-steps.is-armed .step.is-live .hw-lens { animation: hw-scan 9s cubic-bezier(0.65, 0, 0.35, 1) 2.2s infinite both; }
+	.hw-steps.is-armed .step.is-live .hw-head { animation: hw-sweep 10s linear 1.6s infinite both; }
+	.hw-steps.is-armed .step.is-live .hw-4d { animation: 10s linear 1.6s infinite both; }
+	.hw-steps.is-armed .step.is-live .hw-4d-1 { animation-name: hw-4d-1; }
+	.hw-steps.is-armed .step.is-live .hw-4d-2 { animation-name: hw-4d-2; }
+	.hw-steps.is-armed .step.is-live .hw-4d-3 { animation-name: hw-4d-3; }
+	.hw-steps.is-armed .step.is-live .hw-4d-4 { animation-name: hw-4d-4; }
+	.hw-steps.is-armed .step.is-live .hw-4d-5 { animation-name: hw-4d-5; }
+	.hw-steps.is-armed .step.is-live .hw-4d-6 { animation-name: hw-4d-6; }
+	.hw-steps.is-armed .step.is-live .hw-cart { animation: hw-cart 5s ease-in-out 1.2s infinite both; }
+	.hw-steps.is-armed .step.is-live .hw-sight { animation: hw-blink 2s ease-in-out 1s infinite; }
+	.hw-steps.is-armed .step.is-live .hw-rod { stroke-dasharray: 1; animation: hw-drill 4s linear 1s infinite both; }
+	.hw-steps.is-armed .step.is-live .hw-wave { animation: hw-blink 2.4s ease-in-out infinite; }
+	.hw-steps.is-armed .step.is-live .hw-wave-2 { animation-delay: 0.4s; }
+	.hw-steps.is-armed .step.is-live .hw-wave-3 { animation-delay: 0.8s; }
+	.hw-steps.is-armed .step.is-live .hw-press { animation: hw-press 3s ease-in-out 1s infinite; }
+	.hw-steps.is-armed .step.is-live .hw-water { animation: hw-drain 5s ease-in 1.4s infinite both; }
+}
+
+@media (max-width: 1200px) { .stage-ruler .ruler-sub { display: none; } }
+@media (max-width: 960px) {
+	.hw-steps .step-card { grid-template-columns: minmax(0, 1fr); gap: var(--space-20); }
+	.hw-steps .step-card p { max-width: 60ch; }
+}
+@media (max-width: 600px) {
+	.hw-steps .step-card { padding: var(--space-16); }
+	.hw-steps .step-art { overflow-x: auto; }
+	.hw-steps .hw-il { min-width: 520px; }
+}
+
+/* Home: a short, static pointer to the How We Work page */
+.hww-teaser { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: var(--space-48); align-items: end; padding-top: var(--space-32); border-top: 1px solid var(--line-hairline); }
+.hww-teaser h2 { font-size: var(--text-heading-lg); line-height: var(--leading-heading-lg); font-weight: var(--weight-strong); font-stretch: var(--width-heading); letter-spacing: var(--tracking-heading-lg); }
+.hww-teaser p { color: var(--color-text-quiet); max-width: 52ch; }
+.hww-teaser .link-accent { display: inline-block; margin-top: var(--space-16); }
+@media (max-width: 900px) { .hww-teaser { grid-template-columns: minmax(0, 1fr); gap: var(--space-16); } }

@@ -11,9 +11,9 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..600&display=swap">
 	<!-- Bump ?v= on these four links whenever CSS or JS changes, so browsers never pair new HTML with stale files -->
-	<link rel="stylesheet" href="assets/css/tokens.css?v=2026-11-14a">
-	<link rel="stylesheet" href="assets/css/base.css?v=2026-11-14a">
-	<link rel="stylesheet" href="assets/css/components.css?v=2026-11-14a">
+	<link rel="stylesheet" href="assets/css/tokens.css?v=2026-11-18b">
+	<link rel="stylesheet" href="assets/css/base.css?v=2026-11-18b">
+	<link rel="stylesheet" href="assets/css/components.css?v=2026-11-18b">
 </head>
 <body>
 	<a class="skip-link" href="#main">Skip to content</a>
@@ -69,150 +69,336 @@
 			<div class="hw-hero-grid">
 				<h1 id="page-title">How We <span class="mark">Work</span></h1>
 				<div>
-					<p class="svc-lede">A structured approach to understanding requirements, executing technical work and delivering clear outputs.</p>
-					<p class="svc-body">Whether a project needs ground investigation, testing, design or all three, it moves through the same six stages, and the four working principles below hold at every one of them.</p>
+					<p class="svc-lede">From project understanding to engineering delivery.</p>
+					<p class="svc-body">A coordinated approach to investigation, testing, analysis, engineering design and project delivery. The stages and services applied depend on the agreed scope of each project.</p>
 				</div>
 			</div>
 		</section>
 
 		<div class="hw-flow">
-			<!-- Stage ruler: sticks under the header while the six stages scroll past; the current stage
-			     is marked and each stage can be jumped to -->
+			<!-- Stage ruler: all seven stages stay visible under the header while the stages scroll past;
+			     the current stage is marked and each stage can be jumped to -->
 			<nav class="stage-ruler" aria-label="Stages">
 				<div class="container">
 					<ol>
-					<li><a href="#stage-1" data-stage="1"><span class="ruler-num">01</span><span class="ruler-name">Understand</span></a></li>
-					<li><a href="#stage-2" data-stage="2"><span class="ruler-num">02</span><span class="ruler-name">Define the Scope</span></a></li>
-					<li><a href="#stage-3" data-stage="3"><span class="ruler-num">03</span><span class="ruler-name">Plan &amp; Mobilise</span></a></li>
-					<li><a href="#stage-4" data-stage="4"><span class="ruler-num">04</span><span class="ruler-name">Execute</span></a></li>
-					<li><a href="#stage-5" data-stage="5"><span class="ruler-num">05</span><span class="ruler-name">Review &amp; Interpret</span></a></li>
-					<li><a href="#stage-6" data-stage="6"><span class="ruler-num">06</span><span class="ruler-name">Report &amp; Deliver</span></a></li>
+					<li><a href="#stage-1" data-stage="1"><span class="ruler-num">01</span><span class="ruler-name">Understand</span><span class="ruler-sub">Project requirements</span></a></li>
+					<li><a href="#stage-2" data-stage="2"><span class="ruler-num">02</span><span class="ruler-name">Define the Scope</span><span class="ruler-sub">Services and deliverables</span></a></li>
+					<li><a href="#stage-3" data-stage="3"><span class="ruler-num">03</span><span class="ruler-name">Plan, Schedule &amp; Mobilise</span><span class="ruler-sub">Programme and resources</span></a></li>
+					<li><a href="#stage-4" data-stage="4"><span class="ruler-num">04</span><span class="ruler-name">Execute</span><span class="ruler-sub">Field and laboratory work</span></a></li>
+					<li><a href="#stage-5" data-stage="5"><span class="ruler-num">05</span><span class="ruler-name">Review &amp; Interpret</span><span class="ruler-sub">Technical validation</span></a></li>
+					<li><a href="#stage-6" data-stage="6"><span class="ruler-num">06</span><span class="ruler-name">Engineer &amp; Design</span><span class="ruler-sub">Analysis and BIM</span></a></li>
+					<li><a href="#stage-7" data-stage="7"><span class="ruler-num">07</span><span class="ruler-name">Deliver &amp; Communicate</span><span class="ruler-sub">Final project outputs</span></a></li>
 					</ol>
 					<span class="ruler-fill" aria-hidden="true"></span>
 				</div>
 			</nav>
 		<section class="section container how hw-steps" aria-labelledby="process-title">
-			<!-- How We Work: the title stays pinned on the left while six illustrated steps scroll past on
-			     the right. Each illustration is an animated drawing (main.js plays it while on screen). -->
+			<!-- Seven stages, one illustrative project. Each drawing builds when its stage comes into view
+			     (main.js adds .is-armed and .is-live); without JS or with reduced motion it shows finished. -->
 			<div class="how-intro">
-				<h2 id="process-title">Six stages, every project</h2>
-				<p class="section-intro">Each stage has a clear output before the next begins, so scope, programme and deliverables stay visible from the first conversation to the final report.</p>
+				<h2 id="process-title">Seven Stages of Project Delivery</h2>
+				<p class="section-intro">Each stage has a clear output before the next begins. The drawings follow one illustrative project, a building site with 80 proposed boreholes, from the first review to the final handover.</p>
 			</div>
 			<ol class="steps">
-				<li class="step" id="stage-1">
-					<span class="step-num" aria-hidden="true">1</span>
-					<article class="step-card">
-						<div class="step-art">
-							<svg class="il il-understand" viewBox="0 0 480 240" aria-hidden="true">
-								<text class="il-cap" x="24" y="30">Site plan</text>
-								<path class="il-faint" d="M24 200C110 162 196 222 300 182S420 160 456 176M24 160C120 122 206 182 310 142S420 120 456 134M24 118C130 80 216 140 320 102S420 80 456 92"/>
-								<path class="il-ink il-dashed" d="M92 70 384 58 412 204 72 198Z"/>
-								<g class="il-north" transform="translate(436 40)"><path d="M0-14 6 6 0 2-6 6Z"/><text x="-4" y="22">N</text></g>
-								<g class="il-bh il-bh-1" transform="translate(150 112)"><circle r="7"/><path d="M-7 0H7M0-7V7"/><text x="12" y="-9">BH-1</text></g>
-								<g class="il-bh il-bh-2" transform="translate(252 152)"><circle r="7"/><path d="M-7 0H7M0-7V7"/><text x="12" y="-9">BH-2</text></g>
-								<g class="il-bh il-bh-3" transform="translate(336 98)"><circle r="7"/><path d="M-7 0H7M0-7V7"/><text x="12" y="-9">BH-3</text></g>
-								<g class="il-lens"><circle r="24"/><path d="M17 17 34 34"/></g>
-							</svg>
-						</div>
+			<li class="step" id="stage-1">
+				<span class="step-num" aria-hidden="true">1</span>
+				<article class="step-card">
+					<div class="step-text">
+						<p class="step-eyebrow">Stage 01 · Project requirements</p>
 						<h3>Understand</h3>
-						<p>Review the project objectives, site information and client requirements.</p>
-					</article>
-				</li>
-				<li class="step" id="stage-2">
-					<span class="step-num" aria-hidden="true">2</span>
-					<article class="step-card">
-						<div class="step-art">
-							<svg class="il il-scope" viewBox="0 0 480 240" aria-hidden="true">
-								<text class="il-cap" x="24" y="30">Scope of work</text>
-								<g class="il-row il-row-1"><rect class="il-row-bg" x="56" y="56" width="368" height="42" rx="4"/><rect class="il-box" x="72" y="67" width="20" height="20" rx="3"/><path class="il-tick" pathLength="1" d="M76 77l4.5 4.5 7.5-9"/><text class="il-label" x="106" y="82">Geotechnical investigation</text><text class="il-tag" x="408" y="82" text-anchor="end">8 boreholes</text></g>
-								<g class="il-row il-row-2"><rect class="il-row-bg" x="56" y="110" width="368" height="42" rx="4"/><rect class="il-box" x="72" y="121" width="20" height="20" rx="3"/><path class="il-tick" pathLength="1" d="M76 131l4.5 4.5 7.5-9"/><text class="il-label" x="106" y="136">Laboratory testing</text><text class="il-tag" x="408" y="136" text-anchor="end">46 samples</text></g>
-								<g class="il-row il-row-3"><rect class="il-row-bg" x="56" y="164" width="368" height="42" rx="4"/><rect class="il-box" x="72" y="175" width="20" height="20" rx="3"/><path class="il-tick" pathLength="1" d="M76 185l4.5 4.5 7.5-9"/><text class="il-label" x="106" y="190">Foundation design</text><text class="il-tag" x="408" y="190" text-anchor="end">Pile and raft</text></g>
-							</svg>
-						</div>
+						<p>Review project objectives, site conditions, available drawings and client requirements to understand the investigation and engineering needs.</p>
+					</div>
+					<div class="step-art">
+						<svg class="il hw-il il-understand" viewBox="0 0 560 360" aria-hidden="true">
+								<text class="il-cap" x="24" y="28">Site plan · illustrative project</text>
+								<path class="il-faint hw-a" style="--d:0" d="M24 120C120 96 210 140 300 112S430 90 410 100M24 196C130 170 220 214 320 186S430 170 414 176M24 270C120 250 230 292 330 262S420 250 418 254"/>
+								<path class="il-ink il-dashed hw-a" style="--d:150" d="M44 70 392 58 410 312 36 304Z"/>
+								<text class="il-tag hw-a" style="--d:250" x="48" y="62">Site boundary</text>
+								<g class="hw-a" style="--d:400"><rect class="hw-foot" x="130" y="120" width="190" height="120" rx="2"/><path class="il-faint" d="M168 120V240M206 120V240M244 120V240M282 120V240M130 160H320M130 200H320"/><text class="il-label hw-foot-label" x="225" y="185" text-anchor="middle">Proposed building</text></g>
+								<g class="il-north" transform="translate(420 36)"><path d="M0-12 5 5 0 2-5 5Z"/><text x="-4" y="20">N</text></g>
+								<g transform="translate(84 96)"><circle class="hw-pre hw-p" style="--d:700" r="5.5"/></g>
+								<g transform="translate(160 90)"><circle class="hw-pre hw-p" style="--d:760" r="5.5"/></g>
+								<g transform="translate(236 86)"><circle class="hw-pre hw-p" style="--d:820" r="5.5"/></g>
+								<g transform="translate(312 82)"><circle class="hw-pre hw-p" style="--d:880" r="5.5"/></g>
+								<g transform="translate(366 96)"><circle class="hw-pre hw-p" style="--d:940" r="5.5"/></g>
+								<g transform="translate(96 160)"><circle class="hw-pre hw-p" style="--d:1000" r="5.5"/></g>
+								<g transform="translate(354 158)"><circle class="hw-pre hw-p" style="--d:1060" r="5.5"/></g>
+								<g transform="translate(92 222)"><circle class="hw-pre hw-p" style="--d:1120" r="5.5"/></g>
+								<g transform="translate(356 220)"><circle class="hw-pre hw-p" style="--d:1180" r="5.5"/></g>
+								<g transform="translate(80 280)"><circle class="hw-pre hw-p" style="--d:1240" r="5.5"/></g>
+								<g transform="translate(156 284)"><circle class="hw-pre hw-p" style="--d:1300" r="5.5"/></g>
+								<g transform="translate(232 286)"><circle class="hw-pre hw-p" style="--d:1360" r="5.5"/></g>
+								<g transform="translate(308 288)"><circle class="hw-pre hw-p" style="--d:1420" r="5.5"/></g>
+								<g transform="translate(372 280)"><circle class="hw-pre hw-p" style="--d:1480" r="5.5"/></g>
+								<g transform="translate(150 140)"><circle class="hw-pre hw-p" style="--d:1540" r="5.5"/></g>
+								<g transform="translate(300 140)"><circle class="hw-pre hw-p" style="--d:1600" r="5.5"/></g>
+								<g transform="translate(150 220)"><circle class="hw-pre hw-p" style="--d:1660" r="5.5"/></g>
+								<g transform="translate(300 220)"><circle class="hw-pre hw-p" style="--d:1720" r="5.5"/></g>
+								<g class="hw-lens"><circle r="22"/><path d="M16 16 30 30"/></g>
+								<text class="il-tag hw-a" style="--d:300" x="432" y="64">Inputs reviewed</text>
+								<g class="hw-a" style="--d:350"><path class="il-page" d="M432 80h22l8 8v30h-30Z"/><path class="il-ink" d="M454 80v8h8"/><path class="il-soft" d="M437 96h18M437 102h18M437 108h12"/><text class="il-label" x="470" y="104">Drawings</text></g>
+								<g class="hw-a" style="--d:470"><path class="il-page" d="M432 138h22l8 8v30h-30Z"/><path class="il-ink" d="M454 138v8h8"/><path class="il-soft" d="M437 154h18M437 160h18M437 166h12"/><text class="il-label" x="470" y="162">Site data</text></g>
+								<g class="hw-a" style="--d:590"><path class="il-page" d="M432 196h22l8 8v30h-30Z"/><path class="il-ink" d="M454 196v8h8"/><path class="il-soft" d="M437 212h18M437 218h18M437 224h12"/><text class="il-label" x="470" y="220">Client brief</text></g>
+								<g class="hw-a" style="--d:710"><path class="il-page" d="M432 254h22l8 8v30h-30Z"/><path class="il-ink" d="M454 254v8h8"/><path class="il-soft" d="M437 270h18M437 276h18M437 282h12"/><text class="il-label" x="470" y="278">Site visit</text></g>
+								<g class="hw-a" style="--d:1900"><circle class="hw-pre" cx="42" cy="337" r="5.5"/><text class="il-tag" x="54" y="341">Proposed borehole location (preliminary): to be confirmed after survey and utility clearance</text></g>
+						</svg>
+					</div>
+				</article>
+			</li>
+			<li class="step" id="stage-2">
+				<span class="step-num" aria-hidden="true">2</span>
+				<article class="step-card">
+					<div class="step-text">
+						<p class="step-eyebrow">Stage 02 · Services and deliverables</p>
 						<h3>Define the Scope</h3>
-						<p>Identify required services, methods, deliverables and technical inputs.</p>
-					</article>
-				</li>
-				<li class="step" id="stage-3">
-					<span class="step-num" aria-hidden="true">3</span>
-					<article class="step-card">
-						<div class="step-art">
-							<svg class="il il-plan" viewBox="0 0 480 240" aria-hidden="true">
-								<text class="il-cap" x="24" y="30">Programme</text>
-								<g class="il-weeks"><text x="168" y="52" text-anchor="middle">W1</text><text x="220" y="52" text-anchor="middle">W2</text><text x="272" y="52" text-anchor="middle">W3</text><text x="324" y="52" text-anchor="middle">W4</text><text x="376" y="52" text-anchor="middle">W5</text><text x="428" y="52" text-anchor="middle">W6</text></g>
-								<path class="il-faint" d="M142 60V206M194 60V206M246 60V206M298 60V206M350 60V206M402 60V206M454 60V206"/>
-								<text class="il-label" x="24" y="83">Mobilise</text><rect class="il-bar il-bar-1" x="142" y="70" width="52" height="18" rx="3"/><text class="il-label" x="24" y="117">Drilling</text><rect class="il-bar il-bar-2" x="168" y="104" width="156" height="18" rx="3"/><text class="il-label" x="24" y="151">Lab tests</text><rect class="il-bar il-bar-3" x="246" y="138" width="130" height="18" rx="3"/><text class="il-label" x="24" y="185">Report</text><rect class="il-bar il-bar-4" x="350" y="172" width="82" height="18" rx="3"/>
-								<path class="il-today" d="M0 60V210"/>
-							</svg>
-						</div>
-						<h3>Plan &amp; Mobilise</h3>
-						<p>Coordinate resources, equipment, schedules, access and site requirements.</p>
-					</article>
-				</li>
-				<li class="step" id="stage-4">
-					<span class="step-num" aria-hidden="true">4</span>
-					<article class="step-card">
-						<div class="step-art">
-							<svg class="il il-execute" viewBox="0 0 480 240" aria-hidden="true">
-								<text class="il-cap" x="24" y="30">Borehole BH-1</text>
-								<rect class="il-stratum il-s1" x="24" y="98" width="432" height="40"/>
-								<rect class="il-stratum il-s2" x="24" y="138" width="432" height="42"/>
-								<rect class="il-stratum il-s3" x="24" y="180" width="432" height="44"/>
-								<path class="il-ink" d="M24 98H456"/>
-								<path class="il-soft" d="M30 98l-5 6M42 98l-5 6M54 98l-5 6M66 98l-5 6M78 98l-5 6M90 98l-5 6M102 98l-5 6M114 98l-5 6M126 98l-5 6M138 98l-5 6M150 98l-5 6M162 98l-5 6M174 98l-5 6M186 98l-5 6M198 98l-5 6M210 98l-5 6M222 98l-5 6M234 98l-5 6M246 98l-5 6M258 98l-5 6M270 98l-5 6M282 98l-5 6M294 98l-5 6M306 98l-5 6M318 98l-5 6M330 98l-5 6M342 98l-5 6M354 98l-5 6M366 98l-5 6M378 98l-5 6M390 98l-5 6M402 98l-5 6M414 98l-5 6M426 98l-5 6M438 98l-5 6M450 98l-5 6"/>
-								<text class="il-tag" x="448" y="122" text-anchor="end">Silty sand</text>
-								<text class="il-tag" x="448" y="164" text-anchor="end">Dense sand</text>
-								<text class="il-tag" x="448" y="207" text-anchor="end">Weathered rock</text>
-								<path class="il-ink" d="M150 98V34M134 98 150 34 166 98M140 46H176M176 46V58"/>
-								<path class="il-rod" pathLength="1" d="M150 98V222"/>
-								<path class="il-ink" d="M270 82H430V96H270Z"/>
-								<rect class="il-core il-core-1" x="276" y="85" width="44" height="8" rx="2"/>
-								<rect class="il-core il-core-2" x="326" y="85" width="44" height="8" rx="2"/>
-								<rect class="il-core il-core-3" x="376" y="85" width="44" height="8" rx="2"/>
-								<text class="il-tag" x="270" y="74">Core box</text>
-							</svg>
-						</div>
+						<p>Identify services, investigation quantities, testing requirements, design inputs and deliverables.</p>
+					</div>
+					<div class="step-art">
+						<svg class="il hw-il il-scope" viewBox="0 0 560 360" aria-hidden="true">
+								<rect class="il-page" x="24" y="10" width="512" height="342" rx="4"/>
+								<text class="il-cap" x="44" y="36">Illustrative Project Scope</text>
+								<text class="il-tag" x="516" y="36" text-anchor="end">9 items</text>
+								<path class="il-ink" d="M44 48H516"/>
+								<g class="hw-a" style="--d:200"><text class="il-tag" x="44" y="72">01</text><text class="il-label" x="102" y="67">Topographical Survey</text><text class="il-tag" x="102" y="80">Site levels, contours and existing features</text></g>
+								<rect class="hw-box" style="--d:350" x="70" y="60" width="18" height="18" rx="3"/><path class="hw-tick hw-d" style="--d:450" pathLength="1" d="M74 69l4 4 7-8"/>
+								<path class="il-faint" d="M44 85H516"/>
+								<g class="hw-a" style="--d:380"><text class="il-tag" x="44" y="105">02</text><text class="il-label" x="102" y="100">Underground Utility Detection</text><text class="il-tag" x="102" y="113">Survey and clearance of 80 proposed borehole locations</text></g>
+								<rect class="hw-box" style="--d:530" x="70" y="93" width="18" height="18" rx="3"/><path class="hw-tick hw-d" style="--d:630" pathLength="1" d="M74 102l4 4 7-8"/>
+								<path class="il-faint" d="M44 118H516"/>
+								<g class="hw-a" style="--d:560"><text class="il-tag" x="44" y="138">03</text><text class="il-label" x="102" y="133">Geotechnical Investigation</text><text class="il-tag" x="102" y="146">80 boreholes</text></g>
+								<rect class="hw-box" style="--d:710" x="70" y="126" width="18" height="18" rx="3"/><path class="hw-tick hw-d" style="--d:810" pathLength="1" d="M74 135l4 4 7-8"/>
+								<path class="il-faint" d="M44 151H516"/>
+								<g class="hw-a" style="--d:740"><text class="il-tag" x="44" y="171">04</text><text class="il-label" x="102" y="166">Geophysical Surveys</text><text class="il-tag" x="102" y="179">ERT, MASW and SRT</text></g>
+								<rect class="hw-box" style="--d:890" x="70" y="159" width="18" height="18" rx="3"/><path class="hw-tick hw-d" style="--d:990" pathLength="1" d="M74 168l4 4 7-8"/>
+								<path class="il-faint" d="M44 184H516"/>
+								<g class="hw-a" style="--d:920"><text class="il-tag" x="44" y="204">05</text><text class="il-label" x="102" y="199">Specialised Field Testing</text><text class="il-tag" x="102" y="212">In-situ permeability testing</text></g>
+								<rect class="hw-box" style="--d:1070" x="70" y="192" width="18" height="18" rx="3"/><path class="hw-tick hw-d" style="--d:1170" pathLength="1" d="M74 201l4 4 7-8"/>
+								<path class="il-faint" d="M44 217H516"/>
+								<g class="hw-a" style="--d:1100"><text class="il-tag" x="44" y="237">06</text><text class="il-label" x="102" y="232">Laboratory Testing</text><text class="il-tag" x="102" y="245">460 samples</text></g>
+								<rect class="hw-box" style="--d:1250" x="70" y="225" width="18" height="18" rx="3"/><path class="hw-tick hw-d" style="--d:1350" pathLength="1" d="M74 234l4 4 7-8"/>
+								<path class="il-faint" d="M44 250H516"/>
+								<g class="hw-a" style="--d:1280"><text class="il-tag" x="44" y="270">07</text><text class="il-label" x="102" y="265">Foundation Design &amp; Analysis</text><text class="il-tag" x="102" y="278">Pile and raft foundations</text></g>
+								<rect class="hw-box" style="--d:1430" x="70" y="258" width="18" height="18" rx="3"/><path class="hw-tick hw-d" style="--d:1530" pathLength="1" d="M74 267l4 4 7-8"/>
+								<path class="il-faint" d="M44 283H516"/>
+								<g class="hw-a" style="--d:1460"><text class="il-tag" x="44" y="303">08</text><text class="il-label" x="102" y="298">BIM &amp; Design Coordination</text><text class="il-tag" x="102" y="311">Project BIM model and design coordination</text></g>
+								<rect class="hw-box" style="--d:1610" x="70" y="291" width="18" height="18" rx="3"/><path class="hw-tick hw-d" style="--d:1710" pathLength="1" d="M74 300l4 4 7-8"/>
+								<path class="il-faint" d="M44 316H516"/>
+								<g class="hw-a" style="--d:1640"><text class="il-tag" x="44" y="336">09</text><text class="il-label" x="102" y="331">Technical Quality Review</text><text class="il-tag" x="102" y="344">QA/QC and technical review included</text></g>
+								<rect class="hw-box" style="--d:1790" x="70" y="324" width="18" height="18" rx="3"/><path class="hw-tick hw-d" style="--d:1890" pathLength="1" d="M74 333l4 4 7-8"/>
+						</svg>
+					</div>
+				</article>
+			</li>
+			<li class="step" id="stage-3">
+				<span class="step-num" aria-hidden="true">3</span>
+				<article class="step-card">
+					<div class="step-text">
+						<p class="step-eyebrow">Stage 03 · Programme and resources</p>
+						<h3>Plan, Schedule &amp; Mobilise</h3>
+						<p>Develop the project programme, sequence activities, allocate resources and equipment, coordinate site access and establish milestones for investigation, testing, design and delivery.</p>
+							<p class="step-note">Survey and utility clearance come before drilling; geophysics runs alongside it, laboratory testing follows the samples, and design is staged with BIM alongside.</p>
+					</div>
+					<div class="step-art">
+						<svg class="il hw-il il-plan" viewBox="0 0 560 360" aria-hidden="true">
+								<text class="il-cap" x="24" y="28">Programme · illustrative, no dates</text>
+								<path class="il-faint" d="M196 46V306M222 46V306M248 46V306M274 46V306M300 46V306M326 46V306M352 46V306M378 46V306M404 46V306"/>
+								<text class="il-label hw-a" style="--d:150" x="24" y="67">Topographical survey</text>
+								<rect class="hw-bar hw-bar-f hw-x" style="--d:150" x="196" y="57" width="36" height="12" rx="2"/>
+								<text class="il-label hw-a" style="--d:260" x="24" y="95">Utility detection</text>
+								<rect class="hw-bar hw-bar-f hw-x" style="--d:260" x="216" y="85" width="38" height="12" rx="2"/>
+								<text class="il-label hw-a" style="--d:370" x="24" y="123">Borehole drilling</text>
+								<rect class="hw-bar hw-bar-f hw-x" style="--d:370" x="254" y="113" width="82" height="12" rx="2"/>
+								<text class="il-label hw-a" style="--d:480" x="24" y="151">Geophysical surveys</text>
+								<rect class="hw-bar hw-bar-f hw-x" style="--d:480" x="262" y="141" width="60" height="12" rx="2"/>
+								<text class="il-label hw-a" style="--d:590" x="24" y="179">Permeability testing</text>
+								<rect class="hw-bar hw-bar-f hw-x" style="--d:590" x="282" y="169" width="48" height="12" rx="2"/>
+								<text class="il-label hw-a" style="--d:700" x="24" y="207">Laboratory testing</text>
+								<rect class="hw-bar hw-bar-l hw-x" style="--d:700" x="270" y="197" width="18" height="12" rx="2"/>
+								<rect class="hw-bar hw-bar-l hw-x" style="--d:790" x="294" y="197" width="18" height="12" rx="2"/>
+								<rect class="hw-bar hw-bar-l hw-x" style="--d:880" x="318" y="197" width="18" height="12" rx="2"/>
+								<rect class="hw-bar hw-bar-l hw-x" style="--d:970" x="344" y="197" width="22" height="12" rx="2"/>
+								<text class="il-label hw-a" style="--d:810" x="24" y="235">Foundation design</text>
+								<rect class="hw-bar hw-bar-d hw-x" style="--d:810" x="318" y="225" width="28" height="12" rx="2"/>
+								<rect class="hw-bar hw-bar-d hw-x" style="--d:900" x="360" y="225" width="32" height="12" rx="2"/>
+								<text class="il-label hw-a" style="--d:920" x="24" y="263">BIM coordination</text>
+								<rect class="hw-bar hw-bar-d hw-x" style="--d:920" x="330" y="253" width="70" height="12" rx="2"/>
+								<text class="il-label hw-a" style="--d:1030" x="24" y="291">Technical review</text>
+								<path class="hw-qline hw-d" style="--d:1030" pathLength="1" d="M196 286H404"/>
+								<g transform="translate(254 286)"><circle class="hw-qdot hw-p" style="--d:1330" r="3.5"/></g>
+								<g transform="translate(336 286)"><circle class="hw-qdot hw-p" style="--d:1330" r="3.5"/></g>
+								<g transform="translate(366 286)"><circle class="hw-qdot hw-p" style="--d:1330" r="3.5"/></g>
+								<g transform="translate(254 91)"><path class="hw-ms hw-p" style="--d:1300" d="M0-6 6 0 0 6-6 0Z"/></g>
+								<g transform="translate(336 119)"><path class="hw-ms hw-p" style="--d:1300" d="M0-6 6 0 0 6-6 0Z"/></g>
+								<g transform="translate(404 286)"><path class="hw-ms hw-p" style="--d:1300" d="M0-6 6 0 0 6-6 0Z"/></g>
+								<g class="hw-a" style="--d:1400"><path class="hw-ms" d="M30 324 35 329 30 334 25 329Z"/><text class="il-tag" x="42" y="333">Milestone</text><rect class="hw-bar hw-bar-l" x="112" y="324" width="10" height="10" rx="2"/><text class="il-tag" x="128" y="333">Laboratory work runs as samples arrive</text><rect class="hw-bar hw-bar-d" x="340" y="324" width="10" height="10" rx="2"/><text class="il-tag" x="356" y="333">Design staged, BIM alongside</text></g>
+								<g class="hw-head"><path d="M196 44V310"/><path class="hw-head-cap" d="M190 40h12l-6 7Z"/></g>
+								<rect class="il-row-bg" x="420" y="46" width="124" height="264" rx="4"/>
+								<text class="il-tag" x="482" y="66" text-anchor="middle">Site model</text><text class="il-tag" x="482" y="80" text-anchor="middle">at the playhead</text>
+								<g class="hw-4d hw-4d-1"><path class="il-s1" d="M428 220 482 192 536 220 482 248Z"/><path class="hw-4d-face" d="M428 220 482 248V292L428 264Z"/><path class="hw-4d-face" d="M482 248 536 220V264L482 292Z"/><path class="il-ink" d="M428 220 482 192 536 220 482 248ZM428 220V264L482 292 536 264V220M482 248V292"/></g>
+								<g class="hw-4d hw-4d-2"><path class="il-soft" d="M446 222 470 208 494 196M458 230 486 214 518 200M470 238 500 222 526 210"/></g>
+								<g class="hw-4d hw-4d-3"><path class="hw-4d-bh" d="M462 214V246M502 214V246M482 204V236M482 226V258"/></g>
+								<g class="hw-4d hw-4d-4"><path class="il-s2" d="M428 242 482 270 536 242V264L482 292 428 264Z"/><path class="il-ink" d="M428 242 482 270 536 242"/></g>
+								<g class="hw-4d hw-4d-5"><path class="hw-4d-raft" d="M450 220 482 204 514 220 482 236Z"/></g>
+								<g class="hw-4d hw-4d-6"><path class="il-bim-top" d="M454 152 482 138 510 152 482 166Z"/><path class="il-bim-left" d="M454 152 482 166V224L454 210Z"/><path class="il-bim-right" d="M510 152 482 166V224L510 210Z"/><path class="il-soft" d="M454 172 482 186 510 172M454 192 482 206 510 192"/></g>
+						</svg>
+					</div>
+				</article>
+			</li>
+			<li class="step" id="stage-4">
+				<span class="step-num" aria-hidden="true">4</span>
+				<article class="step-card">
+					<div class="step-text">
+						<p class="step-eyebrow">Stage 04 · Field and laboratory work</p>
 						<h3>Execute</h3>
-						<p>Carry out agreed investigation, testing, analysis or engineering activities.</p>
-					</article>
-				</li>
-				<li class="step" id="stage-5">
-					<span class="step-num" aria-hidden="true">5</span>
-					<article class="step-card">
-						<div class="step-art">
-							<svg class="il il-review" viewBox="0 0 480 240" aria-hidden="true">
-								<text class="il-cap" x="24" y="30">SPT N value with depth</text>
-								<path class="il-faint" d="M150 56V214M210 56V214M270 56V214M330 56V214M390 56V214M450 56V214M80 90H448M80 130H448M80 170H448M80 210H448"/>
-								<path class="il-ink" d="M80 56H448M80 56V214"/>
-								<text class="il-tag" x="448" y="48" text-anchor="end">N</text>
-								<text class="il-tag" x="72" y="214" text-anchor="end">Depth</text>
-								<path class="il-trend" pathLength="1" d="M118 72 150 94 188 116 226 136 268 158 318 180 366 202"/>
-								<circle class="il-pt il-pt-1" cx="118" cy="72" r="4.5"/><circle class="il-pt il-pt-2" cx="150" cy="94" r="4.5"/><circle class="il-pt il-pt-3" cx="188" cy="116" r="4.5"/><circle class="il-pt il-pt-4" cx="226" cy="136" r="4.5"/><circle class="il-pt il-pt-5" cx="268" cy="158" r="4.5"/><circle class="il-pt il-pt-6" cx="318" cy="180" r="4.5"/><circle class="il-pt il-pt-7" cx="366" cy="202" r="4.5"/>
-							</svg>
-						</div>
+						<p>Execute the approved programme through site surveys, utility detection, geotechnical investigation, geophysical surveys, field testing, sampling and laboratory testing in accordance with agreed methods and specifications.</p>
+					</div>
+					<div class="step-art">
+						<svg class="il hw-il il-execute" viewBox="0 0 560 360" aria-hidden="true">
+								<text class="il-cap" x="24" y="24">Field and laboratory work</text>
+								<g transform="translate(24 36)"><g class="hw-a" style="--d:150"><rect class="il-row-bg" width="164" height="104" rx="4"/><text class="il-label" x="12" y="20">Topographical survey</text><path class="il-ink" d="M14 96H150"/><path class="il-ink" d="M60 96 72 54 84 96M72 54V48"/><rect class="hw-inst" x="63" y="38" width="18" height="11" rx="2"/><path class="hw-sight" d="M81 43 120 50"/><rect class="il-page" x="120" y="34" width="7" height="62"/><path class="il-ink" d="M120 44h4M120 54h4M120 64h4M120 74h4M120 84h4"/></g></g>
+								<g transform="translate(198 36)"><g class="hw-a" style="--d:310"><rect class="il-row-bg" width="164" height="104" rx="4"/><text class="il-label" x="12" y="20">Utility detection</text><path class="il-ink" d="M14 72H150"/><path class="il-faint" d="M14 80H150"/><path class="hw-hyp" d="M54 100Q72 80 90 100"/><circle class="hw-pipe" cx="72" cy="90" r="3.5"/><g class="hw-cart"><rect class="hw-inst" x="56" y="54" width="34" height="13" rx="2"/><circle class="il-page" cx="62" cy="69" r="3.5"/><circle class="il-page" cx="84" cy="69" r="3.5"/><path class="il-ink" d="M90 56 106 38h7"/></g></g></g>
+								<g transform="translate(372 36)"><g class="hw-a" style="--d:470"><rect class="il-row-bg" width="164" height="104" rx="4"/><text class="il-label" x="12" y="20">Borehole investigation</text><path class="il-ink" d="M14 66H150"/><path class="il-soft" d="M20 66l-5 6M36 66l-5 6M52 66l-5 6M100 66l-5 6M116 66l-5 6M132 66l-5 6M148 66l-5 6"/><path class="il-ink" d="M62 66 74 28 86 66M67 46H81"/><path class="hw-rod" pathLength="1" d="M74 66V104"/><rect class="il-core" x="108" y="78" width="30" height="6" rx="2"/><rect class="il-core" x="108" y="88" width="30" height="6" rx="2" opacity=".55"/></g></g>
+								<g transform="translate(24 150)"><g class="hw-a" style="--d:630"><rect class="il-row-bg" width="164" height="104" rx="4"/><text class="il-label" x="12" y="20">Geophysical surveys</text><path class="il-ink" d="M14 66H150"/><path class="il-faint" d="M30 62H134"/><path class="il-ink" d="M30 58V68"/><path class="il-ink" d="M43 58V68"/><path class="il-ink" d="M56 58V68"/><path class="il-ink" d="M69 58V68"/><path class="il-ink" d="M82 58V68"/><path class="il-ink" d="M95 58V68"/><path class="il-ink" d="M108 58V68"/><path class="il-ink" d="M121 58V68"/><path class="il-ink" d="M134 58V68"/><path class="hw-wave hw-wave-1" d="M70 66a12 12 0 0 0 24 0"/><path class="hw-wave hw-wave-2" d="M60 66a22 22 0 0 0 44 0"/><path class="hw-wave hw-wave-3" d="M50 66a32 32 0 0 0 64 0"/></g></g>
+								<g transform="translate(198 150)"><g class="hw-a" style="--d:790"><rect class="il-row-bg" width="164" height="104" rx="4"/><text class="il-label" x="12" y="20">Laboratory testing</text><path class="il-ink" d="M14 98H150"/><rect class="il-page" x="24" y="58" width="18" height="40" rx="2"/><rect class="hw-soil" x="26" y="76" width="14" height="20" rx="1"/><rect class="il-page" x="48" y="58" width="18" height="40" rx="2"/><rect class="hw-soil" x="50" y="76" width="14" height="20" rx="1"/><rect class="il-page" x="72" y="58" width="18" height="40" rx="2"/><rect class="hw-soil" x="74" y="76" width="14" height="20" rx="1"/><path class="il-ink" d="M106 98V40H144V98"/><g class="hw-press"><path class="il-ink" d="M125 40V62M112 62H138"/></g><rect class="hw-soil" x="114" y="80" width="22" height="18" rx="1"/></g></g>
+								<g transform="translate(372 150)"><g class="hw-a" style="--d:950"><rect class="il-row-bg" width="164" height="104" rx="4"/><text class="il-label" x="12" y="20">Specialised field testing</text><path class="il-ink" d="M14 56H150"/><path class="il-ink" d="M66 56V104M84 56V104"/><rect class="hw-water" x="67" y="62" width="16" height="42"/><rect class="il-page" x="104" y="26" width="30" height="28" rx="2"/><path class="il-ink" d="M104 40H75V58"/><path class="il-ink" d="M110 30v4"/></g></g>
+								<text class="il-tag hw-a" style="--d:1200" x="24" y="282">Supporting records</text>
+								<g class="hw-a" style="--d:1300"><rect class="hw-chip" x="24" y="294" width="75" height="24" rx="12"/><text class="il-tag" x="62" y="310" text-anchor="middle">Field data</text></g>
+								<g class="hw-a" style="--d:1430"><rect class="hw-chip" x="105" y="294" width="75" height="24" rx="12"/><text class="il-tag" x="142" y="310" text-anchor="middle">Sample IDs</text></g>
+								<g class="hw-a" style="--d:1560"><rect class="hw-chip" x="186" y="294" width="110" height="24" rx="12"/><text class="il-tag" x="241" y="310" text-anchor="middle">Borehole records</text></g>
+								<g class="hw-a" style="--d:1690"><rect class="hw-chip" x="302" y="294" width="51" height="24" rx="12"/><text class="il-tag" x="328" y="310" text-anchor="middle">Photos</text></g>
+								<g class="hw-a" style="--d:1820"><rect class="hw-chip" x="359" y="294" width="104" height="24" rx="12"/><text class="il-tag" x="411" y="310" text-anchor="middle">Testing records</text></g>
+								<path class="il-ink hw-d" style="--d:2000" pathLength="1" d="M469 306H483M478 301l5 5-5 5"/>
+								<g class="hw-a" style="--d:2150"><path class="hw-folder" d="M491 288h14l4 5h24v28h-42Z"/><text class="il-tag" x="512" y="338" text-anchor="middle">Project records</text></g>
+						</svg>
+					</div>
+				</article>
+			</li>
+			<li class="step" id="stage-5">
+				<span class="step-num" aria-hidden="true">5</span>
+				<article class="step-card">
+					<div class="step-text">
+						<p class="step-eyebrow">Stage 05 · Technical validation</p>
 						<h3>Review &amp; Interpret</h3>
-						<p>Check available data, evaluate findings and address technical discrepancies.</p>
-					</article>
-				</li>
-				<li class="step" id="stage-6">
-					<span class="step-num" aria-hidden="true">6</span>
-					<article class="step-card">
-						<div class="step-art">
-							<svg class="il il-report" viewBox="0 0 480 240" aria-hidden="true">
-								<rect class="il-page il-page-back" x="166" y="30" width="176" height="200" rx="4"/>
-								<rect class="il-page" x="154" y="20" width="176" height="200" rx="4"/>
-								<rect class="il-head" x="170" y="36" width="96" height="10" rx="2"/>
-								<text class="il-tag" x="170" y="64">Geotechnical report</text>
-								<rect class="il-line il-line-1" x="170" y="78" width="140" height="5" rx="2.5"/><rect class="il-line il-line-2" x="170" y="90" width="118" height="5" rx="2.5"/><rect class="il-line il-line-3" x="170" y="102" width="132" height="5" rx="2.5"/><rect class="il-line il-line-4" x="170" y="176" width="120" height="5" rx="2.5"/><rect class="il-line il-line-5" x="170" y="188" width="96" height="5" rx="2.5"/>
-								<path class="il-faint" d="M170 160H312M170 118V160"/>
-								<path class="il-chart" pathLength="1" d="M172 156 196 146 220 150 244 134 268 138 292 124 310 128"/>
-								<g transform="translate(316 186)"><g class="il-stamp"><circle r="30"/><circle r="24"/><text y="4" text-anchor="middle">ISSUED</text></g></g>
-							</svg>
-						</div>
-						<h3>Report &amp; Deliver</h3>
-						<p>Submit agreed outputs and communicate relevant findings and limitations.</p>
-					</article>
-				</li>
+						<p>Verify field records, borehole logs, geophysical data and laboratory results; interpret ground conditions, establish relevant engineering parameters and resolve technical discrepancies through quality review.</p>
+					</div>
+					<div class="step-art">
+						<svg class="il hw-il il-review" viewBox="0 0 560 360" aria-hidden="true">
+								<text class="il-cap" x="24" y="28">From verified data to a ground model</text>
+								<g class="hw-a" style="--d:100"><rect class="il-row-bg" x="24" y="46" width="176" height="30" rx="4"/><text class="il-label" x="36" y="65">Borehole logs</text></g>
+								<path class="hw-conv hw-d" style="--d:800" pathLength="1" d="M200 61C222 61 216 176 232 176"/>
+								<g class="hw-a" style="--d:210"><rect class="il-row-bg" x="24" y="90" width="176" height="30" rx="4"/><text class="il-label" x="36" y="109">SPT N values</text></g>
+								<path class="hw-conv hw-d" style="--d:870" pathLength="1" d="M200 105C222 105 216 176 232 176"/>
+								<g class="hw-a" style="--d:320"><rect class="il-row-bg" x="24" y="134" width="176" height="30" rx="4"/><text class="il-label" x="36" y="153">Laboratory results</text></g>
+								<path class="hw-conv hw-d" style="--d:940" pathLength="1" d="M200 149C222 149 216 176 232 176"/>
+								<g class="hw-a" style="--d:430"><rect class="il-row-bg" x="24" y="178" width="176" height="30" rx="4"/><text class="il-label" x="36" y="197">ERT · MASW · SRT</text></g>
+								<path class="hw-conv hw-d" style="--d:1010" pathLength="1" d="M200 193C222 193 216 176 232 176"/>
+								<g class="hw-a" style="--d:540"><rect class="il-row-bg" x="24" y="222" width="176" height="30" rx="4"/><text class="il-label" x="36" y="241">Groundwater, permeability</text></g>
+								<path class="hw-conv hw-d" style="--d:1080" pathLength="1" d="M200 237C222 237 216 176 232 176"/>
+								<g class="hw-a" style="--d:650"><rect class="il-row-bg" x="24" y="266" width="176" height="30" rx="4"/><text class="il-label" x="36" y="285">Data checks (QA)</text></g>
+								<path class="hw-conv hw-d" style="--d:1150" pathLength="1" d="M200 281C222 281 216 176 232 176"/>
+								<g transform="translate(244 176)"><g class="hw-p" style="--d:1350"><circle class="hw-node" r="13"/><path class="hw-tick" d="M-5 0l3.5 3.5L5-4"/></g></g>
+								<text class="il-tag hw-a" style="--d:1450" x="244" y="206" text-anchor="middle">Quality</text><text class="il-tag hw-a" style="--d:1450" x="244" y="219" text-anchor="middle">review</text>
+								<path class="il-ink hw-d" style="--d:1500" pathLength="1" d="M258 176H280M275 171l5 5-5 5"/>
+								<rect class="il-row-bg hw-a" style="--d:1550" x="288" y="44" width="252" height="258" rx="4"/>
+								<text class="il-tag hw-a" style="--d:1600" x="300" y="64">Interpreted ground model</text>
+								<path class="il-s1 hw-a" style="--d:1700" d="M296 86 530 80V136C420 150 360 130 296 140Z"/>
+								<path class="il-s2 hw-a" style="--d:1850" d="M296 140C360 130 420 150 530 136V210C440 196 350 226 296 214Z"/>
+								<path class="il-s3 hw-a" style="--d:2000" d="M296 214C350 226 440 196 530 210V292H296Z"/>
+								<path class="il-ink hw-d" style="--d:2100" pathLength="1" d="M296 86 530 80"/>
+								<path class="il-ink hw-d" style="--d:2200" pathLength="1" d="M296 140C360 130 420 150 530 136"/>
+								<path class="il-ink hw-d" style="--d:2300" pathLength="1" d="M296 214C350 226 440 196 530 210"/>
+								<path class="hw-bhline hw-d" style="--d:2400" pathLength="1" d="M404 84V276"/>
+								<text class="il-tag hw-a" style="--d:2400" x="404" y="288" text-anchor="middle">BH-12</text>
+								<path class="hw-bhline hw-d" style="--d:2520" pathLength="1" d="M458 83V276"/>
+								<text class="il-tag hw-a" style="--d:2520" x="458" y="288" text-anchor="middle">BH-27</text>
+								<path class="hw-bhline hw-d" style="--d:2640" pathLength="1" d="M512 82V276"/>
+								<text class="il-tag hw-a" style="--d:2640" x="512" y="288" text-anchor="middle">BH-41</text>
+								<g class="hw-a" style="--d:2800"><path class="hw-gwl" d="M296 166H530"/><path class="hw-gwl-mark" d="M354 156h12l-6 8Z"/><text class="il-tag" x="372" y="162">GWL</text></g>
+								<text class="il-label hw-a" style="--d:2900" x="304" y="118">Silty sand</text>
+								<text class="il-label hw-a" style="--d:3000" x="304" y="186">Dense sand</text>
+								<text class="il-label hw-a" style="--d:3100" x="304" y="260">Weathered rock</text>
+								<text class="il-tag hw-a" style="--d:3200" x="288" y="326">Engineering parameters assigned to each layer</text>
+						</svg>
+					</div>
+				</article>
+			</li>
+			<li class="step" id="stage-6">
+				<span class="step-num" aria-hidden="true">6</span>
+				<article class="step-card">
+					<div class="step-text">
+						<p class="step-eyebrow">Stage 06 · Analysis and BIM</p>
+						<h3>Engineer &amp; Design</h3>
+						<p>Translate validated investigation and testing results into engineering recommendations, foundation design, analysis and coordinated digital models, in accordance with project requirements.</p>
+							<p class="step-note">The extent of design and BIM is agreed for each project. Not every project needs every discipline.</p>
+					</div>
+					<div class="step-art">
+						<svg class="il hw-il il-design" viewBox="0 0 560 360" aria-hidden="true">
+								<text class="il-cap" x="24" y="28">From ground model to coordinated design</text>
+								<g class="hw-a" style="--d:100"><rect class="il-row-bg" x="24" y="44" width="122" height="256" rx="4"/><text class="il-tag" x="85" y="66" text-anchor="middle">Ground model</text></g>
+								<g class="hw-a" style="--d:800"><rect class="il-row-bg" x="162" y="44" width="122" height="256" rx="4"/><text class="il-tag" x="223" y="66" text-anchor="middle">Pile and raft options</text></g>
+								<path class="il-ink hw-d" style="--d:700" pathLength="1" d="M148 172H158M153 167l5 5-5 5"/>
+								<g class="hw-a" style="--d:1500"><rect class="il-row-bg" x="300" y="44" width="122" height="256" rx="4"/><text class="il-tag" x="361" y="66" text-anchor="middle">Foundation design</text></g>
+								<path class="il-ink hw-d" style="--d:1400" pathLength="1" d="M286 172H296M291 167l5 5-5 5"/>
+								<g class="hw-a" style="--d:2200"><rect class="il-row-bg" x="438" y="44" width="122" height="256" rx="4"/><text class="il-tag" x="499" y="66" text-anchor="middle">Coordinated BIM</text></g>
+								<path class="il-ink hw-d" style="--d:2100" pathLength="1" d="M424 172H434M429 167l5 5-5 5"/>
+								<rect class="il-s1 hw-a" style="--d:300" x="32" y="84" width="106" height="61"/><rect class="il-s2 hw-a" style="--d:400" x="32" y="145" width="106" height="71"/><rect class="il-s3 hw-a" style="--d:500" x="32" y="215" width="106" height="71"/>
+								<path class="hw-bhline hw-d" style="--d:600" pathLength="1" d="M85 84V280"/>
+								<rect class="il-s1 hw-a" style="--d:800" x="170" y="150" width="106" height="41"/><rect class="il-s2 hw-a" style="--d:900" x="170" y="191" width="106" height="48"/><rect class="il-s3 hw-a" style="--d:1000" x="170" y="238" width="106" height="48"/>
+								<path class="il-faint" d="M223 80V286"/>
+								<rect class="hw-conc hw-a" style="--d:1050" x="174" y="140" width="40" height="10" rx="1"/>
+								<path class="hw-pile hw-d" style="--d:1100" pathLength="1" d="M180 150V262"/>
+								<path class="hw-pile hw-d" style="--d:1180" pathLength="1" d="M194 150V262"/>
+								<path class="hw-pile hw-d" style="--d:1260" pathLength="1" d="M208 150V262"/>
+								<rect class="hw-conc hw-a" style="--d:1250" x="230" y="140" width="40" height="10" rx="1"/>
+								<path class="il-dashed il-soft hw-a" style="--d:1350" d="M230 150C228 196 272 196 270 150"/>
+								<text class="il-tag hw-a" style="--d:1300" x="194" y="108" text-anchor="middle">Pile</text><text class="il-tag hw-a" style="--d:1300" x="250" y="108" text-anchor="middle">Raft</text>
+								<rect class="il-s1 hw-a" style="--d:1500" x="308" y="196" width="106" height="27"/><rect class="il-s2 hw-a" style="--d:1600" x="308" y="223" width="106" height="31"/><rect class="il-s3 hw-a" style="--d:1700" x="308" y="254" width="106" height="31"/>
+								<rect class="hw-conc hw-a" style="--d:1700" x="322" y="186" width="78" height="12" rx="1"/>
+								<path class="hw-pile hw-d" style="--d:1750" pathLength="1" d="M330 198V272"/>
+								<path class="hw-pile hw-d" style="--d:1810" pathLength="1" d="M352 198V272"/>
+								<path class="hw-pile hw-d" style="--d:1870" pathLength="1" d="M370 198V272"/>
+								<path class="hw-pile hw-d" style="--d:1930" pathLength="1" d="M392 198V272"/>
+								<path class="hw-member hw-d" style="--d:2000" pathLength="1" d="M336 186V86"/>
+								<path class="hw-member hw-d" style="--d:2110" pathLength="1" d="M386 186V86"/>
+								<path class="hw-member hw-d" style="--d:2220" pathLength="1" d="M330 136H392"/>
+								<path class="hw-member hw-d" style="--d:2330" pathLength="1" d="M330 86H392"/>
+								<g class="hw-a" style="--d:2500"><path class="hw-conc" d="M451 246 499 222 547 246 499 270Z"/></g>
+								<g class="hw-a" style="--d:2650"><path class="il-bim-left" d="M465 216 499 233V267L465 250Z"/><path class="il-bim-right" d="M533 216 499 233V267L533 250Z"/></g>
+								<g class="hw-a" style="--d:2820"><path class="il-bim-left" d="M465 182 499 199V233L465 216Z"/><path class="il-bim-right" d="M533 182 499 199V233L533 216Z"/></g>
+								<g class="hw-a" style="--d:2990"><path class="il-bim-left" d="M465 148 499 165V199L465 182Z"/><path class="il-bim-right" d="M533 148 499 165V199L533 182Z"/><path class="il-bim-top" d="M465 148 499 131 533 148 499 165Z"/></g>
+								<g transform="translate(533 104)"><g class="hw-p" style="--d:3300"><circle class="hw-node" r="11"/><path class="hw-tick" d="M-4.5 0l3 3L4.5-3.5"/></g></g>
+								<text class="il-tag hw-a" style="--d:3350" x="499" y="290" text-anchor="middle">Clash-checked model</text>
+						</svg>
+					</div>
+				</article>
+			</li>
+			<li class="step" id="stage-7">
+				<span class="step-num" aria-hidden="true">7</span>
+				<article class="step-card">
+					<div class="step-text">
+						<p class="step-eyebrow">Stage 07 · Final project outputs</p>
+						<h3>Deliver &amp; Communicate</h3>
+						<p>Submit quality-reviewed project deliverables, communicate key findings and recommendations, and provide the agreed technical documentation, designs and digital outputs.</p>
+					</div>
+					<div class="step-art">
+						<svg class="il hw-il il-deliver" viewBox="0 0 560 360" aria-hidden="true">
+								<text class="il-cap" x="24" y="24">Handover package</text>
+								<g class="hw-a" style="--d:150"><rect class="il-row-bg" x="24" y="36" width="200" height="64" rx="4"/><text class="il-label" x="36" y="58">Topographical Survey</text><text class="il-tag hw-num" x="212" y="58" text-anchor="end">01</text><text class="il-tag" x="36" y="74">Drawings, levels and contours</text></g>
+								<g class="hw-a" style="--d:320"><rect class="il-row-bg" x="232" y="36" width="200" height="64" rx="4"/><text class="il-label" x="244" y="58">Utility Detection</text><text class="il-tag hw-num" x="420" y="58" text-anchor="end">02</text><text class="il-tag" x="244" y="74">Utility plan</text></g>
+								<g class="hw-a" style="--d:490"><rect class="il-row-bg" x="24" y="108" width="200" height="64" rx="4"/><text class="il-label" x="36" y="130">Geotechnical</text><text class="il-tag hw-num" x="212" y="130" text-anchor="end">03</text><text class="il-tag" x="36" y="146">Report and borehole logs</text></g>
+								<g class="hw-a" style="--d:660"><rect class="il-row-bg" x="232" y="108" width="200" height="64" rx="4"/><text class="il-label" x="244" y="130">Geophysical</text><text class="il-tag hw-num" x="420" y="130" text-anchor="end">04</text><text class="il-tag" x="244" y="146">ERT, MASW and SRT profiles</text></g>
+								<g class="hw-a" style="--d:830"><rect class="il-row-bg" x="24" y="180" width="200" height="64" rx="4"/><text class="il-label" x="36" y="202">Laboratory</text><text class="il-tag hw-num" x="212" y="202" text-anchor="end">05</text><text class="il-tag" x="36" y="218">Test reports</text></g>
+								<g class="hw-a" style="--d:1000"><rect class="il-row-bg" x="232" y="180" width="200" height="64" rx="4"/><text class="il-label" x="244" y="202">Foundation Engineering</text><text class="il-tag hw-num" x="420" y="202" text-anchor="end">06</text><text class="il-tag" x="244" y="218">Calculations, recommendations</text><text class="il-tag" x="244" y="232">and drawings, as agreed</text></g>
+								<g class="hw-a" style="--d:1170"><rect class="il-row-bg" x="24" y="252" width="200" height="64" rx="4"/><text class="il-label" x="36" y="274">BIM</text><text class="il-tag hw-num" x="212" y="274" text-anchor="end">07</text><text class="il-tag" x="36" y="290">Coordinated model</text><text class="il-tag" x="36" y="304">and exchange files</text></g>
+								<g class="hw-a" style="--d:1340"><rect class="il-row-bg" x="232" y="252" width="200" height="64" rx="4"/><text class="il-label" x="244" y="274">Quality Review</text><text class="il-tag hw-num" x="420" y="274" text-anchor="end">08</text><text class="il-tag" x="244" y="290">Reviewed final submission</text></g>
+								<path class="il-ink hw-d" style="--d:1600" pathLength="1" d="M436 176H448M443 171l5 5-5 5"/>
+								<g class="hw-a" style="--d:1800"><path class="hw-folder" d="M454 92h30l6 9h50v172h-86Z"/><text class="il-label" x="497" y="134" text-anchor="middle">Final</text><text class="il-label" x="497" y="150" text-anchor="middle">submission</text><text class="il-tag" x="497" y="170" text-anchor="middle">8 deliverables</text><path class="il-soft" d="M466 190H528M466 202H520M466 214H524"/></g>
+								<g transform="translate(497 244) rotate(-12)"><g class="hw-p" style="--d:2300"><rect class="hw-stamp" x="-38" y="-13" width="76" height="26" rx="3"/><text class="hw-stamp-t" y="4" text-anchor="middle">REVIEWED</text></g></g>
+								<text class="il-tag hw-a" style="--d:2500" x="24" y="344">Key findings and recommendations are communicated to the client with the final submission.</text>
+						</svg>
+					</div>
+				</article>
+			</li>
 			</ol>
 		</section>
 		</div>
@@ -220,8 +406,8 @@
 		<section class="section container hw-streams" aria-labelledby="streams-title">
 			<div class="section-head">
 				<div class="section-head-text">
-					<h2 id="streams-title">One stream or both</h2>
-					<p class="section-intro">At the Execute stage the work runs in up to two connected streams. Try each scope to see how a project uses them.</p>
+					<h2 id="streams-title">Two connected workstreams</h2>
+					<p class="section-intro">Within the seven stages, the technical work runs in up to two connected streams. Not every project needs both: the agreed scope decides. Try each scope to see how a project uses them.</p>
 				</div>
 			</div>
 			<div class="step-streams" data-scope="both">
@@ -258,7 +444,7 @@
 									</svg>
 								</div>
 								<h4>Investigate &amp; Test</h4>
-								<p>Geotechnical investigation, geophysics, laboratory testing and NDT, foundation testing, and pavement and infrastructure investigation.</p>
+								<p>Geotechnical · Geophysical · Surveying · Laboratory · NDT · Foundation &amp; Pavement Testing</p>
 							</article>
 							<span class="stream-link" aria-hidden="true"></span>
 							<article class="stream stream-design">
@@ -278,7 +464,7 @@
 									</svg>
 								</div>
 								<h4>Engineer &amp; Design</h4>
-								<p>Engineering analysis, design development, BIM and digital coordination.</p>
+								<p>Engineering Analysis · Foundation Design · BIM · Digital Coordination</p>
 							</article>
 						</div>
 					</div>
@@ -292,10 +478,10 @@
 					<p>Four commitments that apply at every stage, on every project.</p>
 				</div>
 				<ul class="hp-list">
-					<li><span class="hp-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle pathLength=\"1\" cx="12" cy="12" r="10"/><path pathLength=\"1\" d="M22 12h-4M6 12H2M12 6V2M12 22v-4"/><circle pathLength=\"1\" cx="12" cy="12" r="2"/></svg></span><h3>Technical Accuracy</h3><p>Appropriate methods, reliable records and careful review.</p></li>
-					<li><span class="hp-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path pathLength=\"1\" d="M22 17a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 21.286V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2z"/><path pathLength=\"1\" d="M7 9h10M7 13h6"/></svg></span><h3>Clear Communication</h3><p>Defined expectations, progress updates and prompt clarification.</p></li>
-					<li><span class="hp-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect pathLength=\"1\" x="3" y="4" width="18" height="18" rx="2"/><path pathLength=\"1\" d="M16 2v4M8 2v4M3 10h18"/><path pathLength=\"1\" d="m9 16 2 2 4-4"/></svg></span><h3>Planned Delivery</h3><p>Timelines aligned with scope, access and resource availability.</p></li>
-					<li><span class="hp-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path pathLength=\"1\" d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z"/><path pathLength=\"1\" d="M14 2v5a1 1 0 0 0 1 1h5"/><path pathLength=\"1\" d="m9 15 2 2 4-4"/></svg></span><h3>Defined Deliverables</h3><p>Outputs agreed at the outset and prepared for their intended use.</p></li>
+					<li><span class="hp-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle pathLength="1" cx="12" cy="12" r="10"/><path pathLength="1" d="M22 12h-4M6 12H2M12 6V2M12 22v-4"/><circle pathLength="1" cx="12" cy="12" r="2"/></svg></span><h3>Technical Accuracy</h3><p>Appropriate methods, reliable records and careful review.</p></li>
+					<li><span class="hp-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path pathLength="1" d="M22 17a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 21.286V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2z"/><path pathLength="1" d="M7 9h10M7 13h6"/></svg></span><h3>Clear Communication</h3><p>Defined expectations, progress updates and prompt clarification.</p></li>
+					<li><span class="hp-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect pathLength="1" x="3" y="4" width="18" height="18" rx="2"/><path pathLength="1" d="M16 2v4M8 2v4M3 10h18"/><path pathLength="1" d="m9 16 2 2 4-4"/></svg></span><h3>Planned Delivery</h3><p>Timelines aligned with scope, access and resource availability.</p></li>
+					<li><span class="hp-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path pathLength="1" d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z"/><path pathLength="1" d="M14 2v5a1 1 0 0 0 1 1h5"/><path pathLength="1" d="m9 15 2 2 4-4"/></svg></span><h3>Defined Deliverables</h3><p>Outputs agreed at the outset and prepared for their intended use.</p></li>
 				</ul>
 			</div>
 		</section>
@@ -325,6 +511,13 @@
 						<img src="assets/img/brand/petals-logo-line-on-dark.webp" width="617" height="860" alt="" loading="lazy">
 					</a>
 					<p class="footer-tagline">Engineering Precision. From Ground to Design.</p>
+					<!-- Social links: URLs awaited from PETALS -->
+					<ul class="footer-social">
+						<li><a href="#" aria-label="PETALS on Facebook" data-placeholder><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 8h3V4h-3a4 4 0 0 0-4 4v2H8v4h2v8h4v-8h3l1-4h-4V8.5a.5.5 0 0 1 .5-.5Z"/></svg></a></li>
+						<li><a href="#" aria-label="PETALS on X" data-placeholder><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h4.5L20 20h-4.5ZM20 4l-6.6 7.3M4 20l6.6-7.3"/></svg></a></li>
+						<li><a href="#" aria-label="PETALS on Instagram" data-placeholder><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/></svg></a></li>
+						<li><a href="#" aria-label="PETALS on LinkedIn" data-placeholder><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 10.5V17M8 7.2v.1M12 17v-6.5M12 13.5c0-1.8 1.2-3 2.6-3 1.5 0 2.4 1 2.4 3V17"/></svg></a></li>
+					</ul>
 				</div>
 
 				<nav class="footer-col" aria-labelledby="footer-links-title">
@@ -357,6 +550,6 @@
 		</div>
 	</footer>
 
-	<script src="assets/js/main.js?v=2026-11-14a" defer></script>
+	<script src="assets/js/main.js?v=2026-11-18b" defer></script>
 </body>
 </html>

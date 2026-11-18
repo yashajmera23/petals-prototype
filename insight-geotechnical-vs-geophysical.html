@@ -11,9 +11,9 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..600&display=swap">
 	<!-- Bump ?v= on these four links whenever CSS or JS changes, so browsers never pair new HTML with stale files -->
-	<link rel="stylesheet" href="assets/css/tokens.css?v=2026-11-14a">
-	<link rel="stylesheet" href="assets/css/base.css?v=2026-11-14a">
-	<link rel="stylesheet" href="assets/css/components.css?v=2026-11-14a">
+	<link rel="stylesheet" href="assets/css/tokens.css?v=2026-11-18b">
+	<link rel="stylesheet" href="assets/css/base.css?v=2026-11-18b">
+	<link rel="stylesheet" href="assets/css/components.css?v=2026-11-18b">
 </head>
 <body>
 	<a class="skip-link" href="#main">Skip to content</a>
@@ -89,7 +89,7 @@
 				<div class="ar-body">
 					<section id="g-two">
 						<h2>Two ways to see the ground</h2>
-						<p class="ar-lead">A geotechnical investigation looks at the ground directly: it drills, samples and tests. A geophysical investigation looks at it indirectly: it measures how the ground responds to waves, currents or radar and infers what lies below. One gives you certainty at a point; the other gives you coverage along a line or across an area.</p>
+						<p class="ar-lead">A geotechnical investigation looks at the ground directly: it drills, samples and tests. A geophysical investigation looks at it indirectly: it measures how the ground responds to waves, currents or radar and infers what lies below. One gives direct observations at the investigation locations; the other gives indirect coverage along a line or across an area, which has to be interpreted.</p>
 						<p>Neither replaces the other. The question on most sites is not which one to use, but how much of each, and in what order.</p>
 					</section>
 
@@ -103,18 +103,18 @@
 					<section id="g-geophys">
 						<h2>What geophysics gives you</h2>
 						<p>Geophysical methods measure a physical property continuously. Seismic methods such as refraction and MASW measure wave velocity, which follows the stiffness of the ground. Electrical resistivity follows moisture, clay content and weathering. Ground penetrating radar picks up shallow layers, voids and buried services.</p>
-						<p>The result is a section or a map, not a sample. It shows where conditions change, but it needs boreholes to say what those conditions are. A velocity or resistivity value has to be calibrated against what the drill actually found.</p>
+						<p>The result is a section or a map, not a sample. It is an interpretation: the same velocity or resistivity can fit more than one ground condition. Before it is relied on, the interpretation has to be calibrated against direct investigation, the boreholes, pits and tests that show what the ground actually is.</p>
 					</section>
 
 					<section id="g-between">
 						<h2>The ground between boreholes</h2>
-						<p>The figure below shows a common case. Three boreholes find rock at similar depths, so a straight line is drawn between them. A seismic line along the same section shows what the boreholes missed.</p>
+						<p>The figure below shows a common case. Three boreholes find rock at similar depths, so a straight line is drawn between them. A seismic line along the same section suggests what the boreholes missed.</p>
 					<figure class="fig-ix gx-fig" data-state="bh" aria-labelledby="gx-cap">
 						<div class="fig-ix-bar" role="group" aria-label="Show the section">
 							<button type="button" class="fig-ix-btn" data-set="bh" aria-pressed="true">Boreholes only</button>
 							<button type="button" class="fig-ix-btn" data-set="geo" aria-pressed="false">Add a seismic line</button>
 						</div>
-						<svg class="gx-svg" viewBox="0 0 640 300" role="img" aria-label="Cross-section 120 metres long. Three boreholes find rock at about 8 to 9 metres, suggesting a level rock surface. A seismic refraction line along the same section reveals a weathered channel between the second and third boreholes where rock drops to about 17 metres.">
+						<svg class="gx-svg" viewBox="0 0 640 300" role="img" aria-label="Cross-section 120 metres long. Three boreholes find rock at about 8 to 9 metres, suggesting a level rock surface. A seismic refraction line along the same section suggests a weathered channel between the second and third boreholes where rock drops to about 17 metres.">
 							<defs>
 								<pattern id="gx-soil" width="8" height="8" patternUnits="userSpaceOnUse"><rect width="8" height="8" fill="#f1e6d3"/><circle cx="2" cy="2" r=".9" fill="#a1785a"/><circle cx="6" cy="6" r=".9" fill="#a1785a"/></pattern>
 								<pattern id="gx-rock" width="16" height="10" patternUnits="userSpaceOnUse"><rect width="16" height="10" fill="#b9bec5"/><path d="M0 5h16M8 0v5M0 10V5M16 10V5" stroke="#00132e" stroke-width=".7" opacity=".45"/></pattern>
@@ -135,12 +135,12 @@
 							<g class="gx-flag"><path d="M460 248V268"/><text x="452" y="264" text-anchor="end">Weathered channel, rock at about 17 m</text></g>
 							<g class="gx-axis"><path d="M30 40V280"/><text x="24" y="44" text-anchor="end">0 m</text><text x="24" y="160" text-anchor="end">10 m</text><text x="24" y="280" text-anchor="end">20 m</text></g>
 						</svg>
-						<p class="fig-ix-say" aria-live="polite"><span data-when="bh"><b>Boreholes only.</b> Rock at 8 to 9 m in all three holes, so the rock surface is drawn level. A pile design on this section would assume short piles everywhere.</span><span data-when="geo"><b>With a seismic line.</b> The velocity section shows a weathered channel between BH-2 and BH-3, where rock drops to about 17 m. One extra borehole in the channel confirms it before piles are designed.</span></p>
+						<p class="fig-ix-say" aria-live="polite"><span data-when="bh"><b>Boreholes only.</b> Rock at 8 to 9 m in all three holes, so the rock surface is drawn level. A pile design on this section would assume short piles everywhere.</span><span data-when="geo"><b>With a seismic line.</b> The velocity section suggests a weathered channel between BH-2 and BH-3, where rock may drop to about 17 m. A borehole in the channel is needed to confirm it before piles are designed.</span></p>
 						<figcaption id="gx-cap">An illustrative section, not from a real site. Switch between the two views.</figcaption>
 					</figure>
 					</section>
 
-					<blockquote class="ar-quote"><p>Boreholes tell you what the ground is. Geophysics tells you where it changes.</p></blockquote>
+					<blockquote class="ar-quote"><p>Boreholes show what the ground is where they are drilled. Geophysics suggests where it changes in between.</p></blockquote>
 
 					<section id="g-compare">
 						<h2>Side by side</h2>
@@ -168,8 +168,8 @@
 					<section id="g-takeaways" class="ar-takeaways">
 						<h2>Key takeaways</h2>
 						<ul>
-							<li>Geotechnical investigation gives certainty at points; geophysics gives coverage between them.</li>
-							<li>Geophysics shows where conditions change, boreholes show what they are.</li>
+							<li>Geotechnical investigation gives direct observations at points; geophysics gives indirect coverage between them.</li>
+							<li>Geophysics indicates where conditions may change; boreholes confirm what they are.</li>
 							<li>Calibrate every geophysical section against borehole data.</li>
 							<li>On large or variable sites, survey first and target the boreholes.</li>
 						</ul>
@@ -201,6 +201,13 @@
 						<img src="assets/img/brand/petals-logo-line-on-dark.webp" width="617" height="860" alt="" loading="lazy">
 					</a>
 					<p class="footer-tagline">Engineering Precision. From Ground to Design.</p>
+					<!-- Social links: URLs awaited from PETALS -->
+					<ul class="footer-social">
+						<li><a href="#" aria-label="PETALS on Facebook" data-placeholder><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 8h3V4h-3a4 4 0 0 0-4 4v2H8v4h2v8h4v-8h3l1-4h-4V8.5a.5.5 0 0 1 .5-.5Z"/></svg></a></li>
+						<li><a href="#" aria-label="PETALS on X" data-placeholder><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h4.5L20 20h-4.5ZM20 4l-6.6 7.3M4 20l6.6-7.3"/></svg></a></li>
+						<li><a href="#" aria-label="PETALS on Instagram" data-placeholder><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/></svg></a></li>
+						<li><a href="#" aria-label="PETALS on LinkedIn" data-placeholder><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 10.5V17M8 7.2v.1M12 17v-6.5M12 13.5c0-1.8 1.2-3 2.6-3 1.5 0 2.4 1 2.4 3V17"/></svg></a></li>
+					</ul>
 				</div>
 
 				<nav class="footer-col" aria-labelledby="footer-links-title">
@@ -233,6 +240,6 @@
 		</div>
 	</footer>
 
-	<script src="assets/js/main.js?v=2026-11-14a" defer></script>
+	<script src="assets/js/main.js?v=2026-11-18b" defer></script>
 </body>
 </html>

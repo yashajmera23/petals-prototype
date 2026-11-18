@@ -11,9 +11,9 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..600&display=swap">
 	<!-- Bump ?v= on these four links whenever CSS or JS changes, so browsers never pair new HTML with stale files -->
-	<link rel="stylesheet" href="assets/css/tokens.css?v=2026-11-14a">
-	<link rel="stylesheet" href="assets/css/base.css?v=2026-11-14a">
-	<link rel="stylesheet" href="assets/css/components.css?v=2026-11-14a">
+	<link rel="stylesheet" href="assets/css/tokens.css?v=2026-11-18b">
+	<link rel="stylesheet" href="assets/css/base.css?v=2026-11-18b">
+	<link rel="stylesheet" href="assets/css/components.css?v=2026-11-18b">
 </head>
 <body>
 	<a class="skip-link" href="#main">Skip to content</a>
@@ -261,154 +261,23 @@
 			</ul>
 		</section>
 
-		<section class="section container how" aria-labelledby="process-title">
-			<!-- How We Work: the title stays pinned on the left while six illustrated steps scroll past on
-			     the right. Each illustration is an animated drawing (main.js plays it while on screen). -->
-			<div class="how-intro">
-				<h2 id="process-title">How We Work</h2>
-				<p class="section-intro">A structured approach to understanding requirements, executing technical work and delivering clear outputs.</p>
-				<a class="link-accent" href="how-we-work.html">See how we work →</a>
+		<section class="section container" aria-labelledby="hww-title">
+			<div class="hww-teaser">
+				<h2 id="hww-title">How We Work</h2>
+				<div>
+					<p>From understanding project requirements to investigation, engineering design and final delivery, PETALS follows a structured and coordinated approach.</p>
+					<a class="link-accent" href="how-we-work.html">Explore Our Approach →</a>
+				</div>
 			</div>
-			<ol class="steps">
-				<li class="step">
-					<span class="step-num" aria-hidden="true">1</span>
-					<article class="step-card">
-						<div class="step-art">
-							<svg class="il il-understand" viewBox="0 0 480 240" aria-hidden="true">
-							<text class="il-cap" x="24" y="30">Site plan</text>
-							<path class="il-faint" d="M24 200C110 162 196 222 300 182S420 160 456 176M24 160C120 122 206 182 310 142S420 120 456 134M24 118C130 80 216 140 320 102S420 80 456 92"/>
-							<path class="il-ink il-dashed" d="M92 70 384 58 412 204 72 198Z"/>
-							<g class="il-north" transform="translate(436 40)"><path d="M0-14 6 6 0 2-6 6Z"/><text x="-4" y="22">N</text></g>
-							<g class="il-bh il-bh-1" transform="translate(150 112)"><circle r="7"/><path d="M-7 0H7M0-7V7"/><text x="12" y="-9">BH-1</text></g>
-							<g class="il-bh il-bh-2" transform="translate(252 152)"><circle r="7"/><path d="M-7 0H7M0-7V7"/><text x="12" y="-9">BH-2</text></g>
-							<g class="il-bh il-bh-3" transform="translate(336 98)"><circle r="7"/><path d="M-7 0H7M0-7V7"/><text x="12" y="-9">BH-3</text></g>
-							<g class="il-lens"><circle r="24"/><path d="M17 17 34 34"/></g>
-							</svg>
-						</div>
-						<h3>Understand &amp; Define</h3>
-						<p>Project objectives, technical requirements and deliverables.</p>
-					</article>
-				</li>
-				<li class="step">
-					<span class="step-num" aria-hidden="true">2</span>
-					<article class="step-card">
-						<div class="step-art">
-							<svg class="il il-plan" viewBox="0 0 480 240" aria-hidden="true">
-							<text class="il-cap" x="24" y="30">Programme</text>
-							<g class="il-weeks"><text x="168" y="52" text-anchor="middle">W1</text><text x="220" y="52" text-anchor="middle">W2</text><text x="272" y="52" text-anchor="middle">W3</text><text x="324" y="52" text-anchor="middle">W4</text><text x="376" y="52" text-anchor="middle">W5</text><text x="428" y="52" text-anchor="middle">W6</text></g>
-							<path class="il-faint" d="M142 60V206M194 60V206M246 60V206M298 60V206M350 60V206M402 60V206M454 60V206"/>
-							<text class="il-label" x="24" y="83">Mobilise</text><rect class="il-bar il-bar-1" x="142" y="70" width="52" height="18" rx="3"/><text class="il-label" x="24" y="117">Investigation</text><rect class="il-bar il-bar-2" x="168" y="104" width="156" height="18" rx="3"/><text class="il-label" x="24" y="151">Design</text><rect class="il-bar il-bar-3" x="246" y="138" width="130" height="18" rx="3"/><text class="il-label" x="24" y="185">Deliverables</text><rect class="il-bar il-bar-4" x="350" y="172" width="82" height="18" rx="3"/>
-							<path class="il-today" d="M0 60V210"/>
-							</svg>
-						</div>
-						<h3>Plan &amp; Coordinate</h3>
-						<p>Scope, resources, methods, timelines and interfaces.</p>
-					</article>
-				</li>
-				<li class="step step-streams" data-scope="both">
-					<span class="step-num step-fork" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="6" cy="5" r="2"/><circle cx="18" cy="5" r="2"/><circle cx="12" cy="20" r="2"/><path d="M6 7v2a5 5 0 0 0 5 5h2a5 5 0 0 0 5-5V7M12 14v4"/></svg></span>
-					<div class="streams-card">
-						<div class="streams-head">
-							<h3>Two connected workstreams</h3>
-							<p>Depending on scope, a project may use one stream or both, and they share information throughout.</p>
-							<div class="scope-switch" role="group" aria-label="Show a project scope">
-								<button type="button" data-show="investigate" aria-pressed="false">Investigation only</button>
-								<button type="button" data-show="design" aria-pressed="false">Design only</button>
-								<button type="button" data-show="both" aria-pressed="true">Both</button>
-							</div>
-						</div>
-						<div class="streams">
-							<article class="stream stream-investigate">
-								<div class="step-art">
-									<svg class="il il-execute" viewBox="0 0 480 240" aria-hidden="true">
-									<text class="il-cap" x="24" y="30">Borehole BH-1</text>
-									<rect class="il-stratum il-s1" x="24" y="98" width="432" height="40"/>
-									<rect class="il-stratum il-s2" x="24" y="138" width="432" height="42"/>
-									<rect class="il-stratum il-s3" x="24" y="180" width="432" height="44"/>
-									<path class="il-ink" d="M24 98H456"/>
-									<path class="il-soft" d="M30 98l-5 6M42 98l-5 6M54 98l-5 6M66 98l-5 6M78 98l-5 6M90 98l-5 6M102 98l-5 6M114 98l-5 6M126 98l-5 6M138 98l-5 6M150 98l-5 6M162 98l-5 6M174 98l-5 6M186 98l-5 6M198 98l-5 6M210 98l-5 6M222 98l-5 6M234 98l-5 6M246 98l-5 6M258 98l-5 6M270 98l-5 6M282 98l-5 6M294 98l-5 6M306 98l-5 6M318 98l-5 6M330 98l-5 6M342 98l-5 6M354 98l-5 6M366 98l-5 6M378 98l-5 6M390 98l-5 6M402 98l-5 6M414 98l-5 6M426 98l-5 6M438 98l-5 6M450 98l-5 6"/>
-									<text class="il-tag" x="448" y="122" text-anchor="end">Silty sand</text>
-									<text class="il-tag" x="448" y="164" text-anchor="end">Dense sand</text>
-									<text class="il-tag" x="448" y="207" text-anchor="end">Weathered rock</text>
-									<path class="il-ink" d="M150 98V34M134 98 150 34 166 98M140 46H176M176 46V58"/>
-									<path class="il-rod" pathLength="1" d="M150 98V222"/>
-									<path class="il-ink" d="M270 82H430V96H270Z"/>
-									<rect class="il-core il-core-1" x="276" y="85" width="44" height="8" rx="2"/>
-									<rect class="il-core il-core-2" x="326" y="85" width="44" height="8" rx="2"/>
-									<rect class="il-core il-core-3" x="376" y="85" width="44" height="8" rx="2"/>
-									<text class="il-tag" x="270" y="74">Core box</text>
-									</svg>
-								</div>
-								<h4>Investigate &amp; Test</h4>
-								<p>Geotechnical investigation, geophysics, laboratory testing and NDT, foundation testing, and pavement and infrastructure investigation.</p>
-							</article>
-							<span class="stream-link" aria-hidden="true"></span>
-							<article class="stream stream-design">
-								<div class="step-art">
-									<svg class="il il-design" viewBox="0 0 480 240" aria-hidden="true">
-									<text class="il-cap" x="24" y="30">Frame analysis and model</text>
-									<path class="il-soft" d="M60 196H340"/>
-									<path class="il-soft" d="M60 196l-6 7M74 196l-6 7M88 196l-6 7M102 196l-6 7M116 196l-6 7M130 196l-6 7M144 196l-6 7M158 196l-6 7M172 196l-6 7M186 196l-6 7M200 196l-6 7M214 196l-6 7M228 196l-6 7M242 196l-6 7M256 196l-6 7M270 196l-6 7M284 196l-6 7M298 196l-6 7M312 196l-6 7M326 196l-6 7"/>
-									<path class="il-member il-col-1" pathLength="1" d="M96 196V78"/><path class="il-member il-col-2" pathLength="1" d="M196 196V78"/><path class="il-member il-col-3" pathLength="1" d="M296 196V78"/>
-									<path class="il-member il-beam-1" pathLength="1" d="M90 138H302"/>
-									<path class="il-member il-beam-2" pathLength="1" d="M90 78H302"/>
-									<path class="il-bmd" pathLength="1" d="M96 78C120 104 172 104 196 78C220 104 272 104 296 78"/>
-									<text class="il-tag" x="96" y="216" text-anchor="middle">C1</text><text class="il-tag" x="196" y="216" text-anchor="middle">C2</text><text class="il-tag" x="296" y="216" text-anchor="middle">C3</text>
-									<path class="il-faint" d="M96 58V66M296 58V66M96 62H296"/><text class="il-tag" x="196" y="54" text-anchor="middle">2 bays</text>
-									<g class="il-bim" transform="translate(400 132)"><g class="il-bim-box"><path class="il-bim-top" d="M0-44 38-22 0 0-38-22Z"/><path class="il-bim-left" d="M-38-22 0 0V44L-38 22Z"/><path class="il-bim-right" d="M38-22 0 0V44L38 22Z"/></g></g>
-									<text class="il-tag" x="400" y="204" text-anchor="middle">BIM</text>
-									</svg>
-								</div>
-								<h4>Engineer &amp; Design</h4>
-								<p>Engineering analysis, design development, BIM and digital coordination.</p>
-							</article>
-						</div>
-					</div>
-				</li>
-				<li class="step step-merge">
-					<span class="step-num" aria-hidden="true">4</span>
-					<article class="step-card">
-						<div class="step-art">
-							<svg class="il il-scope" viewBox="0 0 480 240" aria-hidden="true">
-							<text class="il-cap" x="24" y="30">Review and integration</text>
-							<g class="il-row il-row-1"><rect class="il-row-bg" x="56" y="56" width="368" height="42" rx="4"/><rect class="il-box" x="72" y="67" width="20" height="20" rx="3"/><path class="il-tick" pathLength="1" d="M76 77l4.5 4.5 7.5-9"/><text class="il-label" x="106" y="82">Data interpretation</text><text class="il-tag" x="408" y="82" text-anchor="end">Field and lab</text></g>
-							<g class="il-row il-row-2"><rect class="il-row-bg" x="56" y="110" width="368" height="42" rx="4"/><rect class="il-box" x="72" y="121" width="20" height="20" rx="3"/><path class="il-tick" pathLength="1" d="M76 131l4.5 4.5 7.5-9"/><text class="il-label" x="106" y="136">Design coordination</text><text class="il-tag" x="408" y="136" text-anchor="end">BIM model</text></g>
-							<g class="il-row il-row-3"><rect class="il-row-bg" x="56" y="164" width="368" height="42" rx="4"/><rect class="il-box" x="72" y="175" width="20" height="20" rx="3"/><path class="il-tick" pathLength="1" d="M76 185l4.5 4.5 7.5-9"/><text class="il-label" x="106" y="190">Quality review</text><text class="il-tag" x="408" y="190" text-anchor="end">Checked</text></g>
-							</svg>
-						</div>
-						<h3>Review &amp; Integrate</h3>
-						<p>Technical checks, interpretation, coordination and quality review, bringing both streams together.</p>
-					</article>
-				</li>
-				<li class="step">
-					<span class="step-num" aria-hidden="true">5</span>
-					<article class="step-card">
-						<div class="step-art">
-							<svg class="il il-report" viewBox="0 0 480 240" aria-hidden="true">
-							<rect class="il-page il-page-back" x="166" y="30" width="176" height="200" rx="4"/>
-							<rect class="il-page" x="154" y="20" width="176" height="200" rx="4"/>
-							<rect class="il-head" x="170" y="36" width="96" height="10" rx="2"/>
-							<text class="il-tag" x="170" y="64">Project deliverables</text>
-							<rect class="il-line il-line-1" x="170" y="78" width="140" height="5" rx="2.5"/><rect class="il-line il-line-2" x="170" y="90" width="118" height="5" rx="2.5"/><rect class="il-line il-line-3" x="170" y="102" width="132" height="5" rx="2.5"/><rect class="il-line il-line-4" x="170" y="176" width="120" height="5" rx="2.5"/><rect class="il-line il-line-5" x="170" y="188" width="96" height="5" rx="2.5"/>
-							<path class="il-faint" d="M170 160H312M170 118V160"/>
-							<path class="il-chart" pathLength="1" d="M172 156 196 146 220 150 244 134 268 138 292 124 310 128"/>
-							<g transform="translate(316 186)"><g class="il-stamp"><circle r="30"/><circle r="24"/><text y="4" text-anchor="middle">ISSUED</text></g></g>
-							</svg>
-						</div>
-						<h3>Deliver &amp; Communicate</h3>
-						<p>Agreed reports, designs, models and technical deliverables.</p>
-					</article>
-				</li>
-			</ol>
 		</section>
 
 		<section class="about-band" aria-labelledby="about-title">
 			<!-- Faint lettered grid lines: the other axis of the hero drawing's numbered grid -->
 			<div class="about-grid" aria-hidden="true">
-				<span style="--y: 15%"><svg class="g-bubble" viewBox="0 0 22 22"><circle cx="11" cy="11" r="10.5"/><text x="11" y="15">A</text></svg><svg class="g-line" viewBox="0 0 100 2" preserveAspectRatio="none"><path d="M0 1H100"/></svg></span>
-				<span style="--y: 38%"><svg class="g-bubble" viewBox="0 0 22 22"><circle cx="11" cy="11" r="10.5"/><text x="11" y="15">B</text></svg><svg class="g-line" viewBox="0 0 100 2" preserveAspectRatio="none"><path d="M0 1H100"/></svg></span>
-				<span style="--y: 61%"><svg class="g-bubble" viewBox="0 0 22 22"><circle cx="11" cy="11" r="10.5"/><text x="11" y="15">C</text></svg><svg class="g-line" viewBox="0 0 100 2" preserveAspectRatio="none"><path d="M0 1H100"/></svg></span>
-				<span style="--y: 84%"><svg class="g-bubble" viewBox="0 0 22 22"><circle cx="11" cy="11" r="10.5"/><text x="11" y="15">D</text></svg><svg class="g-line" viewBox="0 0 100 2" preserveAspectRatio="none"><path d="M0 1H100"/></svg></span>
+				<span style="--y: 15%"><svg class="g-line" viewBox="0 0 100 2" preserveAspectRatio="none"><path d="M0 1H100"/></svg></span>
+				<span style="--y: 38%"><svg class="g-line" viewBox="0 0 100 2" preserveAspectRatio="none"><path d="M0 1H100"/></svg></span>
+				<span style="--y: 61%"><svg class="g-line" viewBox="0 0 100 2" preserveAspectRatio="none"><path d="M0 1H100"/></svg></span>
+				<span style="--y: 84%"><svg class="g-line" viewBox="0 0 100 2" preserveAspectRatio="none"><path d="M0 1H100"/></svg></span>
 			</div>
 
 			<div class="container about-inner">
@@ -426,12 +295,12 @@
 					</div>
 					<!-- What the name stands for (client brief). Descriptions are drafts for client approval. -->
 					<ul class="principles" aria-label="What PETALS stands for">
-						<li><span class="principle-letter" aria-hidden="true">P</span><h4>Planning</h4><p>Scoping every investigation and design around the project's real requirements.</p></li>
-						<li><span class="principle-letter" aria-hidden="true">E</span><h4>Execution</h4><p>Field and laboratory work carried out to agreed methods and timelines.</p></li>
-						<li><span class="principle-letter" aria-hidden="true">T</span><h4>Testing</h4><p>Reliable data from field investigation, laboratory and non-destructive testing.</p></li>
-						<li><span class="principle-letter is-accent" aria-hidden="true">A</span><h4>Analysis</h4><p>Sound engineering interpretation that turns data into clear recommendations.</p></li>
-						<li><span class="principle-letter" aria-hidden="true">L</span><h4>Leadership</h4><p>Ownership of technical decisions, and a team coordinated through delivery.</p></li>
-						<li><span class="principle-letter" aria-hidden="true">S</span><h4>Sales &amp; Business Development</h4><p>Long-term client relationships built on clear communication and dependable delivery.</p></li>
+						<li><span class="principle-letter" aria-hidden="true">P</span><h4>Planning</h4><p>We define clear objectives, scope and strategy, and plan with rigour to align people, resources and timelines for predictable delivery.</p></li>
+						<li><span class="principle-letter" aria-hidden="true">E</span><h4>Execution</h4><p>We execute with discipline and attention to detail. Our processes keep action coordinated, quality high and momentum steady.</p></li>
+						<li><span class="principle-letter" aria-hidden="true">T</span><h4>Testing</h4><p>We validate through structured testing and verification, confirming performance, safety and compliance before we move forward.</p></li>
+						<li><span class="principle-letter is-accent" aria-hidden="true">A</span><h4>Analysis</h4><p>We analyse data and performance to uncover insight. Evidence-led decisions drive continuous improvement and better outcomes.</p></li>
+						<li><span class="principle-letter" aria-hidden="true">L</span><h4>Leadership</h4><p>We lead by example with integrity and accountability, and empower our team and partners to deliver with confidence.</p></li>
+						<li><span class="principle-letter" aria-hidden="true">S</span><h4>Sales &amp; BD</h4><p>We build lasting relationships through understanding and trust, connecting our technical capabilities to the right client opportunities.</p></li>
 					</ul>
 				</div>
 			</div>
@@ -463,6 +332,13 @@
 						<img src="assets/img/brand/petals-logo-line-on-dark.webp" width="617" height="860" alt="" loading="lazy">
 					</a>
 					<p class="footer-tagline">Engineering Precision. From Ground to Design.</p>
+					<!-- Social links: URLs awaited from PETALS -->
+					<ul class="footer-social">
+						<li><a href="#" aria-label="PETALS on Facebook" data-placeholder><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 8h3V4h-3a4 4 0 0 0-4 4v2H8v4h2v8h4v-8h3l1-4h-4V8.5a.5.5 0 0 1 .5-.5Z"/></svg></a></li>
+						<li><a href="#" aria-label="PETALS on X" data-placeholder><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h4.5L20 20h-4.5ZM20 4l-6.6 7.3M4 20l6.6-7.3"/></svg></a></li>
+						<li><a href="#" aria-label="PETALS on Instagram" data-placeholder><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/></svg></a></li>
+						<li><a href="#" aria-label="PETALS on LinkedIn" data-placeholder><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 10.5V17M8 7.2v.1M12 17v-6.5M12 13.5c0-1.8 1.2-3 2.6-3 1.5 0 2.4 1 2.4 3V17"/></svg></a></li>
+					</ul>
 				</div>
 
 				<nav class="footer-col" aria-labelledby="footer-links-title">
@@ -495,6 +371,6 @@
 		</div>
 	</footer>
 
-	<script src="assets/js/main.js?v=2026-11-14a" defer></script>
+	<script src="assets/js/main.js?v=2026-11-18b" defer></script>
 </body>
 </html>

@@ -11,9 +11,9 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..600&display=swap">
 	<!-- Bump ?v= on these four links whenever CSS or JS changes, so browsers never pair new HTML with stale files -->
-	<link rel="stylesheet" href="assets/css/tokens.css?v=2026-11-14a">
-	<link rel="stylesheet" href="assets/css/base.css?v=2026-11-14a">
-	<link rel="stylesheet" href="assets/css/components.css?v=2026-11-14a">
+	<link rel="stylesheet" href="assets/css/tokens.css?v=2026-11-18b">
+	<link rel="stylesheet" href="assets/css/base.css?v=2026-11-18b">
+	<link rel="stylesheet" href="assets/css/components.css?v=2026-11-18b">
 </head>
 <body>
 	<a class="skip-link" href="#main">Skip to content</a>
@@ -102,7 +102,7 @@
 
 					<section id="a-boreholes">
 						<h2>Boreholes and trial pits</h2>
-						<p>Boreholes are the backbone of the investigation. Their number and depth follow from the structure: a heavier or wider building needs more boreholes, and they must go deep enough to pass through every layer that the foundation loads will reach.</p>
+						<p>Boreholes are the backbone of the investigation. Their number, spacing and depth depend on the structure and its loads, how variable the ground is, and the applicable codes and project requirements. As a rule, they must go deep enough to investigate the strata that the foundation loads will influence.</p>
 						<p>Trial pits complement boreholes near the surface. They are cheap, let the engineer see the soil in place, and are ideal for checking fill thickness and shallow foundation levels.</p>
 						
 					<figure class="bh-fig" aria-labelledby="bh-cap">
@@ -128,7 +128,7 @@
 							</svg>
 							<div class="bh-side">
 								<ul class="bh-btns" role="group" aria-label="Layers"><li><button type="button" class="bh-btn" data-layer="fill" aria-pressed="true"><span class="bh-depth">0–1.5 m</span><span class="bh-name">Filled-up soil</span></button></li><li><button type="button" class="bh-btn" data-layer="sand" aria-pressed="false"><span class="bh-depth">1.5–6 m</span><span class="bh-name">Silty sand</span></button></li><li><button type="button" class="bh-btn" data-layer="clay" aria-pressed="false"><span class="bh-depth">6–10.5 m</span><span class="bh-name">Clayey sand, dense</span></button></li><li><button type="button" class="bh-btn" data-layer="wrock" aria-pressed="false"><span class="bh-depth">10.5–13 m</span><span class="bh-name">Weathered rock</span></button></li><li><button type="button" class="bh-btn" data-layer="rock" aria-pressed="false"><span class="bh-depth">13–15 m</span><span class="bh-name">Rock</span></button></li></ul>
-								<div class="bh-descs" aria-live="polite"><p class="bh-desc is-on" data-layer="fill"><b>Filled-up soil, 0–1.5 m.</b> Brick bats, debris and loose sand from earlier site work. Not a founding layer: foundations are taken through it.</p><p class="bh-desc" data-layer="sand"><b>Silty sand, 1.5–6 m.</b> Medium dense, brown, fine grained. N values rise with depth. Suitable for lightly loaded shallow foundations above the water table.</p><p class="bh-desc" data-layer="clay"><b>Clayey sand, dense, 6–10.5 m.</b> Dense to very dense, with kankar nodules. Undisturbed samples taken here for shear strength and consolidation tests.</p><p class="bh-desc" data-layer="wrock"><b>Weathered rock, 10.5–13 m.</b> Highly to moderately weathered, recovered as fragments. SPT refusal marks the change from soil to rock.</p><p class="bh-desc" data-layer="rock"><b>Rock, 13–15 m.</b> Moderately weathered quartzite. Cored, with core recovery and RQD logged run by run.</p></div>
+								<div class="bh-descs" aria-live="polite"><p class="bh-desc is-on" data-layer="fill"><b>Filled-up soil, 0–1.5 m.</b> Brick bats, debris and loose sand from earlier site work. Not a founding layer: foundations are taken through it.</p><p class="bh-desc" data-layer="sand"><b>Silty sand, 1.5–6 m.</b> Medium dense, brown, fine grained. N values rise with depth. Suitable for lightly loaded shallow foundations above the water table.</p><p class="bh-desc" data-layer="clay"><b>Clayey sand, dense, 6–10.5 m.</b> Dense to very dense, with kankar nodules. Undisturbed sampling is difficult in dense granular soils, so their properties rely mainly on in-situ tests; tube samples are attempted where clay content allows.</p><p class="bh-desc" data-layer="wrock"><b>Weathered rock, 10.5–13 m.</b> Highly to moderately weathered, recovered as fragments. SPT refusal here coincides with weathered rock confirmed by coring. Refusal alone does not prove rock: it can also occur on boulders, gravel or very dense soil.</p><p class="bh-desc" data-layer="rock"><b>Rock, 13–15 m.</b> Moderately weathered quartzite. Cored, with core recovery and RQD logged run by run.</p></div>
 							</div>
 						</div>
 						<figcaption id="bh-cap">An illustrative borehole log, not from a real site. Select a layer to read what the log records about it.</figcaption>
@@ -179,8 +179,8 @@
 					<section id="a-takeaways" class="ar-takeaways">
 						<h2>Key takeaways</h2>
 						<ul>
-							<li>Size the investigation to the structure, not to a fixed budget.</li>
-							<li>Boreholes must pass every layer the foundation loads will reach.</li>
+							<li>Size the investigation to the structure, the loads and the ground, not to a fixed budget.</li>
+							<li>Borehole depth must cover the strata the foundation loads will influence.</li>
 							<li>Combine in-situ tests with laboratory tests on undisturbed samples.</li>
 							<li>Record groundwater, and the season it was measured in.</li>
 							<li>Expect clear recommendations, not only data.</li>
@@ -213,6 +213,13 @@
 						<img src="assets/img/brand/petals-logo-line-on-dark.webp" width="617" height="860" alt="" loading="lazy">
 					</a>
 					<p class="footer-tagline">Engineering Precision. From Ground to Design.</p>
+					<!-- Social links: URLs awaited from PETALS -->
+					<ul class="footer-social">
+						<li><a href="#" aria-label="PETALS on Facebook" data-placeholder><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 8h3V4h-3a4 4 0 0 0-4 4v2H8v4h2v8h4v-8h3l1-4h-4V8.5a.5.5 0 0 1 .5-.5Z"/></svg></a></li>
+						<li><a href="#" aria-label="PETALS on X" data-placeholder><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h4.5L20 20h-4.5ZM20 4l-6.6 7.3M4 20l6.6-7.3"/></svg></a></li>
+						<li><a href="#" aria-label="PETALS on Instagram" data-placeholder><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/></svg></a></li>
+						<li><a href="#" aria-label="PETALS on LinkedIn" data-placeholder><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 10.5V17M8 7.2v.1M12 17v-6.5M12 13.5c0-1.8 1.2-3 2.6-3 1.5 0 2.4 1 2.4 3V17"/></svg></a></li>
+					</ul>
 				</div>
 
 				<nav class="footer-col" aria-labelledby="footer-links-title">
@@ -245,6 +252,6 @@
 		</div>
 	</footer>
 
-	<script src="assets/js/main.js?v=2026-11-14a" defer></script>
+	<script src="assets/js/main.js?v=2026-11-18b" defer></script>
 </body>
 </html>

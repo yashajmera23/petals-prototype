@@ -458,6 +458,9 @@ if (team) {
 		team.classList.toggle('is-pinned', pinned);
 		row.style.transform = '';
 		dist = Math.max(0, row.scrollWidth - viewport.clientWidth);
+		// With only a few cards nothing overflows: no pinning, no arrows, no progress bar
+		team.classList.toggle('is-static', dist < 2);
+		if (dist < 2) { pinned = false; team.classList.remove('is-pinned'); }
 		track.style.height = pinned ? `${stage.offsetHeight + dist}px` : '';
 		update();
 	};
@@ -480,11 +483,6 @@ if (team) {
 // "Apply" on a card carries its role into the form.
 const jobList = document.querySelector('.job-list');
 if (jobList) {
-	if (new URLSearchParams(location.search).get('openings') === '0') {
-		jobList.hidden = true;
-		document.querySelector('.openings-empty').hidden = false;
-		document.querySelector('.openings-count').textContent = 'No open roles right now';
-	}
 	const roleSelect = document.getElementById('f-role');
 	jobList.querySelectorAll('.job-apply').forEach((a) => a.addEventListener('click', () => { roleSelect.value = a.dataset.role; }));
 }
@@ -845,10 +843,10 @@ if (wiz) {
 	const say = fig.querySelector('.upv-say');
 	const bands = [...fig.querySelectorAll('.upv-scale li')];
 	const text = {
-		excellent: '<b>Excellent.</b> Dense, uniform concrete with no significant voids or cracking along the path.',
-		good: '<b>Good.</b> Generally sound concrete. Compare with neighbouring readings: a local drop is more telling than any single value.',
-		medium: '<b>Medium.</b> Some lack of uniformity, porosity or cracking may be present. Investigate further, typically with cores.',
-		doubtful: '<b>Doubtful.</b> Likely voids, honeycombing or cracking along the path. Confirm with cores and closer testing.'
+		excellent: '<b>Excellent (indicative).</b> Suggests dense, uniform concrete along this path. Interpret with the test arrangement and other findings.',
+		good: '<b>Good (indicative).</b> Suggests generally sound concrete. A local drop compared with neighbouring readings is more telling than any single value.',
+		medium: '<b>Medium (indicative).</b> May indicate some non-uniformity, porosity or cracking. Investigate further, for example with cores.',
+		doubtful: '<b>Doubtful (indicative).</b> May indicate voids, honeycombing or cracking along the path. Confirm with closer testing and cores.'
 	};
 	function update() {
 		const v = parseFloat(range.value);
@@ -861,3 +859,14 @@ if (wiz) {
 	range.addEventListener('input', update);
 	update();
 })();
+
+// How We Work page, seven stages: arm the drawings so each one builds as its stage comes into view
+// (the step observer above sets .is-live). Without this class, or with reduced motion, they show finished.
+const hwSteps = document.querySelector('.hw-steps');
+if (hwSteps && window.matchMedia('(prefers-reduced-motion: no-preference)').matches) {
+	hwSteps.classList.add('is-armed');
+	const hwRuler = document.querySelector('.stage-ruler');
+	const setRulerH = () => hwSteps.style.setProperty('--ruler-h', `${hwRuler ? hwRuler.offsetHeight + 16 : 108}px`);
+	setRulerH();
+	window.addEventListener('resize', setRulerH);
+}

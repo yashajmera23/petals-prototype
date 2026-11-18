@@ -11,9 +11,9 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..600&display=swap">
 	<!-- Bump ?v= on these four links whenever CSS or JS changes, so browsers never pair new HTML with stale files -->
-	<link rel="stylesheet" href="assets/css/tokens.css?v=2026-11-14a">
-	<link rel="stylesheet" href="assets/css/base.css?v=2026-11-14a">
-	<link rel="stylesheet" href="assets/css/components.css?v=2026-11-14a">
+	<link rel="stylesheet" href="assets/css/tokens.css?v=2026-11-18b">
+	<link rel="stylesheet" href="assets/css/base.css?v=2026-11-18b">
+	<link rel="stylesheet" href="assets/css/components.css?v=2026-11-18b">
 </head>
 <body>
 	<a class="skip-link" href="#main">Skip to content</a>
@@ -89,8 +89,8 @@
 				<div class="ar-body">
 					<section id="n-why">
 						<h2>Why test without breaking</h2>
-						<p class="ar-lead">When a structure shows distress, changes use or needs to carry more load, the first question is what the concrete is actually like. Non-destructive testing answers that across the whole structure, quickly and without weakening it.</p>
-						<p>No single method gives the full picture. Each one measures something different, and the results become reliable when they are combined and checked against a few cores.</p>
+						<p class="ar-lead">When a structure shows distress, changes use or needs to carry more load, the first question is what the concrete is actually like. Non-destructive testing helps answer that at selected, accessible locations, quickly and without weakening the structure. Results describe the areas tested, so test locations are chosen to represent the members that matter.</p>
+						<p>No single method gives the full picture. Each one measures something different, and the results are more reliable when they are combined and correlated with a limited number of cores, which are a separate, destructive test.</p>
 					</section>
 
 					<section id="n-rebound">
@@ -102,7 +102,7 @@
 
 					<section id="n-upv">
 						<h2>Ultrasonic pulse velocity</h2>
-						<p>An ultrasonic pulse is sent through the concrete between two transducers and its travel time is measured. Dense, uniform concrete carries the pulse faster; cracks, voids and honeycombing slow it down. UPV looks through the member, not just at its surface.</p>
+						<p>An ultrasonic pulse is sent through the concrete between two transducers and its travel time is measured. Dense, uniform concrete carries the pulse faster; cracks, voids and honeycombing slow it down. UPV looks through the member, not just at its surface. Readings are also affected by moisture, reinforcement along the path and the test arrangement, so they are interpreted in context rather than against a single threshold.</p>
 					<figure class="fig-ix upv-fig" aria-labelledby="upv-cap">
 						<div class="upv-top">
 							<label class="upv-label" for="upv-range">Pulse velocity</label>
@@ -110,8 +110,8 @@
 						</div>
 						<input class="upv-range" id="upv-range" type="range" min="2.0" max="5.5" step="0.05" value="4.2" aria-describedby="upv-cap">
 						<ol class="upv-scale" aria-hidden="true"><li data-band="doubtful"><span>Doubtful</span><small>below 3.0</small></li><li data-band="medium"><span>Medium</span><small>3.0–3.5</small></li><li data-band="good" class="is-on"><span>Good</span><small>3.5–4.5</small></li><li data-band="excellent"><span>Excellent</span><small>above 4.5</small></li></ol>
-						<p class="fig-ix-say upv-say" aria-live="polite"><b>Good.</b> Generally sound concrete. Compare with neighbouring readings: a local drop is more telling than any single value.</p>
-						<figcaption id="upv-cap">Quality bands from the earlier IS 13311 (Part 1) grading, still widely quoted. Current practice under IS 516 (Part 5) also considers the concrete grade. Move the slider to see the band.</figcaption>
+						<p class="fig-ix-say upv-say" aria-live="polite"><b>Good (indicative).</b> Suggests generally sound concrete. A local drop compared with neighbouring readings is more telling than any single value.</p>
+						<figcaption id="upv-cap">Indicative bands from the earlier IS 13311 (Part 1) grading. They are not pass or fail limits: under IS 516 (Part 5), UPV is interpreted with the concrete grade, the test arrangement and other findings. Move the slider to see the band.</figcaption>
 					</figure>
 					</section>
 
@@ -135,7 +135,7 @@
 
 					<section id="n-cores">
 						<h2>Cores: the calibration</h2>
-						<p>Cores are partially destructive, but a small number of them turns NDT readings into numbers you can design with. Cores are taken at locations chosen from the NDT survey, including the best and worst zones, and tested for compressive strength. The rebound and UPV results are then correlated with the core strengths for that structure.</p>
+						<p>Core testing is not NDT: it is a destructive test that removes concrete from the member. A small number of cores, taken at locations chosen from the NDT survey, including the best and worst zones, and tested for compressive strength, turns NDT readings into values that can be used in assessment. The rebound and UPV results are then correlated with the core strengths for that structure.</p>
 						<aside class="ar-note"><b>Location matters.</b> Cores should avoid reinforcement. Use the cover meter survey to choose clear locations.</aside>
 					</section>
 
@@ -150,7 +150,7 @@
 							<li>Rebound hammer reads the surface; UPV reads through the member.</li>
 							<li>Cover, carbonation and half-cell together assess risk to the reinforcement.</li>
 							<li>Calibrate NDT against a few well-placed cores.</li>
-							<li>Look for patterns across the structure, not single values.</li>
+							<li>NDT results describe the locations tested; look for patterns, not single values.</li>
 						</ul>
 					</section>
 
@@ -180,6 +180,13 @@
 						<img src="assets/img/brand/petals-logo-line-on-dark.webp" width="617" height="860" alt="" loading="lazy">
 					</a>
 					<p class="footer-tagline">Engineering Precision. From Ground to Design.</p>
+					<!-- Social links: URLs awaited from PETALS -->
+					<ul class="footer-social">
+						<li><a href="#" aria-label="PETALS on Facebook" data-placeholder><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 8h3V4h-3a4 4 0 0 0-4 4v2H8v4h2v8h4v-8h3l1-4h-4V8.5a.5.5 0 0 1 .5-.5Z"/></svg></a></li>
+						<li><a href="#" aria-label="PETALS on X" data-placeholder><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h4.5L20 20h-4.5ZM20 4l-6.6 7.3M4 20l6.6-7.3"/></svg></a></li>
+						<li><a href="#" aria-label="PETALS on Instagram" data-placeholder><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/></svg></a></li>
+						<li><a href="#" aria-label="PETALS on LinkedIn" data-placeholder><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 10.5V17M8 7.2v.1M12 17v-6.5M12 13.5c0-1.8 1.2-3 2.6-3 1.5 0 2.4 1 2.4 3V17"/></svg></a></li>
+					</ul>
 				</div>
 
 				<nav class="footer-col" aria-labelledby="footer-links-title">
@@ -212,6 +219,6 @@
 		</div>
 	</footer>
 
-	<script src="assets/js/main.js?v=2026-11-14a" defer></script>
+	<script src="assets/js/main.js?v=2026-11-18b" defer></script>
 </body>
 </html>

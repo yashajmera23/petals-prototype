@@ -11,9 +11,9 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..600&display=swap">
 	<!-- Bump ?v= on these four links whenever CSS or JS changes, so browsers never pair new HTML with stale files -->
-	<link rel="stylesheet" href="assets/css/tokens.css?v=2026-11-14a">
-	<link rel="stylesheet" href="assets/css/base.css?v=2026-11-14a">
-	<link rel="stylesheet" href="assets/css/components.css?v=2026-11-14a">
+	<link rel="stylesheet" href="assets/css/tokens.css?v=2026-11-18b">
+	<link rel="stylesheet" href="assets/css/base.css?v=2026-11-18b">
+	<link rel="stylesheet" href="assets/css/components.css?v=2026-11-18b">
 </head>
 <body>
 	<a class="skip-link" href="#main">Skip to content</a>
@@ -71,7 +71,7 @@
 				<nav class="breadcrumb" aria-label="Breadcrumb"><ol><li><a href="index.html">Home</a></li><li><a href="insights.html">Insights</a></li><li><span aria-current="page">Pile Testing</span></li></ol></nav>
 				<div class="ar-meta"><span class="ins-cat">Pile Testing</span><span>7 min read</span><span>14 November 2026</span></div>
 				<h1 id="page-title">Pile Load Testing and Pile Integrity Testing: Understanding the Difference</h1>
-				<p class="ar-dek">Capacity versus soundness: when a project needs a static or dynamic load test, when an integrity test is enough, and why most piled projects use both.</p>
+				<p class="ar-dek">Capacity versus soundness: when a project needs a static or dynamic load test, when an integrity test is enough, and how the specification decides which a project needs.</p>
 				<p class="ar-byline"><span class="ar-avatar" aria-hidden="true"><img src="assets/img/brand/petals-mark.svg" alt="" width="40" height="40"></span><span>By the <b>PETALS engineering team</b><br>Technically reviewed by <span class="pv-ph">[Reviewer name]</span></span></p>
 			</header>
 			<figure class="ar-cover container">
@@ -101,7 +101,7 @@
 
 					<section id="p-integrity">
 						<h2>Integrity testing</h2>
-						<p>A <b>low-strain pile integrity test (PIT)</b> taps the pile head with a small hammer and records the reflected stress wave. A clean reflection from the toe indicates a continuous pile; an early reflection suggests a change in section, a crack or a defect. It takes minutes per pile, so every pile can be tested.</p>
+						<p>A <b>low-strain pile integrity test (PIT)</b> taps the pile head with a small hammer and records the reflected stress wave. A clean reflection from the toe indicates a continuous pile; an early reflection suggests a change in section, a crack or a defect. It takes minutes per pile, so it can cover a large share of the piles, where pile heads are accessible and prepared and the pile type and length suit the method.</p>
 						<p><b>Cross-hole sonic logging</b> sends ultrasonic signals between tubes cast into the pile and gives a more detailed picture of concrete quality along its length, at the cost of planning the tubes before casting.</p>
 					</section>
 
@@ -142,7 +142,7 @@
 					</figure>
 					</section>
 
-					<blockquote class="ar-quote"><p>A load test proves capacity on a few piles. An integrity test checks every pile was built the way the tested ones were.</p></blockquote>
+					<blockquote class="ar-quote"><p>A load test measures how the tested piles behave. An integrity test helps check that other piles were built consistently.</p></blockquote>
 
 					<section id="p-compare">
 						<h2>Side by side</h2>
@@ -153,7 +153,7 @@
 									<tr><th scope="row">Question</th><td>Capacity and settlement</td><td>Continuity and soundness</td></tr>
 									<tr><th scope="row">Methods</th><td>Static (compression, tension, lateral), dynamic, bi-directional</td><td>Low-strain PIT, cross-hole sonic logging, thermal integrity</td></tr>
 									<tr><th scope="row">Time per pile</th><td>A day or more for static; hours for dynamic</td><td>Minutes for PIT</td></tr>
-									<tr><th scope="row">Coverage</th><td>A few selected piles</td><td>Often every pile</td></tr>
+									<tr><th scope="row">Coverage</th><td>A few selected piles</td><td>Many piles, where access and pile geometry allow</td></tr>
 									<tr><th scope="row">Limitation</th><td>Expensive, so only a sample is tested</td><td>Does not measure capacity</td></tr>
 								</tbody>
 							</table>
@@ -162,7 +162,7 @@
 
 					<section id="p-which">
 						<h2>Which one, and when</h2>
-						<p>Most piled projects need both. Initial load tests confirm the design early. Integrity tests on working piles catch construction defects while they can still be fixed. Routine load tests, static or dynamic, then confirm that the working piles match the design.</p>
+						<p>The right combination depends on the specification, pile type, loads and project requirements. On many projects, initial load tests verify design assumptions early, integrity tests on working piles help catch construction anomalies while they can still be addressed, and routine load tests confirm working pile behaviour. On others, the specification calls for only some of these.</p>
 						<p>The right number and type of tests depends on the pile type, the ground, the loads and the specification. The testing programme should be agreed before piling starts, not after.</p>
 					</section>
 
@@ -170,9 +170,9 @@
 						<h2>Key takeaways</h2>
 						<ul>
 							<li>Load tests measure capacity; integrity tests check soundness.</li>
-							<li>Neither replaces the other; most projects use both.</li>
+							<li>Neither replaces the other; the specification sets which are needed.</li>
 							<li>Initial load tests confirm the design before working piles go in.</li>
-							<li>Integrity tests are quick enough to cover every pile.</li>
+							<li>Integrity tests are quick, but coverage depends on access, pile type and geometry.</li>
 						</ul>
 					</section>
 
@@ -202,6 +202,13 @@
 						<img src="assets/img/brand/petals-logo-line-on-dark.webp" width="617" height="860" alt="" loading="lazy">
 					</a>
 					<p class="footer-tagline">Engineering Precision. From Ground to Design.</p>
+					<!-- Social links: URLs awaited from PETALS -->
+					<ul class="footer-social">
+						<li><a href="#" aria-label="PETALS on Facebook" data-placeholder><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 8h3V4h-3a4 4 0 0 0-4 4v2H8v4h2v8h4v-8h3l1-4h-4V8.5a.5.5 0 0 1 .5-.5Z"/></svg></a></li>
+						<li><a href="#" aria-label="PETALS on X" data-placeholder><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h4.5L20 20h-4.5ZM20 4l-6.6 7.3M4 20l6.6-7.3"/></svg></a></li>
+						<li><a href="#" aria-label="PETALS on Instagram" data-placeholder><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/></svg></a></li>
+						<li><a href="#" aria-label="PETALS on LinkedIn" data-placeholder><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 10.5V17M8 7.2v.1M12 17v-6.5M12 13.5c0-1.8 1.2-3 2.6-3 1.5 0 2.4 1 2.4 3V17"/></svg></a></li>
+					</ul>
 				</div>
 
 				<nav class="footer-col" aria-labelledby="footer-links-title">
@@ -234,6 +241,6 @@
 		</div>
 	</footer>
 
-	<script src="assets/js/main.js?v=2026-11-14a" defer></script>
+	<script src="assets/js/main.js?v=2026-11-18b" defer></script>
 </body>
 </html>
