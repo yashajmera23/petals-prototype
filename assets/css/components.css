@@ -2521,3 +2521,42 @@
 .hww-teaser p { color: var(--color-text-quiet); max-width: 52ch; }
 .hww-teaser .link-accent { display: inline-block; margin-top: var(--space-16); }
 @media (max-width: 900px) { .hww-teaser { grid-template-columns: minmax(0, 1fr); gap: var(--space-16); } }
+
+/* ---------- Service pages: photo gallery and lightbox ---------- */
+.gallery-grid { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-24) var(--space-16); }
+.gallery-grid figure { margin: 0; }
+.gallery-item { display: block; width: 100%; padding: 0; border: 0; border-radius: var(--radius); overflow: hidden; background: var(--surface-card); cursor: zoom-in; }
+.gallery-item img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; transition: transform 500ms cubic-bezier(0.16, 1, 0.3, 1); }
+.gallery-item:hover img { transform: scale(1.03); }
+.gallery-item:focus-visible { outline: 2px solid var(--color-copper); outline-offset: 3px; }
+.gallery-grid figcaption { margin-top: var(--space-8); font-size: var(--text-body-sm); color: var(--color-text-quiet); }
+.lightbox { max-width: min(1200px, 94vw); max-height: 92vh; padding: 0; border: 0; border-radius: var(--radius-modal); background: var(--color-ink); color: var(--color-parchment); overflow: hidden; }
+.lightbox::backdrop { background: color-mix(in oklab, var(--color-ink) 82%, transparent); }
+.lightbox img { display: block; max-width: 100%; max-height: calc(92vh - 52px); width: auto; height: auto; margin: 0 auto; }
+.lightbox-bar { display: flex; align-items: center; justify-content: space-between; gap: var(--space-16); padding: var(--space-12) var(--space-16); font-size: var(--text-body-sm); }
+.lightbox-bar button { padding: 4px 10px; border: 1px solid color-mix(in oklab, var(--color-parchment) 30%, transparent); border-radius: var(--radius); background: none; color: inherit; font: inherit; cursor: pointer; }
+.lightbox-nav { display: flex; gap: var(--space-8); }
+@media (max-width: 900px) { .gallery-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+/* ---------- About: registrations and certifications ---------- */
+.cert-grid { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-16); }
+.cert { display: grid; align-content: start; gap: var(--space-8); padding: var(--space-24); border-radius: var(--radius-modal); background: var(--surface-card); }
+.cert-mark { display: grid; place-items: center; width: 96px; height: 64px; margin-bottom: var(--space-8); border: 1px dashed var(--color-mist); border-radius: var(--radius); font-size: var(--text-meta); font-weight: var(--weight-strong); letter-spacing: 0.04em; color: var(--color-text-quiet); }
+.cert-mark img { max-width: 100%; max-height: 100%; object-fit: contain; }
+.cert h3 { font-size: var(--text-heading-sm); line-height: var(--leading-heading-sm); font-weight: var(--weight-strong); font-stretch: var(--width-title); }
+.cert p { color: var(--color-text-quiet); font-size: var(--text-body-sm); }
+.cert .cert-no { margin-top: var(--space-8); color: var(--color-ink); }
+@media (max-width: 900px) { .cert-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 560px) { .cert-grid { grid-template-columns: minmax(0, 1fr); } }
+.cert-link { justify-self: start; margin-top: var(--space-8); font-size: var(--text-body-sm); color: var(--color-accent); text-decoration: underline; text-underline-offset: 3px; }
+.cert-link::after { content: " ↓"; }
+.hw-il .hw-sm { font-size: 12px; }
+
+/* Careers: openings intro and the requirements column of each role */
+.openings-intro { display: grid; gap: var(--space-12); max-width: 72ch; margin-bottom: var(--space-32); color: var(--color-text-quiet); }
+.openings-intro p:first-child { font-size: var(--text-lede); line-height: var(--leading-lede); color: var(--color-ink); }
+.job-reqs { display: grid; align-content: start; gap: var(--space-20); margin: 0; }
+.job-reqs dt { font-size: var(--text-body); font-weight: var(--weight-strong); font-stretch: var(--width-title); }
+.job-reqs dd { margin: var(--space-8) 0 0; color: var(--color-text-quiet); }
+@media (max-width: 760px) { .job-cols { grid-template-columns: minmax(0, 1fr); } }
+.job-cols h4 { margin: 0; }

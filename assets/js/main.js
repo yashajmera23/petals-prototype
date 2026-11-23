@@ -870,3 +870,40 @@ if (hwSteps && window.matchMedia('(prefers-reduced-motion: no-preference)').matc
 	setRulerH();
 	window.addEventListener('resize', setRulerH);
 }
+
+// Service pages: gallery photos open larger in a dialog, with previous/next and Escape to close.
+// Without JS the thumbnails stay as plain images.
+const galleries = document.querySelectorAll('.gallery-grid');
+if (galleries.length && typeof HTMLDialogElement === 'function') {
+	const box = document.createElement('dialog');
+	box.className = 'lightbox';
+	box.innerHTML = '<img alt=""><div class="lightbox-bar"><span class="lightbox-cap"></span><div class="lightbox-nav"><button type="button" data-step="-1" aria-label="Previous photo">←</button><button type="button" data-step="1" aria-label="Next photo">→</button><button type="button" data-close>Close</button></div></div>';
+	document.body.appendChild(box);
+	const img = box.querySelector('img');
+	const cap = box.querySelector('.lightbox-cap');
+	let items = [];
+	let at = 0;
+	const show = (i) => {
+		at = (i + items.length) % items.length;
+		const b = items[at];
+		img.src = b.dataset.full;
+		img.alt = b.querySelector('img').alt;
+		cap.textContent = img.alt;
+	};
+	galleries.forEach((g) => g.addEventListener('click', (e) => {
+		const b = e.target.closest('.gallery-item');
+		if (!b) return;
+		items = [...g.querySelectorAll('.gallery-item')];
+		show(items.indexOf(b));
+		box.showModal();
+	}));
+	box.addEventListener('click', (e) => {
+		if (e.target === box || e.target.closest('[data-close]')) box.close();
+		const s = e.target.closest('[data-step]');
+		if (s) show(at + Number(s.dataset.step));
+	});
+	box.addEventListener('keydown', (e) => {
+		if (e.key === 'ArrowRight') show(at + 1);
+		if (e.key === 'ArrowLeft') show(at - 1);
+	});
+}

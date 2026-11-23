@@ -11,9 +11,9 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..600&display=swap">
 	<!-- Bump ?v= on these four links whenever CSS or JS changes, so browsers never pair new HTML with stale files -->
-	<link rel="stylesheet" href="assets/css/tokens.css?v=2026-11-18b">
-	<link rel="stylesheet" href="assets/css/base.css?v=2026-11-18b">
-	<link rel="stylesheet" href="assets/css/components.css?v=2026-11-18b">
+	<link rel="stylesheet" href="assets/css/tokens.css?v=2026-11-20e">
+	<link rel="stylesheet" href="assets/css/base.css?v=2026-11-20e">
+	<link rel="stylesheet" href="assets/css/components.css?v=2026-11-20e">
 </head>
 <body>
 	<a class="skip-link" href="#main">Skip to content</a>
@@ -80,9 +80,9 @@
 				</div>
 				<!-- Ground, data, design: the brochure's sequence, as three overlapping site photographs -->
 				<figure class="about-seq" aria-label="From ground to data to design">
-					<div class="seq-item seq-ground"><img src="assets/img/service-geotechnical.webp" width="800" height="600" alt="Soil and rock cores laid out in a core box on site" fetchpriority="high"><span class="seq-tag"><b>01</b> Ground</span></div>
-					<div class="seq-item seq-data"><img src="assets/img/service-laboratory.webp" width="800" height="600" alt="Soil samples and test sieves on a laboratory bench" loading="lazy"><span class="seq-tag"><b>02</b> Data</span></div>
-					<div class="seq-item seq-design"><img src="assets/img/service-design.webp" width="800" height="600" alt="Structural drawings on a desk with a scale ruler and calculator" loading="lazy"><span class="seq-tag"><b>03</b> Design</span></div>
+					<div class="seq-item seq-ground"><img src="assets/img/service-geotechnical.webp" width="1200" height="900" alt="A drilling rig at a borehole on site" fetchpriority="high"><span class="seq-tag"><b>01</b> Ground</span></div>
+					<div class="seq-item seq-data"><img src="assets/img/service-laboratory.webp" width="1200" height="900" alt="Rebound hammer testing on a concrete wall" loading="lazy"><span class="seq-tag"><b>02</b> Data</span></div>
+					<div class="seq-item seq-design"><img src="assets/img/service-design.webp" width="1200" height="900" alt="Structural drawings under review beside a laptop" loading="lazy"><span class="seq-tag"><b>03</b> Design</span></div>
 				</figure>
 			</div>
 		</section>
@@ -258,6 +258,55 @@
 			</div>
 		</section>
 
+		<section class="section container certs" aria-labelledby="certs-title" hidden>
+			<!-- Registrations & certifications: HIDDEN (client, 20 Nov 2026) until the certificates arrive.
+			     To show it: remove `hidden` from the section. For each certificate received, replace .cert-mark with
+			     the mark printed on that certificate (as an <img>), fill in the number, and add a download link after
+			     .cert-no:  <a class="cert-link" href="assets/docs/certificates/NAME.pdf" download>Download certificate</a>
+			     Remove the cards for certificates PETALS does not hold. Do not use the generic ISO logo. -->
+			<div class="section-head">
+				<h2 id="certs-title">Registrations &amp; Certifications</h2>
+			</div>
+			<ul class="cert-grid">
+				<li class="cert">
+					<span class="cert-mark" aria-hidden="true">NABL</span>
+					<h3>NABL Accreditation</h3>
+					<p>Testing laboratory, ISO/IEC 17025</p>
+					<p class="cert-no">Certificate No. <span class="placeholder-light">[Certificate No.]</span></p>
+				</li>
+				<li class="cert">
+					<span class="cert-mark" aria-hidden="true">MCA</span>
+					<h3>Certificate of Incorporation</h3>
+					<p>Ministry of Corporate Affairs</p>
+					<p class="cert-no">CIN <span class="placeholder-light">[CIN]</span></p>
+				</li>
+				<li class="cert">
+					<span class="cert-mark" aria-hidden="true">GST</span>
+					<h3>GST Registration</h3>
+					<p>Goods and Services Tax</p>
+					<p class="cert-no">GSTIN <span class="placeholder-light">[GSTIN]</span></p>
+				</li>
+				<li class="cert">
+					<span class="cert-mark" aria-hidden="true">ISO 9001</span>
+					<h3>ISO 9001:2015</h3>
+					<p>Quality management system</p>
+					<p class="cert-no">Certificate No. <span class="placeholder-light">[Certificate No.]</span></p>
+				</li>
+				<li class="cert">
+					<span class="cert-mark" aria-hidden="true">ISO 27001</span>
+					<h3>ISO/IEC 27001:2022</h3>
+					<p>Information security management</p>
+					<p class="cert-no">Certificate No. <span class="placeholder-light">[Certificate No.]</span></p>
+				</li>
+				<li class="cert">
+					<span class="cert-mark" aria-hidden="true">MSME</span>
+					<h3>MSME (Udyam) Registration</h3>
+					<p>Ministry of MSME</p>
+					<p class="cert-no">Udyam No. <span class="placeholder-light">[Udyam No.]</span></p>
+				</li>
+			</ul>
+		</section>
+
 		<section class="brochure-band container" aria-labelledby="brochure-title">
 			<div class="brochure-card">
 				<img class="brochure-cover" src="assets/img/brochure-cover.webp" width="420" height="594" alt="Cover of the PETALS Engineering Consultancy brochure" loading="lazy">
@@ -334,6 +383,6 @@
 		</div>
 	</footer>
 
-	<script src="assets/js/main.js?v=2026-11-18b" defer></script>
+	<script src="assets/js/main.js?v=2026-11-20e" defer></script>
 </body>
 </html>
